@@ -1,0 +1,63 @@
+---
+title: "Notification Channels"
+description: "Deliver scheduled reports and real-time alerts to Slack, Microsoft Teams, and email directly from DigitalCore."
+---
+
+# Notification Channels
+
+## Overview
+
+### What Are Notification Channels?
+
+Notification channels are the delivery targets DigitalCore uses to push reports, alerts, and AI-generated summaries to your team. Instead of logging in to check for new information, the intelligence comes to you — in the tools your team already uses.
+
+Once connected, channels can be assigned to:
+
+- **Scheduled reports** — Automatically deliver generated reports to one or more channels at the time they run
+- **SLA breach alerts** — Notify channels when a performance threshold is crossed
+- **AI insight notifications** — Push proactive intelligence from the AI agent
+
+---
+
+## Accessing Notification Channels
+
+Navigate to **Communicate → Channels** in the main navigation. This page shows all configured channels for your organisation, their connection status, and lets you add, test, or remove channels.
+
+---
+
+## Channel Types
+
+| Type | Description | Setup Method |
+|------|-------------|-------------|
+| **Slack** | Deliver to any Slack channel your bot has access to | OAuth — one-click connect |
+| **Microsoft Teams** | Deliver to Teams channels and group chats | App package install + registration code |
+| **Email** | Send delivery to a single address | Add email address directly |
+| **Email List** | Broadcast to a managed list of stakeholders | Add stakeholder group |
+
+---
+
+## How Channels Connect to Scheduled Reports
+
+When you create or edit a scheduled report (**Communicate → Reports**), the schedule editor shows a list of your configured notification channels. Select one or more channels to include — when the report runs and is generated, DigitalCore will deliver it to each selected channel automatically.
+
+Channels must be connected and verified before they can be selected on a schedule. The channel list in the schedule editor only shows verified channels.
+
+---
+
+## Channel Health
+
+Each channel shows a status indicator:
+
+- **Verified** — The channel has been tested and is ready to receive deliveries
+- **Connected** — The integration is authorised but has not yet been verified with a test message
+- **Failed** — A recent delivery attempt failed. Check the troubleshooting guide for your channel type
+
+Channels with repeated failures are automatically paused to avoid noisy error logs. Re-verify to re-activate.
+
+---
+
+## Setup Guides
+
+- [Slack →](/mcp-and-integrations/slack-notifications)
+- [Microsoft Teams →](/mcp-and-integrations/teams-notifications)
+- [Email Notifications →](/mcp-and-integrations/email-notifications)

@@ -1,0 +1,125 @@
+---
+title: "Slack Notifications"
+description: "Connect a Slack workspace to DigitalCore and deliver scheduled reports and alerts to any Slack channel."
+---
+
+# Slack Notifications
+
+## Overview
+
+### What Slack Delivery Covers
+
+Once connected, DigitalCore can deliver the following to any Slack channel your bot has access to:
+
+- Scheduled reports (on the schedule you define in **Communicate → Reports**)
+- SLA breach alerts when performance thresholds are crossed
+- AI-generated insights from the DigitalCore agent
+
+Messages are formatted using Slack Block Kit — structured cards with a headline, key data points, and a deep link back to the full report or engagement in the app.
+
+---
+
+## Prerequisites
+
+- A Slack workspace where you have permission to install apps (or can request it from a Slack admin)
+- A DigitalCore account with admin or manager role
+
+---
+
+## Connecting Slack
+
+### Step 1: Open Notification Channels
+
+Navigate to **Communicate → Channels**.
+
+### Step 2: Add a Slack Channel
+
+Click **Add Channel** and select **Slack** as the channel type. Give the channel a name (this is for your reference only — it does not affect the Slack channel name).
+
+### Step 3: Authorise with OAuth
+
+Click **Connect Slack**. You will be redirected to Slack's authorisation page.
+
+1. Select the Slack workspace you want to connect
+2. Review the permissions DigitalCore requests (the bot needs permission to post messages)
+3. Click **Allow**
+
+You will be redirected back to DigitalCore. The integration connection is now established.
+
+### Step 4: Select the Target Channel
+
+After authorising, DigitalCore fetches the list of channels your bot can access. Select the channel where messages should be delivered.
+
+- If you do not see a private channel, you need to invite the DigitalCore bot to it first (in Slack: open the private channel, type `/invite @DigitalCore`, then return to DigitalCore and refresh the channel list)
+- Public channels are visible automatically once the bot is in the workspace
+
+### Step 5: Verify
+
+Click **Send Test Message**. A test message will be posted to the selected channel. Once the test succeeds, the channel status changes to **Verified** and it becomes available to assign to scheduled reports.
+
+---
+
+## Assigning to a Scheduled Report
+
+1. Go to **Communicate → Reports** and open any schedule
+2. Under **Delivery Channels**, check the Slack channel you just configured
+3. Save the schedule
+
+The next time the schedule generates a report, it will be delivered to Slack automatically.
+
+---
+
+## Managing the Connection
+
+### Changing the Target Channel
+
+Edit the channel from **Communicate → Channels** to select a different Slack channel. Re-verify after changing.
+
+### Reconnecting After Token Expiry
+
+Slack OAuth tokens do not expire unless the app is uninstalled from the workspace or the user who authorised revokes access. If the connection breaks, delete the channel entry and reconnect via OAuth.
+
+### Disconnecting Slack
+
+Delete the channel from **Communicate → Channels**. This removes the delivery channel record but does not uninstall the app from Slack. To fully uninstall, go to your Slack workspace settings → Apps → DigitalCore → Remove App.
+
+---
+
+## Troubleshooting
+
+### "channel\_not\_found" — Messages not delivered
+
+The bot is no longer a member of the selected channel, or the channel was deleted.
+
+- For private channels: re-invite the bot with `/invite @DigitalCore` in the Slack channel
+- For deleted channels: add a new channel entry pointing to a valid channel
+
+### "token\_revoked" or "invalid\_auth"
+
+The OAuth token is no longer valid. This happens when:
+
+- The authorising user is removed from the Slack workspace
+- A Slack admin revokes the app's permissions
+- The DigitalCore app was uninstalled from the workspace
+
+**Fix:** Delete the channel entry and reconnect via OAuth.
+
+### "not\_in\_channel" for public channels
+
+The DigitalCore bot needs to join the channel before it can post.
+
+- In Slack, type `/invite @DigitalCore` in the target channel
+- Return to DigitalCore, edit the channel, and click **Send Test Message** again
+
+### Test message arrives but scheduled delivery does not
+
+Check the schedule configuration:
+
+1. Go to **Communicate → Reports** and open the schedule
+2. Confirm the Slack channel is selected under **Delivery Channels**
+3. Confirm the schedule is **Active** (not paused)
+4. Check that the schedule has a **Next Run** date in the future
+
+### Messages appear but with missing content
+
+If a report has not been fully generated at the time of delivery, the notification will still send but may include a placeholder. Check the report in **Communicate → Reports** to confirm the full summary was generated successfully.

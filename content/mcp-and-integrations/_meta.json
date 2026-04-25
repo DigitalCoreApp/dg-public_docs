@@ -5,5 +5,9 @@
   "api-keys": "API Keys",
   "excel-import": "Excel / CSV Import",
   "quickbooks": "QuickBooks Integration",
+  "notification-channels": "Notification Channels",
+  "slack-notifications": "Slack",
+  "teams-notifications": "Microsoft Teams",
+  "email-notifications": "Email Notifications",
   "webhooks": "Webhooks & API (Future)"
 }
