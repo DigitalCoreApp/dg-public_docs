@@ -1,0 +1,54 @@
+---
+title: "Signals"
+description: "Issues DigitalCore noticed in your data and flagged for attention."
+---
+
+# Signals
+
+A signal is something DigitalCore noticed in your data and thinks you should look at. Every signal can be turned into a [Response](/concepts/response-frame) with one click.
+
+## What each signal card shows
+
+| Field | Meaning |
+|-------|---------|
+| Type | The kind of issue (margin pressure, cost escalation, SLA breach risk, and so on). |
+| Severity | Critical, High, Medium, or Low. Set in [Thresholds](/platform/configure/intelligence/thresholds). |
+| Confidence | A 0 to 1 score of how clear the pattern is. |
+| Engagement | Which engagement is affected, or "portfolio" for cross-engagement issues. |
+| Recommended playbook | If the issue matches a known pattern, the suggested response. |
+| Respond | Opens the Response screen so you can act on it. |
+
+## Common signal types
+
+| Signal | Raised when |
+|--------|-------------|
+| Margin pressure | Engagement margin is trending toward Amber or Red. |
+| Cost escalation | Actual costs exceed plan by your set percentage. |
+| SLA breach risk | A KPI is trending toward a breach within your set window. |
+| Capacity overrun | Recorded hours are above plan. |
+| AI budget overrun | AI usage cost is above the warning level. |
+| Health degradation | Engagement health score moved to a worse colour. |
+| Correlation | A pattern crossing two areas, for example SLA breach plus a capacity shortage. |
+| Outcome miss | Actuals are clearly different from the plan. |
+
+Full list in [Concepts: Signals](/concepts/signals).
+
+## Filter and sort
+
+Filter by severity, engagement, signal type, source, or status (open, responded, resolved). The default order is severity first, then most recent.
+
+## Acting on a signal
+
+Click **Respond** to open the Response screen. DigitalCore will:
+
+1. Generate two or three options for handling the issue.
+2. List the assumptions behind each option.
+3. Wait for you to approve and apply, or decline.
+
+Applied responses are kept in [History](/platform/pulse/history).
+
+## Related
+
+- [Concepts: Signals](/concepts/signals)
+- [Concepts: Response Frame](/concepts/response-frame)
+- [Configure: Thresholds](/platform/configure/intelligence/thresholds)

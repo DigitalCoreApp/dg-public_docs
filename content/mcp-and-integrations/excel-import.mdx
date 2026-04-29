@@ -1,58 +1,41 @@
----
-title: "Excel / CSV Import"
-description: "Import services, engagements, contracts, and financial data in bulk from Excel or CSV files."
----
-
-# Excel / CSV Import
-
-## Supported Import Types
-
-### Entity Import: Services, Engagements, Contracts, Partners
-
-Import core entities in bulk when onboarding an existing portfolio. Each entity type has a dedicated import template with the required and optional fields.
-
-### Financial Data Bulk Import
-
-Import historical financial data (planned and actual values) for existing engagements. Useful for migrating from spreadsheets or other tracking systems.
-
+﻿---
+title: "Excel and CSV Import"
+description: "Bulk-load engagements, plans, and actuals from a spreadsheet."
 ---
 
-## Preparing Your File
+# Excel and CSV Import
 
-### Download a Template
+Use the import tool for first-time loads or to catch up on past periods.
 
-Download the pre-formatted Excel template for your import type from the Bulk Upload page. Templates include column headers, data types, example rows, and validation notes.
+## What you can import
 
-### Required and Optional Columns
+- Engagements and contracts.
+- Finance plan values and actuals.
+- Performance actuals.
+- Capacity hours.
 
-Each template clearly marks which columns are required (e.g., entity name, reference ID) and which are optional (e.g., description, category). Required fields that are empty will generate validation errors.
+## How it works
 
-### Format Requirements
+1. Go to **Configure**, then **Import**.
+2. Pick the type and download the template.
+3. Fill in the file. One row per record.
+4. Drag the file into the upload box.
+5. Review the preview: green rows are ready, amber rows need a fix, red rows are blocked.
+6. Click **Import**.
 
-- **File formats**: `.xlsx`, `.xls`, `.csv`
-- **Date format**: `YYYY-MM-DD`
-- **Currency**: Numeric values without currency symbols
-- **Text encoding**: UTF-8 (for CSV files)
+DigitalCore shows a summary when done. You can download an error log for any row that did not import.
 
----
+## Common issues
 
-## Upload Workflow
+- **Engagement name.** Must match exactly. Watch for trailing spaces.
+- **Date format.** Use the format shown in the template header (YYYY-MM-DD).
+- **Currency.** Numbers, no symbols. Decimals with a point.
 
-### Configuration → Bulk Upload
+## For ongoing data
 
-Navigate to **Configuration → Bulk Upload** and select the entity type to import.
+Once your engagements are set up, prefer monthly check-ins to imports. They are quicker and link straight into the activity log.
 
-### Staging, Validation, and Confirmation Steps
+## Related
 
-Upload your file to enter the staging view. Each row is validated against the schema — valid rows are green, errors are highlighted in red with messages. Fix errors in the staging table or re-upload. Click **Confirm** when all rows validate.
-
----
-
-## Troubleshooting Imports
-
-### Common Errors and How to Fix Them
-
-- **"Required field missing"** — Check the template for required columns and fill them in
-- **"Invalid date format"** — Use YYYY-MM-DD format
-- **"Reference not found"** — The entity you reference (e.g., a service name) doesn't exist yet — create it first or fix the spelling
-- **"Duplicate detected"** — An entity with the same key fields already exists — choose to skip or update
+- [Importing Data](/guides/data-import)
+- [Monthly Check-in](/guides/monthly-checkin)

@@ -1,0 +1,54 @@
+---
+title: "Intelligence"
+description: "Thresholds, AI Agents, and Policies: the trio that controls how DigitalCore detects, reasons, and acts."
+---
+
+# Intelligence
+
+Three screens, one job: tell DigitalCore what to notice, who notices it, and what to do about it.
+
+| Screen | Question it answers |
+|--------|---------------------|
+| [Thresholds](/platform/configure/intelligence/thresholds) | What counts as a signal? When is margin pressure, capacity overrun, or SLA risk worth flagging? |
+| [AI Agents](/platform/configure/intelligence/ai-agents) | Who is watching? Which assistants are running, what they look at, how often they run, and how proactive they are. |
+| [Policies](/platform/configure/intelligence/policies) | What can they do without asking? For each assistant and each workflow: allow, block, ask first, or limit. |
+
+## Tune them as a unit
+
+These three screens are designed to be tuned together. Loosening Policies before calibrating Thresholds creates noise. Adding a powerful agent without setting Policies leaves you blind to what it can do.
+
+### Recommended order
+
+```
+1. Thresholds   ->  Get the signal-to-noise ratio right first.
+2. AI Agents    ->  Hire the assistants you want and set their cadence.
+3. Policies     ->  Decide what they can do automatically vs ask first.
+```
+
+If you tune in the wrong order (granting full action rights before calibrating thresholds), assistants will act confidently on noise.
+
+## A concrete example
+
+You want Margin Watch to auto-resolve low-confidence margin signals but ask before opening a decision case:
+
+1. **Thresholds.** Set the margin warning level so genuine pressure trips at the right point.
+2. **AI Agents.** Enable Margin Watch and set cadence to daily.
+3. **Policies.** For `auto_resolve_signal` set Allow; for `open_decision_case` set Asks first.
+
+The result: clean signals, the right specialist watching, and the right level of agency.
+
+## Where do I go?
+
+| If you want to | Go to |
+|----------------|-------|
+| Reduce signal noise. | [Thresholds](/platform/configure/intelligence/thresholds) |
+| Pause all automation now. | [Policies](/platform/configure/intelligence/policies) |
+| See what an assistant did and why. | [Agent Profiles](/platform/configure/intelligence/ai-agents/agent-profiles) |
+| Review what a specialist learned. | [Specialist Memory](/platform/configure/intelligence/ai-agents/specialist-memory) |
+| Send output to Slack, Teams, or email. | [Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels) |
+
+## Related
+
+- [Concepts: Capabilities](/concepts/capabilities)
+- [Concepts: Response Frame](/concepts/response-frame)
+- [Concepts: Signals](/concepts/signals)

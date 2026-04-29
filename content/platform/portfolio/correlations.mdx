@@ -1,0 +1,40 @@
+---
+title: "Correlations"
+description: "Patterns where finance, performance, capacity, and AI usage move together."
+---
+
+# Correlations
+
+Correlations is the pattern view. It scans across the four areas (Finance, Performance, Capacity, AI Usage) and surfaces relationships that matter, both expected and surprising.
+
+## What gets detected
+
+| Signal type | Example |
+|-------------|---------|
+| Margin pressure | Cost up, revenue flat, so margin contracts. |
+| Cost escalation | Vendor spend trending well above plan. |
+| SLA breach | A KPI crosses the penalty threshold. |
+| Capacity overrun | Hours above plan with no scope change. |
+| AI budget overrun | Token cost trending past the monthly cap. |
+| Cross-area | Capacity up and KPI down: a quality issue, not an effort issue. |
+
+Each signal carries a confidence score, a severity (critical, high, medium, low), and a recommended [playbook](/platform/configure/intelligence/playbooks).
+
+## How to read this page
+
+The page is grouped by signal type and engagement. For each pattern you see:
+
+- A short summary of what is correlated.
+- The underlying metrics with sparklines.
+- Recommended playbooks.
+- A button to open a [decision case](/platform/decisions/cases) if you want to act on it.
+
+## Why this matters
+
+Most reporting tools show you what is happening in each area separately. Correlations show what is happening between them, which is usually where the real story lives.
+
+## Related
+
+- [Pulse: Signals](/platform/pulse/signals)
+- [Portfolio: Risk Exposure](/platform/portfolio/risk-exposure)
+- [Decisions: Cases](/platform/decisions/cases)

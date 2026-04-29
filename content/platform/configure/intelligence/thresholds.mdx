@@ -1,0 +1,63 @@
+---
+title: "Thresholds"
+description: "Set when signals fire: health colours, margin pressure, capacity ranges, SLA risk windows, and AI budget limits."
+---
+
+# Thresholds
+
+Thresholds answer one question: what counts as a signal worth flagging?
+
+Without thresholds, DigitalCore would either flag everything (noise) or nothing (silence). Thresholds are the dial you turn so signal-to-noise feels right for your business.
+
+> Thresholds is admin-only. Permission required: Manage organisation.
+
+## Six threshold groups
+
+| Group | Controls |
+|-------|----------|
+| Health | Cutoffs for engagement and portfolio health colours. |
+| Finance | Margin pressure and critical points, cost variance limits. |
+| Capacity | Optimal utilisation range and overrun limit. |
+| SLA | Breach risk window (in days) and achievement floor. |
+| AI cost | Warning and critical percentages for AI budget burn. |
+| Signals | Confidence floor for auto-resolve and the repeat-signal window. |
+
+## How thresholds are stored
+
+For every threshold:
+
+- **Platform default.** DigitalCore's recommended starting point.
+- **Your override.** The value for your organisation. Empty means "use the platform default".
+
+Clearing an override returns to the platform default. Changes take effect on the next refresh, usually within a minute.
+
+## Recommended starting points
+
+| Threshold | Mid-market PSO | Internal IT | Enterprise consultancy |
+|-----------|----------------|-------------|------------------------|
+| Service health Red cutoff | 50 | 60 | 55 |
+| Margin warning % | 15% | 10% (cost recovery) | 20% |
+| Margin critical % | 5% | 0% | 10% |
+| Capacity optimal range | 80–90% | 75–85% | 75–85% |
+| SLA breach risk window | 7 days | 14 days | 10 days |
+| AI budget warning % | 80% | 70% | 75% |
+| AI budget critical % | 95% | 90% | 90% |
+
+These are starting points. Recalibrate after a quarter once you have seen real signal volumes.
+
+## Tuning workflow
+
+1. Run with defaults for at least one full check-in cycle.
+2. In [Pulse: Activity](/platform/pulse/activity), filter by **threshold breached**.
+3. Tag signals as **useful** or **noise**.
+4. If noise rate is above 30%, tighten the threshold.
+5. If you are missing real pressure, loosen it.
+
+Do not tune thresholds and policies in the same week. Change one variable at a time so you can see what each move did.
+
+## Related
+
+- [Configure: Policies](/platform/configure/intelligence/policies)
+- [Configure: AI Agents](/platform/configure/intelligence/ai-agents)
+- [Concepts: Health colours](/concepts/rag-bands)
+- [Concepts: Signals](/concepts/signals)

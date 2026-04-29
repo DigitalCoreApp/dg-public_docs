@@ -1,0 +1,33 @@
+---
+title: "Exchange Rates"
+description: "Currency conversion rates for multi-currency reporting."
+---
+
+# Exchange Rates
+
+If your contracts run in different currencies but you report in one, this is where you keep the rates DigitalCore uses to convert.
+
+## How rates are applied
+
+A finance line is converted using the rate for that line's period month. So January 2026 stays at January's rate even as rates change later. Historical reports stay stable.
+
+## How to enter rates
+
+| Source | Notes |
+|--------|-------|
+| Manual | Enter rates per currency pair per month. |
+| Imported file | Upload a CSV of rates. Planned. |
+| Market feed | Pull from a data provider. Planned. |
+
+Most customers use manual entry. Reports rarely need daily rates.
+
+## Reporting currency
+
+Your organisation has one reporting currency, set in [Account](/platform/configure/system/account). [Portfolio](/platform/portfolio) and [Pulse](/platform/pulse) totals use it.
+
+A single engagement or contract view can show numbers in its own currency instead.
+
+## Related
+
+- [Contracts](/platform/configure/service-setup/contracts)
+- [Account](/platform/configure/system/account)

@@ -1,72 +1,37 @@
 ---
-title: "Planning and Actuals"
-description: "How DigitalCore tracks what you plan vs. what actually happens — with templates, monthly targets, and real-time variance tracking."
+title: "Planning and actuals"
+description: "How plans, monthly targets, and check-in actuals fit together in DigitalCore."
 ---
 
-# How DigitalCore Tracks What You Plan vs. What Actually Happens
+# Planning and actuals
 
-## The Problem with Simple "Budget vs. Actual"
+A single "budget vs actual" line does not work for services. Each engagement has its own mix of lines, KPIs, and roles. A consulting engagement tracks different things than a managed service.
 
-### Why One-Size-Fits-All Doesn't Work for Services
+DigitalCore solves this with a layered model: define structure once, plan per period, record actuals as you go.
 
-Traditional budgeting tools give you a single budget line and a single actual line. But service businesses need more nuance: each engagement has different line items, different KPIs, different roles. A consulting engagement tracks different P&L items than a managed services engagement.
+## The four layers
 
-### What Happens When Every Engagement Needs Different Config
+- **Templates** define structure once at the organisation level. Which finance lines, which KPIs, which roles to track.
+- **Engagement configuration** is created when a template is assigned. Defaults flow through, and you can override targets, limits, or parties per engagement without touching the template.
+- **Monthly plans** set target values per item per month: revenue, cost, KPI target, planned hours.
+- **Monthly actuals** are recorded at check‑in. Variance and status update automatically.
 
-Without per-engagement configuration, you end up with either: (a) a bloated universal template where most fields don't apply, or (b) dozens of custom spreadsheets, each with its own structure.
+## How it works in practice
 
----
+1. Open **Configure → Templates** and create a template using catalog items. Add finance lines, KPIs, and roles.
+2. Open the engagement and assign templates, one per domain (finance, performance, capacity).
+3. Set targets per item per month, in bulk for the whole period or month by month.
+4. Each month, record actuals in **Engagements → Check‑in**. Plan and actual sit side by side with variance calculated for you.
 
-## How DigitalCore Solves This
+## Same pattern across the four domains
 
-### Organisation-Level Templates — Define What to Track Once
+- **Finance**: planned revenue and cost lines. Actuals at check-in. Margin equals revenue minus cost.
+- **Performance**: planned KPI targets. Actuals at check-in. Status from limits, with missed terms posted to finance.
+- **Capacity**: planned hours by role. Actuals at check-in. Hours valued at the right rate and posted as labour cost.
+- **AI Usage**: planned token volume and cost target per use case. Actuals at check-in. Cost posts to finance against the engagement.
 
-Templates define the structure: which line items, which KPIs, which roles. They're created once at the organisation level and reused across engagements of the same type.
+## Related
 
-### Engagement-Level Configuration — Override Where Needed
-
-When a template is assigned to an engagement, DigitalCore creates engagement-level configurations that inherit the template defaults. You can override targets, thresholds, or delivery parties per engagement without changing the template.
-
-### Monthly Targets — Set Goals per Period
-
-For each active engagement, set monthly target values (plans) for finance items, KPI targets, and planned hours. These targets become the baseline for variance analysis.
-
-### Monthly Actuals — Record What Really Happened
-
-During monthly check-ins, enter what actually happened: real revenue, real costs, real KPI values, real hours. DigitalCore calculates the variance against plan automatically.
-
----
-
-## How It Works in Practice
-
-### Creating a Template with Standard Items from the Catalog
-
-Go to Configuration → Templates and create a new template. Add items from the catalog — each item maps to a standard definition. For finance, add revenue and cost lines. For performance, add KPIs. For capacity, add roles.
-
-### Assigning a Template to an Engagement
-
-Open an engagement and assign the appropriate templates. You can assign one template per domain (finance, performance, capacity) per engagement.
-
-### Setting Monthly Targets
-
-After assigning templates, set target values per item per month. These can be set in bulk for the entire period or adjusted month by month.
-
-### Recording Monthly Actuals During Check-in
-
-Each month, enter actual values in the Operations → Check-in tab. The grid shows plan vs. actual side by side, with variance calculated automatically.
-
----
-
-## The Same Pattern Across All Three Domains
-
-### Finance: Track Revenue and Costs
-
-Planned revenue and cost line items per month. Actual values entered during check-in. Variance = actual − planned. Margins derived from revenue minus costs.
-
-### Performance: Track KPIs and SLA Compliance
-
-Target KPI values set per month. Actual values entered during check-in. RAG status based on thresholds. Breach detection if contract SLA terms are defined.
-
-### Capacity: Track Hours and Utilisation
-
-Planned hours per role per month. Actual hours entered during check-in. FTE and utilisation calculated automatically. Labour costs generated in finance.
+- [Templates](/platform/configure/service-setup/templates): create reusable structure.
+- [Engagements](/concepts/engagements): where plans and actuals live.
+- [Automatic costs and penalties](/concepts/automation): what happens after you record actuals.

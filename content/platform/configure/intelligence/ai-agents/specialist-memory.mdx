@@ -1,0 +1,64 @@
+---
+title: "Specialist Memory"
+description: "How specialists learn from outcomes. Pattern memory, review queue, and version history."
+---
+
+# Specialist Memory
+
+Specialists like Margin Watch, SLA Sentinel, and Capacity Coach get better over time because they remember which patterns led to which outcomes. This page is where you see, review, and govern that learning.
+
+## What is a learned pattern?
+
+When a specialist proposes a response, that response is approved and applied, and is later evaluated against the actual outcome (typically weeks later), the result feeds back to the specialist. Over time the specialist accumulates patterns of the form:
+
+> When I see X (capacity at 95%, SLA trending down, cost variance below 5%), recommending Y (add 0.5 FTE on weeks 3 and 4) led to an average margin recovery of Z.
+
+These patterns guide future recommendations.
+
+## The Specialist Memory screen
+
+The screen lists every specialist with:
+
+| Column | Meaning |
+|--------|---------|
+| Specialist | Name. |
+| Pattern count | Patterns it has learned. |
+| Active version | Memory version in use. |
+| Last update | When a pattern was added or revised. |
+| Pending review | Patterns waiting for a human to approve. |
+
+Click into any specialist to see its full pattern library.
+
+## Review queue
+
+New patterns do not go live automatically. They land in the review queue for an admin to:
+
+- **Approve.** The pattern joins the active memory version.
+- **Decline.** The pattern is rejected with a reason; the specialist will not relearn the same one.
+- **Edit.** Adjust the framing, then approve.
+
+This is a deliberate guardrail. Specialists can only learn patterns a human signed off on.
+
+## Version history
+
+Each approved change creates a new version of the specialist's memory. Old versions are kept forever, with a link from the old to the new. You can:
+
+- View any past version: see exactly what the specialist knew on a given date.
+- Compare two versions: diff them to see what changed.
+- Roll back: pin the active version to an older one (rare, but available for audit or regression cases).
+
+This matters for two reasons: regulatory audit ("what did your assistant know when it made this decision?") and debugging ("did a recent memory change cause the new behaviour?").
+
+## Per-specialist drill-downs
+
+Each specialist has its own page with:
+
+- **Memory.** The active pattern library.
+- **Review queue.** Pending patterns.
+- **Version history.** Every past version.
+
+## Related
+
+- [AI Agents overview](/platform/configure/intelligence/ai-agents)
+- [Pulse: History](/platform/pulse/history)
+- [Decisions: Cases](/platform/decisions/cases)

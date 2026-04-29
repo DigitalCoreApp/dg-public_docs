@@ -1,0 +1,50 @@
+---
+title: "Notifications"
+description: "Live stream of every notification sent: delivered, queued, failed, with full activity log."
+---
+
+# Notifications
+
+Notifications is the live stream of every message DigitalCore has sent or tried to send. It is your activity log and your troubleshooting tool.
+
+## What you see
+
+| Column | Detail |
+|--------|--------|
+| Time | When the notification was triggered. |
+| Channel | Email, Slack, Microsoft Teams, in-app, or webhook. |
+| Audience | Users or roles the message went to. |
+| Subject | Short title. |
+| Source | Signal, report, response, or manual. |
+| Status | Delivered, Queued, Failed, or Suppressed. |
+| Retries | If failed, how many attempts so far. |
+
+## Filters
+
+- Status: show failures or queued.
+- Channel: debug one channel.
+- Audience: what did this user receive?
+- Source: track every signal-driven message.
+- Time window: default last seven days.
+
+## Common troubleshooting
+
+| Symptom | Likely cause |
+|---------|--------------|
+| All messages to one user failing. | Bad email address, or user reset preferences. |
+| Slack delivery silent. | Webhook URL changed or channel archived. |
+| Critical signal did not notify. | Quiet hours active, or repeat-message window. |
+| Report did not send. | Report still in Draft, not Finalised. |
+
+## Resending
+
+For any notification with status Delivered or Failed, you can:
+
+- Resend to the original audience with a new timestamp.
+- Forward to a different audience.
+- Cancel (only if status is Queued).
+
+## Related
+
+- [Communicate: Notification Channels](/platform/communicate/notification-channels)
+- [Configure: AI Agents, Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels)

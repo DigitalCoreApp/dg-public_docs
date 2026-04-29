@@ -1,0 +1,50 @@
+---
+title: "Agent Profiles"
+description: "Detail page for one assistant: what it runs on, what it produces, what it learned, what it can do."
+---
+
+# Agent Profiles
+
+Click any card on the [AI Agents](/platform/configure/intelligence/ai-agents) screen to open its profile. The profile has two views: Operator (for most users) and Developer (for power users and admins).
+
+## Operator view
+
+The operator view answers practical questions about the assistant.
+
+| Section | Tells you |
+|---------|-----------|
+| Status | Healthy, Needs attention, or Paused. Last run timestamp. Next scheduled run. |
+| Recent activity | Last 20 events: signals detected, responses proposed, recordings ingested. |
+| What it watches | The signal types it can detect and the threshold rules it relies on. |
+| Specialist chain | For supervisors: which specialists it routes to and in what order. |
+| Effective policies | What this assistant is allowed to do per workflow, after organisation rules and overrides. |
+| Cooldown | When it last ran and when it can run again. |
+
+This view is the right place for "why didn't it catch X?" or "why did it act on Y?". Recent activity and effective policies together explain almost everything.
+
+## Developer view
+
+The developer view exposes the underlying configuration.
+
+| Section | Shows |
+|---------|-------|
+| Slug | Stable identifier used in policies. |
+| Trigger | Schedule (cron expression) or event type. |
+| Cooldown | Minimum gap between runs. |
+| System prompt | The assistant's role description (read-only for managed assistants). |
+| Tool access | Which specialists or services this assistant can call. |
+| Memory store | Link to the assistant's [pattern memory](/platform/configure/intelligence/ai-agents/specialist-memory). |
+| Delivery channels | Where this assistant sends its output ([Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels)). |
+
+## Common operations
+
+- **Pause.** Stops the trigger. In-flight runs complete.
+- **Run now.** Manual trigger, useful for debugging cadence issues.
+- **Override autonomy tier.** Change the assistant's default policy bundle.
+- **Reset cooldown.** Clear the cooldown timer (admin only).
+
+## Related
+
+- [AI Agents overview](/platform/configure/intelligence/ai-agents)
+- [Specialist Memory](/platform/configure/intelligence/ai-agents/specialist-memory)
+- [Configure: Policies](/platform/configure/intelligence/policies)

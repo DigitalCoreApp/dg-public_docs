@@ -1,0 +1,57 @@
+---
+title: "App Roles"
+description: "What Admin, Manager, Operator, and Viewer roles can do."
+---
+
+# App Roles
+
+DigitalCore has four built-in roles. Each user gets one. The role decides what they can see and do.
+
+## The four roles
+
+| Role | Read | Record | Configure | Approve and Apply | Admin |
+|------|------|--------|-----------|-------------------|-------|
+| Viewer | Yes | No | No | No | No |
+| Operator | Yes | Yes | No | No | No |
+| Manager | Yes | Yes | Limited | Own engagements | No |
+| Admin | Yes | Yes | Yes | All | Yes |
+
+## What each role can do
+
+### Viewer
+
+- Read engagements they are tagged on.
+- View Pulse, Portfolio, and reports they are an audience for.
+- Cannot record data, change configuration, or approve decisions.
+
+### Operator
+
+- Everything a Viewer can do.
+- Record hours, finance actuals, and KPI results.
+- Submit data for review.
+- Cannot configure templates or approve decisions.
+
+### Manager
+
+- Everything an Operator can do.
+- Approve and apply decisions on engagements they own.
+- Edit [policies](/platform/configure/intelligence/policies) within their scope.
+- Edit delivery party attribution.
+- Cannot edit organisation-wide configuration.
+
+### Admin
+
+- Full access.
+- Manage [users](./users), [partners](./partners), and structure.
+- Edit [thresholds](/platform/configure/intelligence/thresholds), [agent profiles](/platform/configure/intelligence/ai-agents/agent-profiles), and [integrations](/platform/configure/system/integrations).
+- Approve and apply on any engagement.
+- Access billing and the activity log.
+
+## Custom roles
+
+DigitalCore keeps the role model simple on purpose: four levels, predictable scope. Custom roles are not supported. If you need finer scoping, use [Structure](./structure) to limit which engagements a Manager or Operator sees.
+
+## Related
+
+- [Users](./users)
+- [Account](/platform/configure/system/account)

@@ -1,0 +1,40 @@
+---
+title: "Health & Triage"
+description: "Engagements ranked by what needs attention now."
+---
+
+# Health & Triage
+
+Triage is for the moments when you need to decide where to spend the next hour. It ranks engagements by attention need, not by name.
+
+## How the ranking works
+
+The triage score blends:
+
+| Factor | Weight |
+|--------|-------:|
+| Health drop this period vs last | 30% |
+| Open critical signals | 25% |
+| Margin moving the wrong way | 20% |
+| Capacity leakage | 15% |
+| SLA breaches in the last 30 days | 10% |
+
+Click any row for the detail view, or take action inline: open a case, record an actual, or message the owner.
+
+## Triage groups
+
+The page splits engagements into three buckets:
+
+| Bucket | What it means |
+|--------|---------------|
+| Needs intervention now | Health is red and a critical signal is active. |
+| Watch closely | Trends are concerning but no breach yet. |
+| Healthy | All metrics are on target. |
+
+The top bucket usually holds three to eight engagements at a time. Small enough to actually work through.
+
+## Related
+
+- [Engagement Overview](/platform/engagements/overview)
+- [Pulse: Signals](/platform/pulse/signals)
+- [Decisions: Cases](/platform/decisions/cases)

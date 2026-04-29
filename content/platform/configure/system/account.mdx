@@ -1,0 +1,58 @@
+---
+title: "Account"
+description: "Profile, security, notification preferences, API keys, and reporting currency."
+---
+
+# Account
+
+This page covers your personal settings plus a small number of organisation-wide options.
+
+## Profile
+
+| Field | Notes |
+|-------|-------|
+| Display name | Shown in the activity log and across the app. |
+| Email | Sign-in email. Changing it needs re-verification. |
+| Avatar | Image upload. |
+| Time zone | Used for scheduled jobs, quiet hours, and timestamps. |
+| Locale | Number and date formatting. |
+
+## Security
+
+| Setting | Purpose |
+|---------|---------|
+| Password | Change your password. |
+| Multi-factor authentication | Turn on for extra protection. |
+| Active sessions | See and end active devices. |
+| Recent sign-in activity | The last 50 sign-ins with location and device. |
+
+## Notifications
+
+Choose what each channel sends:
+
+| Channel | Events |
+|---------|--------|
+| In-app (Pulse) | All events. Controlled by [Policies](/platform/configure/intelligence/policies) and [Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels). |
+| Email | Daily brief, executive summaries, mentions, critical signals. |
+| Mobile push | Critical only. Planned. |
+
+## API keys
+
+Personal keys for accessing DigitalCore from scripts or other tools. Each key:
+
+- Has a scope: read, write, or admin.
+- Has an expiry date.
+- Is shown only once when created.
+
+API keys inherit your role. Revoke any key you suspect is compromised.
+
+## Reporting currency (admin only)
+
+The primary reporting currency for your organisation. Used by [Portfolio](/platform/portfolio) and [Pulse](/platform/pulse) totals. Changing it is significant: historical reports may look different, but underlying data stays in its source currency.
+
+See [Exchange Rates](/platform/configure/data/exchange-rates) for how conversion works.
+
+## Related
+
+- [Organization](/platform/organization)
+- [Integrations](./integrations)

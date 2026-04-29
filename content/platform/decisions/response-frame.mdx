@@ -1,0 +1,84 @@
+---
+title: "Response Frame"
+description: "How DigitalCore turns a signal into a governed decision: Response, Option, Assumption, Approve & Apply."
+---
+
+# Response Frame
+
+The Response Frame is the model behind every AI-assisted decision in DigitalCore v5. If you used DigitalCore before v5, this page tells you what changed and why.
+
+## The new vocabulary
+
+| Old term | New term | What it means |
+|----------|----------|---------------|
+| Scenario | Response | A Response answers a specific question. |
+| Variant | Option | An Option is one possible answer. |
+| Driver | Assumption | An Assumption is something you believe to be true, not measured. |
+| Commit | Approve & Apply | Two steps. Approve is the decision. Apply is the data change. |
+
+## The four statuses
+
+| Status | When it applies | Effect |
+|--------|-----------------|--------|
+| Proposed | DigitalCore has generated a Response. | Visible to the team. No data changes yet. |
+| Approved | A decision-maker has chosen an Option. | Recorded in the case history. No data changes yet. |
+| Declined | An Option was rejected. | Recorded with the reason. |
+| Applied | An Approved Option has been applied. | Data is updated. Follow-up tasks are created. |
+
+## How the flow looks
+
+```
+Decision Case (the question)
+   v
+Response (Proposed)
+   - Option A: assumptions and projected impact
+   - Option B: assumptions and projected impact
+   - Option C: assumptions and projected impact
+   v
+Approved Option
+   v
+Applied (data updates and follow-ups)
+   v
+Outcome reviewed later
+```
+
+## Why Approve and Apply are split
+
+Approve is the moment when the person accountable says "yes, this is the choice". Apply is the moment when rates change, plans update, and follow-ups are created.
+
+Keeping them separate lets you:
+
+- Approve now, apply on a future date.
+- Approve a strategic call, leave the timing flexible.
+- Run reality-check rules between approval and application.
+- Keep a clear record of governance steps and data changes.
+
+## Assumptions versus measurements
+
+This is the most important distinction in v5.
+
+- An **Assumption** is something you believe will be true. For example, utilisation will hold at 78 percent. The customer will accept a 4 percent rate rise. The new role can be filled in six weeks.
+- A **measurement** is something you have actually recorded. Real hours, real margin, real SLA achievement.
+
+The Response Frame surfaces Assumptions clearly so reviewers can challenge them. Ask "what if utilisation is 72 percent?", change the Assumption, regenerate the impact, and see how robust the Option still is.
+
+## Outcome review
+
+After an Applied Option has had time to play out, DigitalCore compares projected impact to actual impact:
+
+- Was the result on, above, or below projection?
+- Are there patterns of over-projection (for example, your organisation tends to overstate revenue lift on rate changes)?
+- Feed the result back into the use case track record.
+
+This is the closed loop. Outcomes often need 60 to 90 days. It is how the assistant's recommendations get sharper.
+
+## Migration from older terms
+
+During the transition, both old and new terms appear in the app, for example "Response (formerly Scenario)". Older API names also still work. Older terms will be removed in a later release.
+
+## Related
+
+- [Decisions: Responses](/platform/decisions/scenarios)
+- [Decisions: Cases](/platform/decisions/cases)
+- [Decisions: AI Use Cases](/platform/decisions/ai-use-cases)
+- [Configure: AI Agents](/platform/configure/intelligence/ai-agents)

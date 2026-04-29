@@ -1,114 +1,67 @@
----
-title: "Paid MCP Tools Reference"
-description: "Full reference for DigitalCore's paid MCP tools — Monitor, Record, Diagnose, Plan, Decide, and Communicate with your live data."
----
-
-# Paid MCP Tools Reference
-
-## Setup Requirements
-
-### API Key Required
-
-Paid MCP tools require an API key from your DigitalCore account. Generate a key at **Settings → API Keys** and add it to your MCP client configuration. See [API Keys](/mcp-and-integrations/api-keys) for detailed instructions.
-
-### Configuration with API Key
-
-Add the paid server to your MCP client with your API key:
-
-```json
-{
-  "mcpServers": {
-    "digitalcore": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-remote", "https://mcp.digitalcore.app/mcp"],
-      "env": {
-        "DIGITALCORE_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
-```
-
+﻿---
+title: "Paid Connection"
+description: "Read and write your live DigitalCore data from your AI assistant."
 ---
 
-## Monitor Tools
+# Paid Connection
 
-### Check Portfolio Health — Aggregate Health Across Your Portfolio
+The paid connection lets your AI assistant read and write your live DigitalCore data. It needs an API key.
 
-Returns a health snapshot of your portfolio: overall score, domain breakdowns, list of services with their health scores, and attention items needing action.
+## What you can do
 
-### Check Engagement Health — Detailed Status of a Single Engagement
+- Ask about engagements, plans, and actuals.
+- Record monthly check-in numbers.
+- Generate Responses (option sets) and apply them.
+- Open Decisions and update them.
+- Draft executive summaries.
 
-Returns the health score, domain sub-scores (finance, performance, capacity), top concerns, trend direction (improving/declining/stable), and any anomalies for a specific engagement.
+## What is needed
 
----
+- A DigitalCore account.
+- An [API key](/mcp-and-integrations/api-keys) on a paid plan.
+- An AI client that supports MCP (Claude Desktop, Cursor, others).
 
-## Record Tools
+## Setup
 
-### Record Hours — Log Hours by Role
+The endpoint is `https://mcp.digitalcore.app`.
 
-Record capacity hours for a specific role on an engagement for a given month. Automatically triggers labour cost calculation (hours × rate → finance entry).
+### Claude Desktop
 
-### Record Finance Actual — Enter P&L Actuals
+1. Open Settings, then Connectors.
+2. Add a connection.
+3. URL: `https://mcp.digitalcore.app`.
+4. Authentication: API key.
+5. Paste your key.
+6. Save and restart.
 
-Record a financial actual value (revenue or cost) for a specific line item, engagement, and month.
+### Cursor
 
-### Record Performance — Enter KPI Values
+1. Open Cursor settings, then MCP.
+2. Add server.
+3. URL: `https://mcp.digitalcore.app`.
+4. Add the API key as an authorization header.
 
-Record a KPI actual value. Automatically triggers SLA breach detection — if the value breaches the contract threshold, a penalty event and (optionally) a finance entry are created.
+### Other clients
 
----
+The connection follows the MCP standard. Provide the URL and the API key as a bearer token.
 
-## Diagnose Tools
+## What is exposed
 
-### Generate Showback Report — IT Cost Allocation by Department
+The paid connection exposes the same actions you use in the app: monitor, record, diagnose, plan, decide, communicate. Your role and the API key''s access level decide what is allowed.
 
-Generates a showback report showing how IT costs are allocated across business units/customers based on delivery attribution data. Useful for chargeback and transparency.
+## Limits
 
----
+- Rate limits apply. The default is 60 requests per minute per key.
+- Writes are logged in the activity log under your name.
+- Read-only keys cannot record actuals or apply Responses.
 
-## Plan Tools
+## Tips
 
-### Generate Scenario Options — AI Creates Multiple What-If Variants
+- Start with a read-only key to test.
+- Once it works, create a separate read-and-write key for daily use.
+- Rotate keys every 6 months.
 
-Describe a situation or goal, and the AI generates 2-4 distinct scenario variants with different approaches (conservative, balanced, aggressive) and projected impacts.
+## Related
 
-### Create Scenario — Build a Blank Scenario Manually
-
-Creates a new empty scenario for a specified engagement, ready for drivers to be added.
-
-### Add Driver — Apply an Economic Driver to a Scenario
-
-Adds a driver to an existing scenario: type (percentage, absolute, fixed), target domain, target items, and the value of the change.
-
----
-
-## Decide Tools
-
-### Refine Scenario — Adjust and Recalculate
-
-Modify an existing scenario's drivers and recalculate the projected impact.
-
-### Compare and Commit — Side-by-Side Comparison and Adoption
-
-Compare two or more scenarios side by side and commit the chosen one, writing its projections into your live plan.
-
-### Undo Commit — Reverse a Previous Commitment
-
-Revert a committed scenario, restoring the previous plan values.
-
-### Check Accuracy — How Good Was the Prediction?
-
-After actuals are recorded, compare a scenario's projections against what actually happened to measure prediction accuracy.
-
----
-
-## Communicate Tools
-
-### Summarise Period — Narrative Summary with Audience Targeting
-
-Generates a narrative summary of an engagement's performance for a specified period, tailored to the target audience (Internal, Customer, Executive, Board).
-
-### Generate Executive Summary — Multi-Section Report Draft
-
-Creates a full multi-section executive summary report with AI-generated narratives for each section.
+- [API Keys](/mcp-and-integrations/api-keys)
+- [Free Connection](/mcp-and-integrations/free-mcp)

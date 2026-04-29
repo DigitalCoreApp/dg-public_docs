@@ -1,17 +1,10 @@
 {
   "index": "Overview",
-  "dashboard": "Dashboard",
-  "strategy": "Strategy Workspace",
-  "operations": "Operations Workspace",
+  "pulse": "Pulse",
+  "portfolio": "Portfolio",
+  "engagements": "Engagements",
   "decisions": "Decisions",
-  "intelligence": "Executive Summaries",
-  "services": "Services",
-  "portfolios": "Portfolios",
-  "contracts": "Contracts",
-  "templates": "Templates",
-  "catalogs": "Library / Catalogs",
-  "bulk-upload": "Bulk Upload",
-  "organisation": "Organisation",
-  "system": "System & Roles",
-  "settings": "Settings"
+  "communicate": "Communicate",
+  "configure": "Configure",
+  "organization": "Organization"
 }

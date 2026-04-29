@@ -1,104 +1,54 @@
+﻿---
+title: "Running a Monthly Check-in"
+description: "Record what actually happened on each engagement: revenue, costs, KPIs, and hours."
+---
+
 # Running a Monthly Check-in
 
-The monthly check-in is how you record what actually happened on each engagement: revenue received, costs incurred, KPI results, and hours worked. It takes 20-30 minutes per engagement, depending on how many line items you track.
+The monthly check-in is how you record what happened on an engagement. It takes 20 to 30 minutes per engagement.
 
-## What You'll Need Before Starting
+## Before you start
 
-- **Templates assigned** — Finance, performance, and/or capacity templates must be assigned to the engagement
-- **Monthly targets set** — Planned values should be in place so DigitalCore can calculate variance
-- **Actual data** — The real numbers from the month: invoiced amounts, costs, KPI readings, hours logged
+- The previous month should be closed in your finance system.
+- Time logs for the period should be available (Jira, Harvest, spreadsheet, or memory).
+- Performance data should be ready (ticket exports, monitoring tools, or notes).
 
----
+## Step 1: Finance
 
-## Step 1: Open the Engagement Workspace
+Open the engagement and click **Check-in**, then **Finance**.
 
-### Navigating to Operations → Workspace → Engagement
+1. Type actual amounts for each line item.
+2. Variance colours green, amber, or red.
+3. Two lines fill in automatically: labour cost (from capacity hours) and SLA penalties (from performance misses).
 
-From the left sidebar, go to **Operations → Workspace**. Find your engagement using the search bar or engagement list. Click into it to open the engagement workspace.
+## Step 2: Performance
 
-### Selecting the Period Range
+Switch to the **Performance** tab.
 
-At the top of the check-in tab, use the period range picker to select the months you want to work with. Presets include **Last 3 months**, **Last 6 months**, **Year to Date**, or **Custom Range**. The grid shows columns for each selected month.
+1. Type the actual value for each KPI.
+2. If a value misses the contract SLA term, DigitalCore records a penalty event and a finance entry where required.
 
----
+## Step 3: Capacity
 
-## Step 2: Enter Finance Actuals
+Switch to the **Capacity** tab.
 
-### Using the Multi-Period Finance Grid
+1. Type actual hours per role for the month.
+2. DigitalCore picks the right rate (contract override, rate card, or default), multiplies hours by rate, and posts labour cost into the finance grid.
 
-The Finance tab shows a grid with rows for each finance template item (revenue lines, cost lines) and columns for each month. For each cell, you can see the planned value and enter the actual value.
+## Step 4: Review
 
-### Entering Revenue, Costs, and Other Line Items
-
-Click into a cell and type the actual amount. Revenue items show income, cost items show expenses. The grid auto-saves as you move between cells.
-
-### Understanding Auto-Populated Labour Costs
-
-Some cost cells may already have values — these are labour costs automatically calculated from capacity hours (entered in Step 4 or a previous check-in). Auto-generated entries are visually distinguished from manual entries.
-
----
-
-## Step 3: Enter Performance Metrics
-
-### Using the Multi-Period Performance Grid
-
-Switch to the Performance tab. The grid shows rows for each KPI and columns for each month. Each cell has the target value displayed alongside the actual input field.
-
-### Recording KPI Actuals
-
-Enter the measured value for each KPI in each month. For example, enter 99.2% for Availability or 3.5 hours for Average Response Time.
-
-### What Happens When an SLA Is Breached
-
-If the actual value you enter breaches the SLA threshold defined in the engagement's linked contract, DigitalCore immediately:
-
-1. Detects the breach based on the threshold and operator
-2. Calculates the penalty amount (fixed, percentage, or tiered)
-3. Logs a penalty event for audit purposes
-4. Creates a cost entry in the finance domain (if auto-create is enabled)
-
-You'll see the RAG indicator change to red, and the penalty amount appears in the finance grid.
-
----
-
-## Step 4: Enter Capacity Hours
-
-### Using the Multi-Period Capacity Grid
-
-Switch to the Capacity tab. The grid shows rows for each role and columns for each month. Enter the actual hours worked by each role.
-
-### Recording Hours per Role
-
-Enter the total hours for each role on this engagement for the month. For example: Senior Consultant — 160 hours, Service Desk Analyst — 80 hours.
-
-### Watching Labour Costs Appear in Finance
-
-As you enter hours, DigitalCore multiplies them by the applicable hourly rate and creates a corresponding cost entry in the finance grid. Switch back to the Finance tab to see the auto-generated labour costs.
-
----
-
-## Step 5: Review the Results
-
-### Opening the Domain Summary
-
-After entering data across all three domains, open the **Domain Summary** to see the consolidated view: total revenue, total costs, margin, KPI status, and utilisation metrics for the period.
-
-### Understanding RAG Status Changes
-
-Each item and each domain now shows an updated RAG indicator based on the variance between plan and actual. Green means on track, amber means needs monitoring, red means significant deviation.
-
-### Checking Attention Items on the Dashboard
-
-Return to the Dashboard to see updated attention items. Any engagement with significant variance, SLA breaches, or overdue data will appear in the Attention Required section.
-
----
+- Check the summary cards at the top.
+- Confirm the engagement health colour.
+- Read the auto-generated period summary.
 
 ## Tips
 
-### Compact vs. Comfortable View Density
+- Save as you go. The check-in saves on every change.
+- Use the keyboard arrows to move between cells.
+- If a number looks wrong, click the source tag to see where it came from.
 
-Toggle between **Compact** (more rows visible, less whitespace) and **Comfortable** (easier to read, more spacing) view modes depending on your preference and screen size.
+## Related
 
-### Using Period Presets (Last 3, Last 6, YTD, Custom)
-
-Use period presets to quickly focus the grid on the relevant months. **Last 3** is ideal for monthly check-ins. **YTD** is useful for quarterly reviews.
+- [Concepts: Health Scores](/concepts/health-scores)
+- [Concepts: Automation](/concepts/automation)
+- [Building an Executive Summary](/guides/executive-summaries)

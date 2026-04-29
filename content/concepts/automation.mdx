@@ -1,81 +1,52 @@
 ---
-title: "Automated Cost and Penalty Calculations"
-description: "How DigitalCore automatically converts hours to labour costs and SLA breaches to financial penalties."
+title: "Automatic costs and penalties"
+description: "How DigitalCore turns hours into labour cost and missed contract terms into financial penalties, automatically."
 ---
 
-# Automated Cost and Penalty Calculations
+# Automatic costs and penalties
 
-## What Happens Automatically?
+Manual reconciliation between capacity, rates, and finance sheets is the biggest source of P&L error. DigitalCore links these directly so the numbers stay in sync as you record data.
 
-### Why Automation Matters for Service Economics
+Two links run automatically.
 
-Manual cross-referencing between capacity data, rate cards, and finance sheets is a primary source of errors in service organisations. Automation eliminates this by linking data entry directly to financial outcomes.
+## Hours become labour cost
 
-### Two Key Automations
+When you record hours for a role on an engagement, DigitalCore multiplies them by the right hourly rate and posts the cost in finance.
 
-DigitalCore has two automated cross-domain calculations that trigger as you enter check-in data:
+The rate is chosen in this order, most specific first:
 
-1. **Hours → Labour Costs** (Capacity domain feeds Finance domain)
-2. **KPI Breaches → SLA Penalties** (Performance domain feeds Finance domain)
+| Order | Source | When it applies |
+|-------|--------|----------------|
+| 1 | Contract rate matching this engagement | A rate set on the contract specifically for this engagement. |
+| 2 | Contract rate | A general rate on the linked contract. |
+| 3 | Rate card default | Your organisation default rate for the role. |
+| 4 | Any rate card | Fallback if no default is set. |
 
----
+The cost appears as an entry on the matching finance line (usually Labour Cost). It is tagged as system‑generated so you can tell it apart from manual entries.
 
-## Hours Become Labour Costs
+## Missed contract terms become penalties
 
-### When You Log Capacity Hours, DigitalCore Calculates the Cost
+When a KPI value crosses the limit set in the contract, DigitalCore detects the missed term and calculates the penalty.
 
-Enter actual hours for a role on an engagement. DigitalCore immediately multiplies those hours by the applicable hourly rate and creates a cost entry in the finance domain.
+The limit uses one of two operators:
 
-### How It Picks the Right Rate
+- **Greater than**: actual exceeds the limit (for example, response time over 4 hours).
+- **Less than**: actual falls below the limit (for example, availability under 99.5%).
 
-The system uses a priority hierarchy to find the most specific rate:
+Penalties are calculated three ways, depending on the contract:
 
-1. **Contract rate with engagement match** — Rate specific to this engagement's contract
-2. **Contract rate** — General rate defined in the linked contract
-3. **Rate card default** — Organisation-level default rate for this role
-4. **Any matching rate card** — Fallback if no default is specifically flagged
+- **Fixed**: a flat amount per occurrence (for example, €5,000).
+- **Percentage**: a share of contract value (for example, 2% of the monthly fee).
+- **Tiered**: bigger amounts for more serious misses.
 
-The most specific rate always wins.
-
-### Where the Cost Appears in Your Finance View
-
-The labour cost appears as an entry in the finance grid, in the line item that matches the role's catalog link (typically a COGS Labour line). It's clearly marked as system-generated so you can distinguish it from manual entries.
-
----
-
-## SLA Breaches Become Financial Penalties
-
-### When a KPI Falls Below the Agreed Threshold
-
-If you enter a KPI actual that breaches the SLA threshold defined in the engagement's linked contract, DigitalCore detects the breach automatically.
-
-### How DigitalCore Determines If It's a Breach
-
-The breach check uses the SLA operator defined in the contract terms:
-
-- "Greater than" — Actual exceeds the threshold (e.g., response time > 4 hours)
-- "Less than" — Actual falls below the threshold (e.g., availability < 99.5%)
-
-### Penalty Calculation: Fixed Amount, Percentage, or Tiered
-
-The contract defines how the penalty is calculated:
-
-- **Fixed amount** — A flat penalty per breach (e.g., €5,000)
-- **Percentage** — A percentage of contract value (e.g., 2% of monthly contract value)
-- **Tiered** — Different penalty amounts depending on the severity of the breach
-
-### Where the Penalty Appears in Your Finance View
-
-The penalty creates a cost entry in the finance domain, in the line item linked to the SLA term. It's marked as system-generated with a reference to the specific penalty event.
-
----
+The penalty posts as a cost on the finance line linked to the contract term and is tagged with the originating event.
 
 ## Traceability
 
-### Every Auto-Generated Cost is Clearly Labelled
+Every automatic entry shows where it came from. You can open it to see the source hours, KPI value, or contract term. Manual and automatic entries both count toward the total, but you can always tell them apart.
 
-Automated entries are tagged with their source: "Generated from capacity hours" or "Generated from SLA breach." You can trace any automated cost back to the original data that triggered it.
+## Related
 
-### Manual Entries vs. Automated Entries — Easy to Tell Apart
-
-The finance grid distinguishes manual entries (entered by a user during check-in) from automated entries (generated by triggers). Both contribute to totals and margins equally.
+- [Rate cards](/concepts/rate-cards): how rates are organised.
+- [Data domains](/concepts/data-domains): how the four domains connect.
+- [Engagements](/concepts/engagements): where automation runs.

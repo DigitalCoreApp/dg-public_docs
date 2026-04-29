@@ -1,0 +1,98 @@
+---
+title: "Policies"
+description: "What DigitalCore is allowed to do without asking. Four rule types, three zones, six workflows."
+---
+
+# Policies
+
+If [Thresholds](/platform/configure/intelligence/thresholds) decide what counts as a signal and [AI Agents](/platform/configure/intelligence/ai-agents) decide who is watching, Policies decide what those assistants are allowed to do.
+
+> Permission required: Manage organisation. The screen has three zones: hard ceilings, organisation defaults, and the override grid.
+
+## The four rule types
+
+For any combination of workflow and assistant, the rule is one of:
+
+| Rule | Meaning | UI label |
+|------|---------|----------|
+| Allow | Action runs without approval. | Allowed |
+| Deny | Action is blocked. | Blocked |
+| Ask first | Assistant proposes, a human approves before it runs. | Asks first |
+| Limit | Action runs but is rate-limited (for example, max 3 per hour). | Limited |
+
+## The six workflows
+
+These are the only workflows assistants can be granted. Anything not listed is denied by default.
+
+| Workflow | What it covers |
+|----------|----------------|
+| Apply scenario | Apply a scenario as the new active plan. |
+| Send communication | Dispatch a report, summary, or notification. |
+| Open decision case | Create a new decision case. |
+| Auto-resolve signal | Close a low-confidence or duplicate signal. |
+| Record data | Record actuals (hours, finance, KPIs) on a user's behalf. |
+| Run assistant | Master gate: without this, nothing else applies. |
+
+If Run assistant is denied, no other policy matters: the assistant simply does not run. This is the per-assistant kill switch.
+
+## The three zones on the screen
+
+### Zone 1: hard ceilings
+
+The maximum any assistant can ever do, regardless of grid rules. Even with Allow set further down, an assistant cannot exceed the ceiling. Treat this as the constitutional limit.
+
+Typical ceilings:
+
+- Apply scenario: never auto-allow without human review.
+- Send communication: never email external recipients without review.
+
+### Zone 2: organisation defaults
+
+The fleet-wide default for each workflow. Applied to every assistant unless overridden in Zone 3. Most organisations set these to Asks first and override per assistant below.
+
+### Zone 3: override grid
+
+Every assistant by every workflow as a grid. Each cell shows the effective rule:
+
+- Inherit (greyed) uses the organisation default from Zone 2.
+- An explicit rule (Allow, Deny, Asks first, Limit) overrides the default.
+
+Click any cell to change it. Inheritance keeps the grid readable: only deviations show colour.
+
+## Pause-everything switch
+
+A single toggle at the top: **Pause all automation**.
+
+When on:
+
+- All assistants stop. Scheduled and event-driven runs do not fire.
+- A banner shows in [Pulse](/platform/pulse) and [Activity](/platform/pulse/activity).
+- API calls that would trigger an assistant return a clear paused response.
+
+Use this if you suspect bad behaviour and need to investigate before any more automated actions happen. The switch is logged with user and timestamp.
+
+## Versioning and activity log
+
+Every policy change creates a new immutable version, with a link from the old to the new. You can view the full history of who changed what and when. This is the trail clients and regulators ask for.
+
+When your organisation is set up, policies start with a safe **Observe** default: assistants can detect everything but cannot act without approval.
+
+## Mapping to autonomy tiers
+
+[AI Agents](/platform/configure/intelligence/ai-agents) lets you assign a tier per assistant. Tiers are starting points that pre-fill the grid:
+
+| Tier | Pre-fills with |
+|------|----------------|
+| Observe | All workflows except Run assistant set to Deny. |
+| Assist | All action workflows set to Asks first. |
+| Act | Workflows set to Allow with limits on apply and send. |
+| Custom | Whatever you have manually set. |
+
+You can override any cell after picking a tier.
+
+## Related
+
+- [Configure: Thresholds](/platform/configure/intelligence/thresholds)
+- [Configure: AI Agents](/platform/configure/intelligence/ai-agents)
+- [Pulse: Activity](/platform/pulse/activity)
+- [Concepts: Response Frame](/concepts/response-frame)

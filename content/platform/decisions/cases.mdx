@@ -1,0 +1,46 @@
+---
+title: "Decision Cases"
+description: "The unit of governance. Each meaningful decision lives in a case with owners, history, and outcome tracking."
+---
+
+# Decision Cases
+
+A decision case is a tracked, owned record of a decision in flight. Anything that matters (mitigating a risk, approving a price change, choosing between options) runs as a case.
+
+## What a case contains
+
+| Field | Meaning |
+|-------|---------|
+| Title | Short description of the decision. |
+| Type | One of: risk mitigation, pricing, staffing, scope change, or general. |
+| Engagement | The engagement the decision relates to. |
+| Owner | The person who drives the case to a close. |
+| Status | Open, In review, Approved, Declined, Applied, or Closed. |
+| Linked Response | The [Response](/platform/decisions/scenarios) attached to the case. |
+| Linked risk | The risk register entry it came from, if any. |
+| Linked signal | The [signal](/platform/pulse/signals) that triggered it, if any. |
+| Decision log | An add-only record of who said what and when. |
+| Outcome | Set after a decision plays out. Did it work? |
+
+## How cases are created
+
+| Source | Example |
+|--------|---------|
+| Manual | "Should we lower rates on this engagement to save the renewal?" |
+| From a signal | A critical margin pressure signal opens a case automatically. |
+| From a risk | A risk register entry becomes a case once an owner is assigned. |
+| From the assistant | DigitalCore suggests opening a case based on a cross-area pattern. |
+
+## Lifecycle
+
+1. **Open.** The case is created, the owner is set, and context is attached.
+2. **In review.** A Response is generated. Options are compared.
+3. **Approved or Declined.** The decision-maker chooses an Option.
+4. **Applied.** The chosen Option is applied. Data updates. Follow-ups are created.
+5. **Closed.** The outcome is reviewed. Lessons are captured.
+
+## Related
+
+- [Decisions: Responses](/platform/decisions/scenarios)
+- [Decisions: Response Frame](/platform/decisions/response-frame)
+- [Pulse: Signals](/platform/pulse/signals)

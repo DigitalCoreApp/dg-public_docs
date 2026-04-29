@@ -1,53 +1,46 @@
----
+﻿---
 title: "QuickBooks Integration"
-description: "Sync invoices and expenses between QuickBooks and DigitalCore for automated financial tracking."
+description: "Sync invoices and expenses between QuickBooks and DigitalCore."
 ---
 
 # QuickBooks Integration
 
-## Overview
+Connect QuickBooks to pull invoices and expenses into DigitalCore as actuals.
 
-### What Data Syncs Between QuickBooks and DigitalCore
+## What syncs
 
-The QuickBooks integration syncs financial data between the two systems: invoices, expenses, and payments from QuickBooks can be mapped to DigitalCore's finance line items. This enables you to use QuickBooks as your system of record for accounting while using DigitalCore for service-level financial analysis.
-
----
+- **Invoices.** Pulled in as revenue actuals on the matching engagement.
+- **Expenses.** Pulled in as cost actuals (matched by P&L category).
 
 ## Setup
 
-### Connecting Your QuickBooks Account
+1. Go to **Configure**, then **Integrations**.
+2. Click **Connect QuickBooks**.
+3. Sign in to QuickBooks and approve the connection.
+4. Pick the company file.
+5. Map QuickBooks classes (or customers) to DigitalCore engagements.
+6. Map QuickBooks accounts to DigitalCore P&L categories.
 
-Navigate to **Configuration → Integrations** and click **Connect QuickBooks**. You'll be redirected to QuickBooks for OAuth authorisation. Grant access to the relevant QuickBooks company.
+## Sync schedule
 
-### Mapping QuickBooks Items to Your Catalogs
+DigitalCore polls QuickBooks once an hour. You can also click **Sync now**.
 
-After connecting, map QuickBooks accounts and items to your DigitalCore finance catalog entries. For example, map your QuickBooks "Professional Services Revenue" account to DigitalCore's "Consulting Revenue" catalog item.
+## Mapping
 
----
+- **Engagements.** Use QuickBooks classes if you have them. Otherwise use customers.
+- **P&L categories.** Map the chart of accounts you actually use. Skip rare categories.
 
-## Sync Behaviour
+## Tips
 
-### What Syncs Automatically
+- Run the first sync against one engagement to confirm the mapping is right.
+- Keep QuickBooks classes and DigitalCore engagement names aligned.
+- For non-engagement expenses, leave them unmapped. They stay in QuickBooks only.
 
-Once configured, new invoices and expenses in QuickBooks are automatically picked up during the sync cycle and matched to the corresponding DigitalCore engagement and finance line item.
+## Disconnect
 
-### Manual Sync Triggers
+Click **Disconnect** in the same panel. Past synced data stays. New data stops flowing.
 
-Trigger a manual sync at any time from the Integrations page. Use this when you need fresh data immediately rather than waiting for the next automatic sync.
+## Related
 
-### Conflict Resolution
-
-If data exists in both systems for the same period and item, the sync highlights the conflict and lets you choose which value to keep.
-
----
-
-## Troubleshooting
-
-### Common Connection Issues
-
-- **"Connection expired"** — QuickBooks OAuth tokens expire periodically. Re-authenticate from the Integrations page.
-- **"Company mismatch"** — Ensure you're connected to the correct QuickBooks company.
-
-### Re-authenticating
-
-If the connection drops, go to **Configuration → Integrations**, disconnect the existing QuickBooks link, and reconnect. Your mappings are preserved.
+- [Excel and CSV Import](/mcp-and-integrations/excel-import)
+- [Monthly Check-in](/guides/monthly-checkin)

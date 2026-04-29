@@ -1,63 +1,47 @@
-# Configuring Rate Cards and Contract Pricing
-
-Rate cards define how DigitalCore calculates labour costs and how contract-specific pricing overrides organisation defaults.
-
+﻿---
+title: "Rate Cards and Contract Pricing"
+description: "Define how DigitalCore calculates labour costs and contract-specific rates."
 ---
 
-## Set Up Organisation Rate Cards
+# Rate Cards and Contract Pricing
 
-### Creating Roles in the Capacity Catalog
+A rate card maps a role to an hourly rate. DigitalCore uses it to turn capacity hours into labour cost.
 
-Go to **Configuration → Library / Catalogs → Roles & Rates**. Add your organisation's standard roles: Senior Consultant, Project Manager, Service Desk Analyst, Developer, etc.
+## Where rates come from
 
-### Adding Default Rates per Role
+When labour cost is calculated, DigitalCore looks up the rate in this order:
 
-For each role, set the default hourly rate. This rate is used for automatic labour cost calculations when no contract-specific override exists.
+1. Contract override for the engagement (most specific).
+2. Contract default rate.
+3. Organisation rate card marked as default.
+4. Any other matching rate card.
 
----
+The first match wins.
 
-## Configure Contract-Specific Rates
+## Create a rate card
 
-### Overriding Rates for Specific Contracts
+1. Go to **Configure**, then **Rate Cards**.
+2. Click **New Rate Card**.
+3. Add roles and hourly rates.
+4. Mark one card as default.
 
-Open a contract's detail page and go to the **Rates** tab. Add rate overrides for specific roles. For example, if the standard rate for Senior Consultant is €150/hour but this contract specifies €135/hour, add the override here.
+## Override on a contract
 
-### Engagement-Specific Rate Variants
+1. Open a contract.
+2. Go to **Rates**.
+3. Override any role for this contract or this engagement.
 
-For maximum granularity, rates can be set with engagement-level specificity within a contract. This handles multi-engagement contracts where different engagements may have different pricing.
+## When you change a rate
 
----
+New labour costs use the new rate going forward. Past months are not recalculated unless you ask DigitalCore to backfill from a chosen date.
 
-## Configure SLA Terms
+## Tips
 
-### Adding Performance Terms to a Contract
+- Keep one default card current and accurate.
+- Use contract overrides for client-specific pricing.
+- Use engagement overrides only for short-term arrangements.
 
-In the contract detail, go to the **SLA Terms** tab. Add terms for each KPI that carries financial consequences:
+## Related
 
-1. **Select the KPI** — from the performance catalog
-2. **Set the threshold** — the value that triggers a breach
-3. **Choose the operator** — greater than or less than
-4. **Define the penalty** — fixed amount, percentage, or tiered
-
-### Setting Thresholds and Penalty Types
-
-For tiered penalties, define multiple levels. Example for Availability:
-
-| Threshold | Penalty |
-|-----------|---------|
-| Below 99.5% | €1,000 |
-| Below 99.0% | €5,000 |
-| Below 98.0% | €15,000 |
-
----
-
-## Verify Your Setup
-
-### Testing: How DigitalCore Selects the Right Rate
-
-Enter test capacity hours and verify that the automatic labour cost uses the expected rate. Check the finance grid to see which rate was applied.
-
-### Common Issues and Troubleshooting
-
-- **Wrong rate applied?** Check whether the contract rate is linked to the correct engagement. Contract-level rates override organisation defaults.
-- **No cost generated?** Verify that the capacity role has a linked finance catalog item (typically "Labour Cost — COGS").
+- [Setting Up Templates](/guides/template-setup)
+- [Concepts: Cost Calculation](/concepts/cost-calculation)

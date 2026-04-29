@@ -1,0 +1,40 @@
+---
+title: "Notification Channels"
+description: "Email, Slack, Microsoft Teams, in-app, and webhook destinations, set up per audience and severity."
+---
+
+# Notification Channels
+
+Notification Channels are how DigitalCore delivers signals, reports, and other messages. The set-up lives in [Configure → AI Agents → Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels). This page is where you watch them in action.
+
+## Supported channels
+
+| Channel | What it delivers | Setup |
+|---------|------------------|-------|
+| Email | Reports, period summaries, critical signals, daily digests. | Loops integration. |
+| Slack | Real-time signal alerts, daily digest, on-demand reports. | Webhook. |
+| Microsoft Teams | Same as Slack. | Webhook. |
+| In-app | Everything (always on). | No setup. |
+| Webhook | Plain JSON post for custom integrations. | Endpoint URL plus signing secret. |
+
+## Routing rules
+
+Each channel can be filtered by:
+
+- Severity: only critical, only critical and high, or all.
+- Engagement scope: all engagements, specific portfolios, or specific tags.
+- Audience role: service owners, ops, leadership, customers.
+- Quiet hours: hold non-critical messages outside business hours.
+
+## Reliability
+
+| Concern | Handling |
+|---------|----------|
+| Bounces or failures | Logged in [Notifications](/platform/communicate/notifications) and retried with backoff. |
+| Rate limits | Per-channel limits, with overflow rolled into the next digest. |
+| Repeat suppression | A 24-hour window prevents re-sending the same signal. |
+
+## Related
+
+- [Configure: AI Agents, Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels)
+- [Communicate: Notifications](/platform/communicate/notifications)

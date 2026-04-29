@@ -1,0 +1,43 @@
+---
+title: "Utilization Loss"
+description: "Where capacity is leaking, the engagements involved, and the likely reasons."
+---
+
+# Utilization Loss
+
+If the team is at 85% utilisation but margin is collapsing, capacity is leaking somewhere. This page makes that visible.
+
+## What you see
+
+| Metric | Meaning |
+|--------|---------|
+| Planned hours | What templates and plans called for. |
+| Actual hours | What was recorded. |
+| Leakage rate | (Actual minus planned) divided by planned, as a percent. |
+| Leakage value | Leakage rate times labour cost. |
+| By engagement | The engagements leaking the most. |
+| By role | The roles consistently going over plan. |
+
+DigitalCore flags engagements with leakage above 10% or with an unusual trend so you do not have to scan the whole list.
+
+## Common causes
+
+| Pattern | Symptom |
+|---------|---------|
+| Scope creep | Hours up, deliverables flat. |
+| Underestimation | Same scope, more hours every cycle. |
+| Coverage drift | Senior people doing junior work. |
+| Operational debt | Hours going to firefighting, not change. |
+| Tool or process drag | Hours per output trending up across the board. |
+
+The written summary on this view (when AI agents are on) takes a first pass at the why, based on related signals across finance and performance.
+
+## Drill-down
+
+Click any engagement row to land on its [Capacity tab](/platform/engagements). From there you can see role-by-role hours, plan versus actual, and the people behind the numbers.
+
+## Related
+
+- [Portfolio: Service Economics](/platform/portfolio/service-economics)
+- [Portfolio: Correlations](/platform/portfolio/correlations)
+- [Engagements](/platform/engagements)

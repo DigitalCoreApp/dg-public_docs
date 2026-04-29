@@ -1,0 +1,62 @@
+---
+title: "Bulk Upload"
+description: "Import services, engagements, library entries, plans, and actuals from Excel or CSV."
+---
+
+# Bulk Upload
+
+Use Bulk Upload to get started or migrate from another system. The screen validates each row, shows clear errors, and holds everything in a draft until you commit.
+
+## What you can upload
+
+| Type | Supported |
+|------|-----------|
+| Services | Yes |
+| Engagements | Yes |
+| Library entries (Finance, Performance, Capacity, AI) | Yes |
+| Templates and template items | Yes |
+| Contracts and contract terms | Yes |
+| Hours | Yes |
+| Finance actuals | Yes |
+| KPI results | Yes |
+| AI usage records | Yes |
+
+## The upload flow
+
+1. Pick what you are uploading.
+2. Download the template. It has the right columns and example rows.
+3. Fill it in.
+4. Upload the file.
+5. Review the validation report. Errors show row numbers and reasons.
+6. Fix errors in the file or in the draft view.
+7. Click commit. The data lands in your live workspace.
+
+Nothing changes in your live data until you commit.
+
+## What gets checked
+
+| Category | Example |
+|----------|---------|
+| Format | Missing required column, wrong type. |
+| Reference | A library entry that does not exist. |
+| Permission | Uploading to an engagement you do not own. |
+| Business rule | Plan period before engagement start date. |
+
+## Drafts
+
+Validated but uncommitted files sit as drafts. You can:
+
+- Resume a draft.
+- Discard a draft.
+- Compare it to existing data before commit.
+
+## Tips
+
+- Upload services and library entries first. Engagements and templates depend on them.
+- Use the downloaded template. Column order matters.
+- During a migration, upload one period at a time so issues are easy to spot.
+
+## Related
+
+- [Library](./library)
+- [Guides](/guides)

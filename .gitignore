@@ -43,6 +43,18 @@ next-env.d.ts
 # internal docs / planning (not for public repo)
 /docs/
 
+# safety net: keep internal-style planning docs out of the root,
+# even if accidentally created outside /docs/
+/*-REVIEW.md
+/*-PLAN.md
+/*-SPECIFICATION.md
+/*-INVENTORY.md
+/*-BRIEF.md
+/*-PROPOSAL.md
+/*-AUDIT.md
+/*-NOTES.md
+/*-INTERNAL.md
+
 # editor / IDE
 .vscode/
 .idea/

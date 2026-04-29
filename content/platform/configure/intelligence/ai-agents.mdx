@@ -1,0 +1,66 @@
+---
+title: "AI Agents"
+description: "Your assistant fleet: supervisor, specialists, pattern, ambient. Hire, pause, set cadence and autonomy."
+---
+
+# AI Agents
+
+The AI Agents screen is your fleet view. Each assistant is a card. The grid shows everything that is running and how it is behaving.
+
+> Permission required: Manage organisation.
+
+## The four assistant types
+
+| Type | What it does | Example |
+|------|--------------|---------|
+| Supervisor | Top-level coordinator. Routes work to specialists, owns the response frame. | Service Economics Supervisor. |
+| Specialist | Deep-domain expert. Owns one signal type and builds memory of patterns over time. | Margin Watch, SLA Sentinel, Capacity Coach. |
+| Pattern | Stateless detector. Runs against fresh data and emits signals. | Cost Anomaly Detector. |
+| Ambient | Always-on listener. Surfaces events to the supervisor when they matter. | Recording Stream Listener. |
+
+## Anatomy of a card
+
+| Element | Meaning |
+|---------|---------|
+| Visual | Slug-based icon (Coins for finance, ShieldAlert for risk, Users for capacity, Bell for alerts, BookOpen for learning). |
+| Name and slug | Human-friendly name and the technical slug used in policies. |
+| Type badge | Supervisor, Specialist, Pattern, or Ambient. |
+| Autonomy tier | Observe, Assist, Act, or Custom. |
+| Health | Healthy, Needs attention, or Paused. |
+| Trigger | Schedule (cron-like) or event (for example, on recording). |
+| Cooldown | Minimum seconds between runs to avoid thrashing. |
+| Specialist chain | For supervisors: which specialists they call. |
+
+## Autonomy tiers
+
+Each assistant ships with a recommended tier; you can override per assistant. Tiers map to default policy bundles applied by [Policies](/platform/configure/intelligence/policies).
+
+| Tier | What it can do | When to use |
+|------|----------------|-------------|
+| Observe | Detect signals only. Log to Pulse. Never propose responses. | Onboarding, low-trust phase. |
+| Assist | Detect, propose responses, draft summaries. Always asks before applying. | Default for most organisations. |
+| Act | Detect and auto-apply responses within configured guardrails. | High-trust, mature operations. |
+| Custom | Per-workflow rules set in Policies. | Power users. |
+
+> Tiers are a starting point. Real autonomy is decided per workflow in [Policies](/platform/configure/intelligence/policies).
+
+## Hire, pause, retire
+
+- **Hire.** Enable an assistant from the catalogue. New assistants start in Observe.
+- **Pause.** Temporarily stop an assistant. Cards turn grey and signals it would have produced are not generated.
+- **Retire.** Remove the assistant. History is kept.
+
+## Sub-pages
+
+| Page | Covers |
+|------|--------|
+| [Agent Profiles](/platform/configure/intelligence/ai-agents/agent-profiles) | Detail page for one assistant: operator and developer views. |
+| [Specialist Memory](/platform/configure/intelligence/ai-agents/specialist-memory) | Learned patterns, review queue, version history. |
+| [Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels) | Send output to Teams, Slack, or email. |
+
+## Related
+
+- [Configure: Thresholds](/platform/configure/intelligence/thresholds)
+- [Configure: Policies](/platform/configure/intelligence/policies)
+- [Concepts: Capabilities](/concepts/capabilities)
+- [Concepts: Response Frame](/concepts/response-frame)

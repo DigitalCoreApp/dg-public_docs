@@ -1,81 +1,52 @@
 ---
-title: "Health Scores & RAG Status"
-description: "Understanding 0-100 health scores and Red/Amber/Green status indicators across Finance, Performance, and Capacity."
+title: "Health scores and status"
+description: "How DigitalCore turns Finance, Performance, Capacity, and AI Usage into a single 0–100 health score with Red, Amber, and Green status."
 ---
 
-# Health Scores & RAG Status
+# Health scores and status
 
-## What Are Health Scores?
+Every engagement has a health score from 0 (critical) to 100 (excellent). The score is calculated for each domain and combined into an overall figure.
 
-### 0-100 Score per Engagement, per Domain
+## Status bands
 
-Every engagement in DigitalCore has a health score from 0 (critical) to 100 (excellent). The score is calculated separately for each domain (Finance, Performance, Capacity) and combined into an overall engagement health score.
+| Status | Meaning | Typical range |
+|--------|---------|--------------|
+| **Green** | Healthy. Actuals tracking plan. | 70–100 |
+| **Amber** | Warning. Notable variance, needs attention. | 40–69 |
+| **Red** | Critical. Significant deviation, action needed. | 0–39 |
 
-### RAG Status: Red, Amber, Green — What Each Means
+## What drives each score
 
-| RAG | Meaning | Typical Score Range |
-|-----|---------|-------------------|
-| **Green** | Healthy — actuals are on track with plans | 70-100 |
-| **Amber** | Warning — notable variance from plan, needs monitoring | 40-69 |
-| **Red** | Critical — significant deviation, action needed | 0-39 |
+- **Finance**: how close revenue and cost actuals are to plan. Cost overruns or revenue shortfalls drag the score down.
+- **Performance**: how many KPIs are on target versus amber or red. A single missed term has a strong impact.
+- **Capacity**: whether utilisation sits in the healthy range. Both under-use (paying for unbilled time) and over-use (burnout risk) hurt the score.
+- **AI Usage**: whether token spend stays inside the budget per use case. Repeated overruns drag the score down.
+- **Overall**: a weighted combination, so a critical failure anywhere shows in the headline.
 
----
+## Portfolio health
 
-## What Drives Each Score
+Portfolio health rolls the scores of every service and engagement inside it into one view. Two things matter beyond the average:
 
-### Finance Health: How Close Are Actuals to Plan?
+- **Distribution**: how many engagements are green, amber, or red. An average of 65 looks very different if most are healthy with two in crisis.
+- **Trend**: improving, declining, or steady against the previous period.
 
-Finance health measures the variance between planned and actual values for revenue and cost items. Large cost overruns or revenue shortfalls drive the score down. Meeting or exceeding revenue targets while keeping costs on plan drives the score up.
+## Attention flags
 
-### Performance Health: How Many KPIs Are Below Target?
+The dashboard highlights engagements that need a look:
 
-Performance health counts how many KPIs are meeting their targets vs. in the amber or red zone. A single red KPI (SLA breach) can significantly impact the domain score.
+- Health score dropped by more than the limit you set.
+- Check‑in is overdue.
+- A contract term has been missed.
+- Plan and actuals have diverged sharply.
 
-### Capacity Health: Is Utilisation in the Right Range?
+Flags split into **overdue** (past‑due check‑ins, open misses) and **upcoming** (check‑ins due this week, renewals approaching).
 
-Capacity health evaluates whether utilisation is in the healthy range. Both under-utilisation (paying people who aren't productive) and over-utilisation (burnout risk) drive the score down.
+## Tuning the bands
 
-### Overall Health: Weighted Combination
+The default Red, Amber, Green bands work for most teams. If a 5% variance is acceptable in your business, widen the green band. In a high‑SLA environment, tighten it.
 
-The overall engagement health score combines the three domain scores. The weighting ensures that a critical failure in any single domain is visible in the overall score.
+## Related
 
----
-
-## Portfolio Health
-
-### Aggregated Across All Services
-
-Portfolio health aggregates the health scores of all services (and their engagements) within the portfolio. It provides a strategic view: "Overall, how healthy is my Key Accounts portfolio?"
-
-### Distribution: How Many Engagements Are Red / Amber / Green
-
-Beyond the average score, portfolio health shows the distribution: 12 green, 5 amber, 2 red. The distribution matters — an average score of 65 could mean everything is mediocre, or it could mean most are healthy with a few in crisis.
-
-### Trends: Improving, Declining, Stable
-
-Health scores are tracked over time. Trend indicators show whether each engagement and portfolio is improving, declining, or stable compared to the previous period.
-
----
-
-## Attention Flags
-
-### What Triggers a Flag on the Dashboard
-
-The dashboard highlights engagements that need attention:
-
-- Health score dropped by more than a configurable threshold
-- Check-in is overdue
-- SLA breach detected
-- Significant variance from plan
-
-### Overdue vs. Upcoming Items
-
-Attention items are split into **overdue** (past-due check-ins, unresolved breaches) and **upcoming** (check-ins due this week, approaching contract renewals).
-
----
-
-## Customisable Thresholds
-
-### Adjusting What "Red" and "Green" Mean for Your Organisation
-
-The default RAG thresholds work for most organisations, but you can customise them. If your organisation considers a 5% variance acceptable, you can widen the green band. If you're in a high-SLA environment, you might narrow it.
+- [Pulse](/platform/pulse/index): see attention flags first thing.
+- [Thresholds](/platform/configure/intelligence/thresholds): tune the bands.
+- [Data domains](/concepts/data-domains): the inputs each score uses.

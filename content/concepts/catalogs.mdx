@@ -1,65 +1,42 @@
 ---
-title: "Catalogs & Libraries"
-description: "Organisation-wide definitions for consistent tracking — finance line items, KPIs, roles, and AI use cases."
+title: "Catalogs and the library"
+description: "The shared library of finance lines, KPIs, roles, and AI use cases that keeps every engagement consistent."
 ---
 
-# Catalogs & Libraries
+# Catalogs and the library
 
-## What Are Catalogs?
+Catalogs are your shared library of standard definitions. Pick a finance line, a KPI, or a role from the catalog and every engagement that uses it speaks the same language.
 
-### Organisation-Wide Definitions for Consistency
+Without this, the same idea ends up named four different ways and totals can never be trusted.
 
-Catalogs are your organisation's library of standard definitions. Instead of typing "Labour Cost" as free text on every engagement (and ending up with "Labour Cost," "Labor Costs," "Staff Cost," and "Labour"), you select it from the catalog. One definition, consistent everywhere.
+## Finance catalog
 
-### Why Catalogs Matter: Comparing Apples to Apples Across Engagements
-
-When every engagement uses the same catalog items, you can compare and aggregate across engagements meaningfully. "What's our total Labour Cost across all managed services engagements?" only works if every engagement uses the same catalog entry for labour costs.
-
----
-
-## Finance Catalog (P&L Line Items)
-
-### Standard Line Items
-
-The finance catalog defines your standard P&L line items. Common examples:
+Standard P&L lines used across your engagements. Examples:
 
 - Monthly Recurring Revenue
 - Project Revenue
-- Labour Cost — COGS
+- Labour Cost
 - Software Licensing
-- Subcontractor Costs
-- Travel & Expenses
+- Subcontractor Cost
+- Travel and Expenses
 
-### Categories: Revenue, Cost of Goods Sold, Operating Expenses
+Each line belongs to a category (Revenue, Cost of Goods Sold, Operating Expense). The category drives margin calculations: revenue minus cost of goods sold equals gross margin, minus operating expense equals net.
 
-Each catalog item belongs to a P&L category. This categorisation drives margin calculations — revenue minus COGS gives gross margin, minus operating expenses gives net margin.
+## Performance catalog
 
----
-
-## Performance Catalog (KPI Definitions)
-
-### Standard KPIs
-
-The performance catalog defines your standard metrics. Common examples:
+Standard KPIs and SLAs. Examples:
 
 - Availability / Uptime (%)
 - First Call Resolution (%)
 - Average Response Time (hours)
 - Customer Satisfaction Score
-- Ticket Volume
 - Mean Time to Resolution (hours)
 
-### Measurement Direction and Default Targets
+Each entry stores its direction (higher is better, lower is better, target is best) and an optional default target you can override per engagement.
 
-Each KPI definition includes its measurement direction (higher-is-better, lower-is-better, target-is-best) and optionally a default target value that can be overridden per engagement.
+## Roles
 
----
-
-## Capacity Catalog (Roles)
-
-### Standard Roles
-
-The capacity catalog (Roles & Rates) defines your organisation's standard roles:
+The roles your delivery teams use. Examples:
 
 - Senior Consultant
 - Project Manager
@@ -67,28 +44,22 @@ The capacity catalog (Roles & Rates) defines your organisation's standard roles:
 - Developer
 - Solutions Architect
 
-Each role has an associated default hourly rate, which is used for automatic labour cost calculations when no contract-specific rate override exists.
+Each role has a default hourly rate, used to value hours when no contract rate is set.
 
----
+## AI use cases
 
-## AI Use Case Catalog
+A catalog of AI initiatives across your engagements: what they are, where they run, and what economic impact they have.
 
-### Tracking AI Usage Across Engagements
+## Why this matters
 
-The AI use case catalog lets you define and track AI initiatives across your organisation — which engagements use AI, for what purpose, and with what economic impact.
+With one shared library you can:
 
----
+- Aggregate and compare across engagements with confidence.
+- Benchmark a line or KPI across your portfolio.
+- Update a definition once and have it flow through every template that uses it.
 
-## Why This Matters
+## Related
 
-### Consistent Reporting Across All Engagements
-
-Same catalog items, same categories, same definitions. Reports and dashboards can aggregate across engagements with confidence.
-
-### Cross-Engagement Benchmarking
-
-Because engagements reference the same catalog items, you can benchmark: "How does Labour Cost compare across my top 10 engagements?"
-
-### One Change Updates All Templates That Use It
-
-If you rename or recategorise a catalog item, every template that references it reflects the change. No need to update 50 spreadsheets.
+- [Templates](/platform/configure/service-setup/templates): how catalogs become per‑engagement structure.
+- [Library](/platform/configure/data/library): manage the catalogs.
+- [Data domains](/concepts/data-domains): how Finance, Performance, Capacity, and AI Usage fit together.

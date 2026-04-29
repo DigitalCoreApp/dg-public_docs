@@ -1,59 +1,51 @@
-# Importing Data from Excel/CSV
-
-Bulk import entities and financial data into DigitalCore using Excel or CSV files.
-
+﻿---
+title: "Importing Data from Excel or CSV"
+description: "Bulk-load engagements, plans, and actuals from a spreadsheet."
 ---
 
-## Supported Import Types
+# Importing Data from Excel or CSV
 
-### Entity Import
+Use the import tool to load engagements, plan values, or actual values from a file. Useful for the first month and for catching up after a period.
 
-Import core entities in bulk: services, engagements, contracts, partners, and stakeholders. Useful when onboarding an existing portfolio into DigitalCore.
+## What you can import
 
-### Financial Data Bulk Import
+- Engagements and contracts.
+- Finance plan values.
+- Finance actuals.
+- Performance actuals.
+- Capacity hours.
 
-Import historical financial data (planned and actual values) for existing engagements. Useful for migrating from spreadsheet-based tracking.
+## Step 1: Pick a template
 
-### Download a Template
+Go to **Configure**, then **Import**. Pick the type of import you want and click **Download template**. The template includes the columns required.
 
-For each import type, download a pre-formatted Excel template from the Bulk Upload page. The template includes all required and optional columns with example data.
+## Step 2: Fill in your file
 
----
+Open the file in Excel or Google Sheets. One row per record.
 
-## Using the Bulk Upload Page
+- Use the date format shown in the header.
+- Leave the ID column blank for new records.
+- Use exact engagement names. Spelling has to match.
 
-### Accessing Configuration → Bulk Upload
+## Step 3: Upload
 
-Navigate to **Configuration → Bulk Upload** from the left sidebar. Select the entity type you want to import.
+Drag the file into the upload box. DigitalCore reads it and shows a preview.
 
-### Uploading a File
+- Green rows are ready to import.
+- Amber rows need a small fix (for example, an unknown engagement name).
+- Red rows are blocked.
 
-Drag and drop your Excel or CSV file, or click to browse. Supported formats: `.xlsx`, `.xls`, `.csv`.
+## Step 4: Confirm
 
-### Reviewing the Staging Screen
+Click **Import**. The page shows progress and a summary when done. You can download an error log for any row that did not import.
 
-After upload, the data appears in a staging table. Each row is validated against the expected schema. Valid rows are marked green, errors are highlighted in red with explanatory messages.
+## Tips
 
-### Validating and Confirming Import
+- Run a small test import first (5 to 10 rows).
+- Keep your import files in a shared folder so you can re-run them if needed.
+- For monthly actuals, consider building a check-in instead of importing each month.
 
-Review any errors and fix them in the staging table or go back to your original file. Once all rows validate, click **Confirm Import** to write the data.
+## Related
 
----
-
-## Common Issues
-
-### Column Mapping Errors
-
-If column headers in your file don't match the expected names, the staging screen will show mapping warnings. Rename columns to match the template headers.
-
-### Duplicate Detection
-
-The system checks for duplicates based on key fields (e.g., engagement name + service). Duplicates are flagged and can be skipped or updated.
-
-### Validation Error Messages
-
-Common errors include:
-
-- **Missing required fields** — e.g., organisation reference
-- **Invalid date formats** — use YYYY-MM-DD
-- **Invalid references** — e.g., service name doesn't match an existing service
+- [Monthly Check-in](/guides/monthly-checkin)
+- [Setting Up Templates](/guides/template-setup)

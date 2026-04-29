@@ -1,95 +1,63 @@
 ---
-title: "The Three Data Domains"
-description: "Finance, Performance, and Capacity — the three domains that DigitalCore connects into a unified service economics view."
+title: "The four data domains"
+description: "Finance, Performance, Capacity, and AI Usage: the four pillars DigitalCore connects into one service economics view."
 ---
 
-# The Three Data Domains
+# The four data domains
 
-## Finance Domain
+DigitalCore tracks every engagement across four domains. Each has its own plan and actual values per month, and they connect so a change in one shows up in the others.
 
-### What It Tracks: P&L per Engagement
+## Finance
 
-The Finance domain tracks profit-and-loss data for each engagement: revenue, costs, and the resulting margins. Every finance item has a planned value (target) and an actual value per month.
+The Finance domain tracks the P&L of each engagement: revenue, cost, and resulting margin.
 
-### Categories: Revenue, Cost of Goods Sold, Operating Expenses
+Lines fall into three P&L categories:
 
-Finance items are categorised following standard P&L structure:
+- **Revenue**: recurring fees, project revenue, one-off charges.
+- **Cost of Goods Sold**: direct cost like labour, materials, subcontractors.
+- **Operating Expense**: indirect cost like tooling, overhead, management.
 
-- **Revenue** — Recurring fees, project revenue, ad-hoc charges
-- **Cost of Goods Sold (COGS)** — Direct costs: labour, materials, subcontractors
-- **Operating Expenses** — Indirect costs: tooling, overhead, management
+Most values are entered during the monthly check-in. Two are calculated for you: labour cost (from hours and rates) and contract penalties (from missed terms).
 
-### Planned vs. Actual Values
+## Performance
 
-For each item, each month, you set a planned value (what you expect) and record an actual value (what happened). DigitalCore calculates the variance and assigns a RAG status.
+The Performance domain tracks KPIs and SLAs per engagement. Each KPI has a target, an amber band, and a limit.
 
-### How Costs Can Be Entered Manually or Calculated Automatically
+A KPI is set up with a direction:
 
-Most cost items are entered manually during monthly check-ins. However, two categories are calculated automatically:
+- **Higher is better**: such as Customer Satisfaction.
+- **Lower is better**: such as Response Time.
+- **Target is best**: such as Utilisation.
 
-- **Labour costs** — Generated from capacity hours × hourly rates
-- **SLA penalties** — Generated from performance breach detection
+If an actual crosses the contract limit, DigitalCore records a missed term, calculates the penalty, and posts it to finance.
 
----
+## Capacity
 
-## Performance Domain
+The Capacity domain tracks hours per role per engagement. Hours convert to FTE using your working hours standard. Items can mark hours as billable or non-billable.
 
-### What It Tracks: KPIs and SLAs per Engagement
+When you record hours, DigitalCore values them at the applicable hourly rate and posts the cost in finance.
 
-The Performance domain tracks key performance indicators and service level agreements. Each KPI has a target, thresholds, and monthly actual values.
+## AI Usage
 
-### Measurement Direction: Higher-is-Better, Lower-is-Better, Target-is-Best
+The AI Usage domain tracks AI use cases per engagement: tokens consumed, model split, and cost per use case.
 
-Each KPI is configured with a direction:
+For each use case you set:
 
-- **Higher-is-better** — e.g., Customer Satisfaction (CSAT): 95% is better than 90%
-- **Lower-is-better** — e.g., Average Response Time: 2 hours is better than 4 hours
-- **Target-is-best** — e.g., Utilisation Rate: 80% target, both over and under are bad
+- **Expected volume**: planned tokens or calls per month.
+- **Cost target**: what you expect to spend.
+- **Model**: which provider and model is in use.
 
-### Targets, Amber Bands, and Thresholds
+AI cost is recorded against the engagement and posts to finance the same way labour cost does. Use it to track ROI per AI use case and to spot budget overruns early.
 
-Each KPI can have:
+## How the four connect
 
-- **Target** — The ideal value
-- **Amber threshold** — The warning zone (not yet failed, but needs attention)
-- **Red threshold** — The failure zone (SLA breach if exceeded/missed)
+- **Capacity feeds Finance**: hours become labour cost.
+- **Performance feeds Finance**: missed terms become penalty cost.
+- **AI Usage feeds Finance**: token cost posts to the matching finance line.
+- **Health scores combine all four** so a problem in any one shows in the overall view.
 
-### What Happens When an SLA Is Breached
+## Related
 
-When an actual value crosses the SLA threshold defined in the contract, DigitalCore automatically detects the breach, calculates the penalty, logs a penalty event, and optionally creates a finance entry.
-
----
-
-## Capacity Domain
-
-### What It Tracks: Hours per Role per Engagement
-
-The Capacity domain tracks how many hours each role spends on each engagement. "Senior Consultant — 160 hours planned, 172 hours actual" for a given month.
-
-### FTE Derivation from Hours
-
-DigitalCore automatically converts hours to FTE equivalents based on standard working hours per month. If your standard is 160 hours/month and someone logs 80 hours, that's 0.5 FTE.
-
-### Utilisation and Billable/Non-Billable Split
-
-Utilisation rate compares actual hours against available capacity. Capacity items can distinguish billable from non-billable hours, enabling accurate utilisation tracking.
-
-### How Logged Hours Automatically Generate Finance Costs
-
-When actual hours are entered, DigitalCore multiplies them by the applicable hourly rate and creates a corresponding finance entry. The rate is looked up from (in priority order): contract-specific engagement rates, contract-level rates, rate card defaults.
-
----
-
-## How the Three Domains Connect
-
-### Capacity Feeds Finance: Hours Become Labour Costs
-
-This is the primary cross-domain automation. Every capacity hour entry potentially creates a finance cost entry. The linking is automatic — the system knows which finance line item corresponds to which capacity role through the catalog.
-
-### Performance Feeds Finance: SLA Breaches Become Penalty Costs
-
-The second cross-domain automation. When a performance KPI breaches its SLA threshold, the resulting penalty amount is posted to the finance domain as a cost entry.
-
-### Unified Health Scoring Across All Three
-
-Engagement health is scored across all three domains. A healthy engagement has good financial margins, KPIs meeting targets, and capacity utilisation in the right range. A problem in any domain affects the overall health score.
+- [Automatic costs and penalties](/concepts/automation): the rules that connect domains.
+- [Health scores](/concepts/health-scores): how scoring works.
+- [Planning and actuals](/concepts/planning-and-actuals): how plans and check-ins fit in.

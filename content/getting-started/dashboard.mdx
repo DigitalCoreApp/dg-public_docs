@@ -1,74 +1,44 @@
 ---
 title: "Reading Your Dashboard"
-description: "Understand your dashboard — quick stats, attention items, portfolio health, and AI insights."
+description: "What Pulse shows you on sign-in: brief, signals, attention items, and portfolio health."
 ---
 
 # Reading Your Dashboard
 
-## The Dashboard Overview
+Pulse is your home screen. It surfaces what needs you today across services and engagements.
 
-### What You See on First Login
+## What you see
 
-The dashboard is your home screen. It provides a high-level view of everything that needs your attention across all your services and engagements.
+| Section | What it shows |
+|---------|---------------|
+| Top stats | Active services, check-ins due this week, overdue check-ins. |
+| Brief | A short write-up of changes since you last logged in. |
+| Signals | Detected risks ranked by severity. Click **Respond** to start a Response. |
+| Attention | Engagements with overdue check-ins, missed SLA terms, or falling health. |
+| Portfolio health | Score per portfolio with a finance, performance, and capacity breakdown. |
+| Quick actions | Start a check-in, open a Decision Case, view a report. |
 
-### Quick Stats: Active Services, Due This Week, Overdue
+## Health scores
 
-At the top, quick stat cards show: how many services are active, how many check-ins are due this week, and how many are overdue. These numbers update as you and your team complete check-ins.
+Health runs from 0 (critical) to 100 (excellent). It blends:
 
----
+- Plan versus actual variance.
+- Data freshness (recent check-ins lift the score, stale data drags it down).
+- Trend direction.
+- Coverage of items that have actuals entered.
 
-## Dashboard Sections
+The overall score has three sub-scores: finance, performance, capacity. Click into any sub-score to see which items move it.
 
-### Attention Required — Overdue and Upcoming Items
+## Recommended next moves
 
-The Attention Required section lists engagements that need action: overdue check-ins, recently breached SLAs, or engagements with deteriorating health scores. Items are sorted by urgency.
+1. Invite an operator and assign the next check-in.
+2. Create a second engagement to compare side by side in [Portfolio: Compare](/platform/portfolio/comparison).
+3. Try a [Scenario](/guides/scenarios) for a pricing or staffing change.
+4. Generate an [Executive Summary](/guides/executive-summaries) for stakeholders.
+5. Connect Claude or Cursor through [MCP](/mcp-and-integrations).
 
-### Portfolio Health — Overall Score and Domain Breakdowns
+## Related
 
-If you've organised services into portfolios, the portfolio health section shows aggregate health scores. Each portfolio displays its overall score (0-100) and breakdowns by finance, performance, and capacity domains.
-
-### Workspace Launchers — Jump to Operations, Decisions, Strategy
-
-Quick-access cards let you jump directly to the three core workspaces:
-
-- **Operations** — Manage engagements and check-ins
-- **Decisions** — View and manage governance cases with scenarios
-- **Strategy** — OKRs, cockpit, and AI initiatives
-
-### AI Insights — Recommendations Based on Your Data
-
-The AI Insights section surfaces observations and recommendations generated from your data: margin trends, capacity warnings, anomaly detection, and suggested actions.
-
-### Quick Actions — New Check-in, Log Decision, View Summaries
-
-Shortcut buttons for the most common tasks: start a new check-in, create a governance decision, or view recent executive summaries.
-
----
-
-## Understanding Health Scores
-
-### What 0-100 Means
-
-Health scores range from 0 (critical) to 100 (excellent). They aggregate multiple factors including plan-vs-actual variance, data freshness, trend direction, and coverage (how many items have data entered).
-
-### Finance, Performance, Capacity Sub-Scores
-
-The overall health score is composed of three sub-scores — one per data domain. Each sub-score weighs the variance and RAG status of items in that domain. You can drill into any sub-score to see which specific items are driving it up or down.
-
-### Data Freshness and Service Coverage
-
-Health scores also factor in recency: an engagement with stale data (no check-in for 2+ months) will see its score decay. Service coverage measures what percentage of your services have active engagements with current data.
-
----
-
-## What to Do Next
-
-### Recommended Workflows for Week 1
-
-After your first check-in and dashboard review:
-
-1. **Invite at least one team member** — Delegate check-in duties to operators
-2. **Set up a second engagement** — Compare two engagements side by side
-3. **Explore scenarios** — Model a pricing change or staffing adjustment (see [Scenario Intelligence guide](/guides/scenarios))
-4. **Generate an executive summary** — Create a stakeholder-ready report from your data (see [Executive Summaries guide](/guides/executive-summaries))
-5. **Connect an AI tool via MCP** — Query your data from Claude, Cursor, or VS Code (see [MCP & Integrations](/mcp-and-integrations/))
+- [Concepts: Health Scores](/concepts/health-scores)
+- [Platform: Pulse](/platform/pulse)
+- [Guides: Monthly Check-in](/guides/monthly-checkin)

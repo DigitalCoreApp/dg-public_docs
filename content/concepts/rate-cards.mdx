@@ -1,70 +1,49 @@
 ---
-title: "Rate Cards & Contract Pricing"
-description: "How DigitalCore determines the right hourly rate for labour cost calculations and handles contract SLA terms."
+title: "Rate cards and contract pricing"
+description: "How DigitalCore picks the right hourly rate for labour cost and handles contract SLA terms."
 ---
 
-# Rate Cards & Contract Pricing
+# Rate cards and contract pricing
 
-## What Are Rate Cards?
+A rate card sets default hourly rates for each role: Senior Consultant €150 / hour, Service Desk Analyst €85 / hour, and so on. Rate cards are the fallback used when no contract rate applies.
 
-### Organisation-Level Default Rates per Role
+## How the right rate is picked
 
-A rate card defines the default hourly rate for each role in your organisation. For example: Senior Consultant = €150/hour, Service Desk Analyst = €85/hour. Rate cards provide the fallback pricing used when no contract-specific override exists.
+When DigitalCore values logged hours, it looks for the most specific rate first.
 
-### When Rate Cards Apply
+| Order | Source | When it applies |
+|-------|--------|----------------|
+| 1 | Contract rate matching this engagement | Rate set on the contract for this specific engagement. |
+| 2 | Contract rate | General rate on the linked contract for this role. |
+| 3 | Rate card default | Your organisation default rate for the role. |
+| 4 | Any rate card | Fallback if no default is set. |
 
-Rate cards are used in automatic labour cost calculations. When DigitalCore needs to calculate the cost of logged hours, it looks for the most specific rate — starting from contract-level overrides and falling back to the rate card if no override exists.
+A rate set in a contract beats the rate card. A rate set for a specific engagement beats a general contract rate. This way you can keep one internal rate card while honouring custom rates for individual customers.
 
----
+## Contract SLA terms
 
-## How DigitalCore Picks the Right Rate
+SLA terms define the performance you commit to and what happens if you miss. Each term has:
 
-### The Most Specific Rate Wins
+- **The KPI** it applies to.
+- **The limit** value (minimum or maximum).
+- **An operator**: greater than or less than.
+- **A penalty type**: fixed, percentage, or tiered.
 
-The rate lookup follows a priority hierarchy:
+Penalty types:
 
-| Priority | Source | When It Applies |
-|----------|--------|----------------|
-| 1 (highest) | Contract rate with engagement match | Rate defined in the contract specifically for this engagement |
-| 2 | Contract rate | General rate in the linked contract for this role |
-| 3 | Rate card default | Organisation-level default rate (flagged as default) |
-| 4 (lowest) | Any matching rate card | Fallback to any rate card with this role |
+- **Fixed**: a flat amount per occurrence (for example, €5,000).
+- **Percentage**: a share of contract value (for example, 2% of monthly value).
+- **Tiered**: bigger amounts for more serious misses (below 99.5% = €1,000; below 99% = €5,000; below 98% = €15,000).
 
-### Contract-Specific Rates Override Organisation Defaults
+## How rates and terms flow through
 
-When you define a rate in a contract, it takes precedence over the rate card. This allows you to have a standard rate card for internal planning while honouring contracted rates for specific customers.
+- **Rates** value every recorded hour and post the labour cost in finance.
+- **SLA terms** check every KPI actual. If a limit is crossed, the penalty is calculated and posted in finance.
 
-### Engagement-Specific Rates Are the Most Precise
+No manual calculation, no spreadsheets out of step.
 
-For maximum granularity, rates can be set at the contract level with specific engagement matching. This handles cases where the same contract covers multiple engagements but with different rate structures.
+## Related
 
----
-
-## Contract SLA Terms
-
-### Defining Performance Thresholds and Consequences
-
-Contract SLA terms define the performance expectations and financial consequences for each KPI:
-
-- **Which KPI** — maps to a performance catalog entry
-- **Threshold value** — the minimum (or maximum) acceptable level
-- **Operator** — greater-than or less-than
-- **Penalty type** — fixed, percentage, or tiered
-
-### Penalty Types: Fixed Amount, Percentage, Tiered
-
-- **Fixed** — A flat euro/dollar amount per breach occurrence
-- **Percentage** — A percentage of the monthly or total contract value
-- **Tiered** — Multiple penalty levels based on the severity of the breach (e.g., below 99.5% = €1,000; below 99.0% = €5,000; below 98.0% = €15,000)
-
----
-
-## How Rates and Terms Flow Through the System
-
-### Rates Power Automatic Labour Cost Calculations
-
-Every time capacity hours are logged, the rate lookup runs. The correct rate is applied and a labour cost entry is created in finance. No manual calculation needed.
-
-### SLA Terms Power Automatic Breach Detection
-
-Every time a performance actual is entered, it's checked against the contract SLA terms. If a breach is detected, the penalty is calculated and posted to finance automatically.
+- [Library](/platform/configure/data/library): manage rate cards and roles.
+- [Contracts](/platform/configure/service-setup/contracts): set up contract terms.
+- [Automatic costs and penalties](/concepts/automation): the rules in detail.

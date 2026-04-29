@@ -1,0 +1,44 @@
+---
+title: "Library"
+description: "Master lists of finance items, KPIs, roles, and AI use cases that templates reference."
+---
+
+# Library
+
+The Library is your master list of building blocks. Every [template](/platform/configure/service-setup/templates) item points to a library entry. That is what lets you compare numbers across engagements.
+
+The starter Library covers most needs. Add your own entries as your business grows.
+
+## Four lists
+
+| List | What it defines | Used by |
+|------|-----------------|---------|
+| Finance | P&L line items such as Revenue or Labour Cost. | Finance templates, contracts, automatic cost posting. |
+| Performance | KPI definitions such as Resolution Time or CSAT. | Performance templates, contract terms. |
+| Capacity Roles | Roles with rate context and a finance destination. | Capacity templates, hour recording. |
+| AI Usage | AI use cases with expected volume and cost target. | AI Usage templates. |
+
+## Why one shared list matters
+
+If each template defined its own "Labour Cost" item, comparing engagements would rely on matching names. That is fragile.
+
+With a shared library, every "Labour Cost" item across every template points to the same entry. Totals are exact. Comparisons are exact. The same idea applies to roles, KPIs, and AI use cases.
+
+## How the library connects work
+
+The Library is also where cross-domain automation is set up:
+
+- A capacity role has a finance destination, so recorded hours post as labour cost.
+- A KPI is referenced by contract terms, so missed terms link to the right metric.
+- A contract term has a finance destination, so the penalty posts to the right P&L line.
+
+You rarely change this once the starter library is set up, but it is useful to know it exists.
+
+## Defaults and your additions
+
+Each list ships with starter entries. Your additions sit alongside them, scoped to your organisation. Renaming a starter entry creates a copy that is yours alone.
+
+## Related
+
+- [Templates](/platform/configure/service-setup/templates)
+- [Bulk Upload](./bulk-upload)

@@ -1,0 +1,70 @@
+---
+title: "Contracts"
+description: "Commercial terms, rates, service quality terms, and P&L mapping for an engagement."
+---
+
+# Contracts
+
+A contract holds the commercial terms of an engagement: pricing, rates, billing model, service quality terms, and the P&L line each charge belongs to. Contracts connect what you deliver to what shows up in the P&L.
+
+## Header
+
+| Field | Purpose |
+|-------|---------|
+| Name | Short label. |
+| Customer | The consuming party, external or internal. |
+| Engagements | Which engagements this contract covers. |
+| Currency | Reporting currency for the contract. |
+| Start and end date | Validity window. |
+| Status | Draft, Active, Expired, or Renewed. |
+
+## Rate card
+
+Hourly rates by role used for cost and revenue. The platform picks a rate in this order:
+
+1. A rate set on this contract for this engagement.
+2. A rate set on this contract.
+3. The default rate card for your organisation.
+4. Any matching rate card.
+
+See [Library](/platform/configure/data/library) for default rate cards.
+
+## Billing model
+
+| Model | Behaviour |
+|-------|-----------|
+| Fixed fee | Revenue recognised on schedule. |
+| Time and material | Revenue = hours × rate. |
+| Hybrid | Fixed fee plus variable hours. |
+| Outcome based | Revenue tied to KPI results. |
+
+## Service quality terms
+
+For each KPI in the [Performance template](./templates):
+
+| Field | Meaning |
+|-------|---------|
+| Threshold | The point at which the term is missed. |
+| Direction | Whether higher or lower is worse. |
+| Penalty type | Fixed amount, percentage, or tiered. |
+| Post penalty automatically | If on, missed terms post a cost to Finance. |
+| Penalty destination | Which P&L line the penalty lands on. |
+
+This is the link between service quality and the bottom line.
+
+## How contracts feed the P&L
+
+When you record data on an engagement, the contract tells DigitalCore how to:
+
+- Calculate revenue (rate times hours, or fixed schedule).
+- Calculate labour cost (rate card times hours).
+- Detect missed service terms and post the penalty.
+- Place each line on the right P&L category.
+
+That is what produces an automatic per-engagement P&L.
+
+## Related
+
+- [Templates](./templates)
+- [Library](/platform/configure/data/library)
+- [Engagements](/platform/engagements)

@@ -1,104 +1,67 @@
----
+﻿---
 title: "What is DigitalCore?"
-description: "DigitalCore is a service economics platform that gives you real-time visibility into the financial health of every service engagement."
+description: "DigitalCore gives you real-time visibility into the financial health of every service engagement."
 ---
 
 # What is DigitalCore?
 
-## The Problem: Invisible Service Economics
+DigitalCore is a service economics platform. It gives you real-time visibility into the financial health of every service engagement, from one place.
 
-Most service businesses don't know which engagements make money and which ones quietly drain it. Margins erode through scope creep, untracked hours, missed SLA penalties, and cost overruns — but the spreadsheet only tells you after it's too late. Finance sees the P&L at month-end. Delivery sees utilisation numbers. Nobody sees the full picture per engagement, in real time.
+## The problem
 
-## What DigitalCore Does
+Most service businesses do not know which engagements make money and which ones quietly lose it. Margins erode through scope creep, missed SLA terms, and untracked hours. The spreadsheet only tells you after it is too late. Finance sees the P&L at month-end. Delivery sees utilisation. Nobody sees the full picture per engagement, in real time.
 
-DigitalCore is a service economics platform that gives you real-time visibility into the financial health of every service engagement. It connects three data domains — Finance, Performance, and Capacity — into a single workspace where planned values meet actual results, automated calculations replace manual formulas, and AI-powered analysis surfaces what needs attention.
+## What DigitalCore does
 
-You track what you planned. You record what actually happened. DigitalCore shows you the gap — and helps you decide what to do about it.
+DigitalCore connects four areas of data into one workspace: Finance, Performance, Capacity, and AI Usage.
 
-## Who It's For
+You record what you planned. You record what happened. DigitalCore shows the gap and helps you decide what to do about it.
 
-DigitalCore is built for organisations that deliver services and need to understand the economics behind them:
+## Who it is for
 
-- **Managed Service Providers (MSPs)** managing device-based or per-user contracts
-- **Professional services and consulting firms** tracking project margins and utilisation
-- **IT service desks** measuring SLA compliance and cost-per-ticket
-- **Creative and marketing agencies** managing fixed-fee engagements against actual effort
-- **NGOs and grant-funded organisations** tracking program costs against budgets
+- Managed service providers running per-user or per-device contracts.
+- Professional services and consulting firms tracking project margin.
+- IT service desks measuring SLA compliance and cost per ticket.
+- Creative and marketing agencies running fixed-fee engagements.
+- NGOs and grant-funded organisations tracking programme costs.
 
-It's used by operations leaders, finance managers, delivery managers, and service desk leads — anyone who needs to answer "are we making money on this engagement?"
+People who use it: operations leaders, finance managers, delivery managers, and service desk leads.
 
----
+## How it works
 
-# How It Works
+Everything centres on **engagements**: a service delivered to a customer over a period. Each engagement tracks its own finance, performance, capacity, and AI usage numbers. Engagements roll up into services, contracts, and the portfolio.
 
-## The Engagement-Centric Model (30-second version)
+### Four areas of data
 
-Everything in DigitalCore centres around **engagements** — a specific service delivered to a specific customer over a defined period. Each engagement tracks its own financials, performance metrics, and capacity allocation. Engagements are grouped under services, linked to contracts, and organised into portfolios for a top-down strategic view.
+- **Finance.** Revenue, cost, margin. P&L lines with plan and actual values each month.
+- **Performance.** KPIs (response time, resolution rate, customer satisfaction) with targets and limits.
+- **Capacity.** Hours by role, with rates that turn into labour cost.
+- **AI Usage.** Tokens and cost per AI use case, with model choice and budget targets.
 
-## Three Data Domains: Finance, Performance, Capacity
+### Automatic calculations
 
-Each engagement tracks three types of data:
+- Hours times rate becomes labour cost in Finance.
+- A missed SLA term becomes a penalty in Finance.
 
-- **Finance** — Revenue, costs, and margins. P&L line items with planned and actual values per month. Categories include revenue, cost of goods sold (COGS), and operating expenses.
-- **Performance** — KPIs and SLAs. Metrics like response time, resolution rate, or customer satisfaction, each with targets and thresholds. When actuals breach SLA thresholds, penalties are calculated automatically.
-- **Capacity** — Hours by role. Planned and actual hours for each role assigned to the engagement. FTE equivalents are derived automatically from logged hours.
+You do not write formulas. The numbers stay in sync.
 
-## Automated Cost and Penalty Calculations
+## Key features
 
-DigitalCore automates the calculations that typically require manual spreadsheet work:
+- **Monthly Check-ins.** Record actuals across finance, performance, capacity, and AI usage. Health colours update as you go.
+- **Responses.** Model options for a problem, compare them, and apply the chosen plan.
+- **Decisions.** Log a decision with options, owner, and outcome.
+- **Executive summaries.** Auto-drafted reports for stakeholders.
+- **Playbooks.** Short guides for common service challenges.
+- **AI assistant.** Ask questions, draft summaries, build options in plain English.
+- **AI tool connection.** Use DigitalCore from Claude or Cursor through MCP.
 
-- **Capacity → Finance:** When you log hours for a role, DigitalCore multiplies hours by the applicable rate (from rate cards or contract overrides) and creates the corresponding labour cost entry in Finance automatically.
-- **Performance → Finance:** When a KPI actual breaches an SLA threshold defined in the contract, DigitalCore calculates the penalty amount (fixed, percentage, or tiered) and creates a penalty cost entry in Finance automatically.
+## Get started
 
-No manual formulas. No copy-paste between sheets. Cross-domain triggers keep everything in sync.
+- [Quick Start](/getting-started) - run your first month.
+- [Concepts](/concepts) - the model in plain language.
+- [Guides](/guides) - step-by-step task help.
 
----
+## Related
 
-# Key Capabilities
-
-## Monthly Check-ins — Record and track service economics
-
-Check-ins are the core operational rhythm. Each month, you enter actuals for finance, performance, and capacity. DigitalCore compares them against your plans, calculates variances, assigns RAG status (Red / Amber / Green), and updates health scores — all in real time as you enter data.
-
-## Scenario Intelligence — What-if modelling for service decisions
-
-Before committing to a pricing change, staffing adjustment, or contract renegotiation, use scenarios to model the impact. DigitalCore's AI can generate multiple scenario variants with different economic drivers, project the financial effects, and let you compare options side by side. When you're ready, commit a scenario and its values become your new plan.
-
-## Executive Summaries — AI-generated stakeholder reports
-
-Generate narrative reports for any engagement or set of engagements. Choose your audience (executive, operational, financial), select the period, and DigitalCore drafts a structured summary with health indicators, key findings, and recommended actions. Edit, finalize, and export as PDF.
-
-## 29 Playbooks — Operational response guides
-
-Playbooks are structured guides for common service management challenges: margin erosion, capacity shortfalls, SLA breaches, renewal risk, and more. Each playbook includes warning signs, diagnostics, a phased action plan, and the metrics to track. Browse all playbooks at [digitalcore.app/learn/playbooks](https://digitalcore.app/learn/playbooks).
-
-## MCP Integration — Connect your AI tools directly
-
-DigitalCore supports the Model Context Protocol (MCP), allowing you to query your service data, record actuals, generate reports, and run scenarios directly from AI tools like Claude Desktop, Cursor, VS Code, ChatGPT, and Windsurf. A free MCP server with 6 tools is available without an account. Paid MCP access connects to your live data.
-
----
-
-# How It Compares
-
-See how DigitalCore differs from other approaches:
-
-- [vs. Spreadsheets](https://digitalcore.app/compare/excel) — Why spreadsheet-based service tracking breaks down at scale
-- [vs. ServiceNow](https://digitalcore.app/compare/servicenow) — ITSM tools track tickets, not economics
-- [vs. Monday.com](https://digitalcore.app/compare/monday) — Project management tools miss the financial layer
-- [vs. Jira](https://digitalcore.app/compare/jira) — Issue tracking without service economics context
-
----
-
-# Getting Started
-
-## Free Tier — Start in 5 minutes
-
-Create an account at no cost. The free tier includes core service economics tracking for a single user — enough to set up your first service, create an engagement, and run a check-in.
-
-## View Pricing
-
-See all plans, features, and pricing at [digitalcore.app/pricing](https://digitalcore.app/pricing).
-
-## Connect Your AI Tools
-
-Set up DigitalCore's MCP integration to query your data from Claude, Cursor, VS Code, ChatGPT, or Windsurf. See [MCP & Integrations](/mcp-and-integrations/) for setup instructions.
+- [Pricing](/account/pricing)
+- [Connections and Integrations](/mcp-and-integrations)

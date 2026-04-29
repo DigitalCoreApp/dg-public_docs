@@ -1,95 +1,49 @@
-# Creating and Evaluating Scenarios
-
-Scenarios let you model "what if" situations and compare different courses of action before committing to a plan change.
-
+﻿---
+title: "Creating and Comparing Responses"
+description: "Model options for a problem, compare them side by side, and apply the chosen plan."
 ---
 
-## When to Create a Scenario
+# Creating and Comparing Responses
 
-### Common Triggers
+A Response is how you frame a problem, compare options, and apply a plan change. Responses live on an engagement.
 
-Create a scenario when you identify a potential change or risk:
+## Frame the problem
 
-- **Cost overrun** — Actuals exceeding plan, need to model corrective actions
-- **Revenue change** — Customer requesting pricing revision, need to model impact
-- **Capacity shift** — Team member leaving or joining, need to model cost effects
-- **Contract renewal** — Renegotiating terms, need to compare options
+1. Open the engagement and click **New Response**.
+2. Give it a title (for example, "Recover Acme margin").
+3. Pick the period the response covers.
 
-### Choosing the Right Scenario Type
+## Build options
 
-| Type | When to Use |
-|------|-------------|
-| **Reforecast** | Update projections based on recent actuals |
-| **Risk Response** | Model mitigation strategies for identified problems |
-| **Growth** | Project impact of expansion or new business |
-| **Cost Reduction** | Evaluate impact of efficiency measures |
+Each Response can have several Options. An Option is one possible plan.
 
----
+1. Click **Add Option**.
+2. Edit the assumptions: rates, hours, KPIs, prices.
+3. DigitalCore recalculates the engagement plan in place.
 
-## Option A: AI-Generated Scenarios
+You can ask the assistant to generate options. It proposes three by default, each with a different trade-off.
 
-### Using "Generate Options" for an Engagement
+## Compare side by side
 
-Navigate to the engagement's scenario section and select **Generate Options**. Describe the situation or goal: "Margins are declining, what options do I have?" The AI analyses the engagement's current data and generates 2-4 distinct scenario variants.
+Open the **Compare** view. Each option shows margin, cost, capacity, and risk for the period.
 
-### Reviewing the AI-Suggested Approaches
+## Approve and apply
 
-Each AI-generated scenario comes with:
+When you have picked an option:
 
-- A descriptive label (e.g., "Conservative Cost Cut," "Balanced Approach," "Growth Bet")
-- The specific drivers applied
-- Projected financial impact (revenue, cost, and margin changes)
+1. Click **Approve & Apply**.
+2. The chosen option becomes the new plan for the period.
+3. Other options are kept as Declined for the activity log.
 
----
+## Statuses
 
-## Option B: Manual Scenario Creation
+- **Proposed.** Draft, not visible to others.
+- **Approved.** Selected as the chosen path.
+- **Declined.** Considered and not chosen.
+- **Applied.** Pushed into the live plan.
 
-### Creating a Blank Scenario
+## Related
 
-Create a new scenario from the Decisions workspace. Give it a name and description, and select the target engagement(s). The scenario starts with your current plan as the baseline.
-
-### Adding Drivers (Percentage, Absolute, or Fixed Value)
-
-Add drivers to model changes:
-
-- **Percentage**: Revenue +10%, or All Costs −5%
-- **Absolute**: +2 FTEs (adds hours and corresponding labour costs)
-- **Fixed Value**: Set availability target to 99.9%
-
-Each driver specifies which domain, which items, and what change to apply.
-
----
-
-## Evaluating and Refining
-
-### Reading the Impact View
-
-The Impact tab shows the projected effects of all drivers combined: how revenue, costs, margins, KPIs, and capacity would change if the scenario were adopted.
-
-### Adjusting Driver Values
-
-Edit individual drivers to fine-tune the scenario. Increase or decrease percentages, change which items are affected, or add new drivers. The Impact view updates immediately.
-
-### Comparing Multiple Scenarios Side-by-Side
-
-Open the comparison view to place two or more scenarios next to each other. See the key differences: projected margin, capacity requirement, risk factors. This is where you make the decision.
-
----
-
-## Committing a Scenario
-
-### What "Commit" Does — Adopting the Plan
-
-Committing a scenario writes its projected values into your live plan. Your old plan values are preserved in the scenario history for reference.
-
-### Undoing a Commit
-
-If you change your mind, reverse the commit. DigitalCore restores the previous plan values and marks the scenario as reverted.
-
----
-
-## Checking Accuracy Later
-
-### Comparing Predictions to Actuals
-
-After actuals are recorded for the scenario's period, return to the scenario and check accuracy. How close were the projections to reality? This feedback loop improves your modelling intuition over time.
+- [Using Governance and Decisions](/guides/governance)
+- [Strategy and Priorities](/guides/strategy)
+- [Concepts: Decisions](/concepts/decisions)

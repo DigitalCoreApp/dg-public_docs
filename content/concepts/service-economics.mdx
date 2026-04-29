@@ -1,77 +1,43 @@
 ---
-title: "Service Economics in DigitalCore"
-description: "How DigitalCore implements service economics with real-time P&L tracking, automated cost attribution, and scenario-based decision making."
+title: "Service economics in DigitalCore"
+description: "Real-time P&L per engagement, automatic cost attribution, and modelling before you commit."
 ---
 
-# Service Economics in DigitalCore
+# Service economics in DigitalCore
 
-## What is Service Economics?
+Service economics is the discipline of understanding how services make or lose money. It pulls revenue, cost, performance, and capacity into one view per engagement, per service, and across the portfolio.
 
-### Quick Definition
+For the wider concept, see the public guides:
 
-Service economics is the discipline of understanding how services make or lose money. It combines revenue tracking, cost attribution, performance measurement, and capacity management into a unified view of financial health — per engagement, per service, and across your portfolio.
+- [What is Service Economics?](https://digitalcore.app/learn/guides/what-is-service-economics)
+- [The Complete Guide to Service Economics](https://digitalcore.app/learn/guides/service-economics)
 
-### Learn More
+This page is about how DigitalCore puts the discipline into practice.
 
-For a comprehensive introduction to service economics as a discipline, see the 10-part learning guide on the main site:
+## What you get
 
-- [What is Service Economics?](https://digitalcore.app/learn/guides/what-is-service-economics) — Foundational overview
-- [The Complete Guide to Service Economics](https://digitalcore.app/learn/guides/service-economics) — 10 chapters covering the full framework
+- **Real-time P&L per engagement.** Revenue, cost, and margin tracked monthly with plan and actual values. The view updates as you record data, not weeks later.
+- **Automatic cost attribution.** Hours times the right rate become labour cost on the right finance line, with no spreadsheet formulas to maintain.
+- **Penalty detection from contracts.** When a KPI crosses a contract limit, the penalty is calculated and posted as cost.
+- **Modelling before you commit.** Build response options for a decision and compare projected impact, then approve and apply the chosen option.
 
-This page focuses on how DigitalCore implements these concepts in practice.
+## The four pillars in practice
 
----
+- **Revenue attribution.** Each finance line categorises revenue by type. Combined with delivery attribution, you can answer "how much revenue from this engagement?" and "which customer or unit is responsible for it?"
+- **Cost visibility.** Direct, indirect, and labour cost, each tagged to a delivery party. Labour cost is automatic; external cost is entered during check‑in. Every entry is traceable.
+- **Margin analysis.** With revenue and cost tracked monthly, margins stay current:
+  - Gross margin = revenue minus cost of goods sold.
+  - Contribution margin = gross minus allocated operating expense.
+  - Net margin = the bottom line after all attributed cost.
 
-## How DigitalCore Implements Service Economics
+## Why this is not a spreadsheet
 
-### Real-Time P&L per Engagement
+- **No fragile formulas.** Hours always become the right cost, on the right line, at the right rate.
+- **Domains are connected.** A change in capacity flows to finance. A missed term in performance posts a cost. There are no separate tabs to reconcile.
+- **No month‑end surprise.** Variance is visible the moment actuals are recorded.
 
-Every engagement in DigitalCore has its own profit-and-loss statement. Revenue, costs, and margins are tracked monthly with planned (target) and actual values. Unlike spreadsheet-based reporting that lags by weeks or months, DigitalCore's P&L updates as soon as data is entered.
+## Related
 
-### Automated Cost Attribution — Hours × Rates = COGS, Automatically
-
-When someone logs capacity hours for a role, DigitalCore multiplies those hours by the applicable hourly rate and creates the corresponding labour cost entry in the finance domain. No spreadsheet formulas. No manual copying between sheets. The cost appears instantly.
-
-### SLA-Linked Financial Penalties — Breach Detection Triggers Cost Entries
-
-When a KPI actual falls below (or exceeds) the threshold defined in the contract, DigitalCore detects the breach, calculates the penalty amount, and creates a penalty cost entry in finance. The penalty calculation supports fixed amounts, percentage of contract value, and tiered structures.
-
-### Scenario-Based Decision Making — What-if Modelling Before You Commit
-
-Before making a pricing change, staffing decision, or contract renegotiation, model the financial impact with scenarios. DigitalCore projects the effects across all three domains and lets you compare options side by side. Commit a scenario to adopt it as your plan.
-
----
-
-## The Three Pillars in Practice
-
-### Revenue Attribution — Track Who Pays for What, per Engagement
-
-Each finance template item categorises revenue by type. Combined with delivery attribution, you can answer not just "how much revenue did this engagement generate?" but "which customer or business unit is responsible for that revenue?"
-
-### Cost Visibility — Direct, Indirect, and Labour Costs with Delivery Party Tracking
-
-Costs are categorised by P&L type (COGS, operating expenses) and can be attributed to specific delivery parties. Labour costs are auto-calculated from capacity hours. External costs are entered manually. Every cost is traceable to its source.
-
-### Margin Analysis — Gross, Contribution, and Net Margins Updated Monthly
-
-With revenue and costs tracked per engagement per month, margins are always current:
-
-- **Gross margin** = Revenue minus direct costs (COGS)
-- **Contribution margin** = Gross margin minus allocated operating expenses
-- **Net margin** = The bottom line after all attributed costs
-
----
-
-## What Makes This Different from a Spreadsheet
-
-### Automated Calculations Replace Manual Formulas
-
-In a spreadsheet, every formula is a point of failure. DigitalCore's automated triggers mean capacity hours always produce the correct cost entry, using the correct rate, in the correct finance line — without anyone writing or maintaining a formula.
-
-### Cross-Domain Triggers Link Capacity, Performance, and Finance
-
-Spreadsheets silo data by tab. DigitalCore connects the three domains: capacity drives finance costs, performance drives finance penalties. A change in one domain immediately reflects in the others.
-
-### Real-Time Variance Tracking Instead of Month-End Surprises
-
-Spreadsheet-based P&Ls are typically assembled at month-end, often with a 2-4 week lag. DigitalCore calculates variance as soon as actuals are entered, showing you the gap between plan and reality immediately.
+- [Engagements](/concepts/engagements): the unit where P&L is tracked.
+- [Data domains](/concepts/data-domains): the four pillars in detail.
+- [Automatic costs and penalties](/concepts/automation): how the connections work.

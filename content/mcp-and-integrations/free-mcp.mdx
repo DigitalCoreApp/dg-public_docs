@@ -1,115 +1,48 @@
----
-title: "Free MCP Server Setup"
-description: "Connect to DigitalCore's free MCP server — 6 tools for playbooks, KPI definitions, and quick health checks. No account required."
----
-
-# Free MCP Server Setup
-
-## What's Included (6 Free Tools)
-
-| Tool | What It Does |
-|------|-------------|
-| **`get_playbook`** | Browse 29 service management playbooks with full content, warning signs, diagnostics, and recommended actions |
-| **`explain_metric`** | Get KPI formulas, calculation methods, industry benchmarks, and improvement tips for any service management metric |
-| **`run_service_reality_check`** | Calculate a quick health score from basic inputs: revenue, costs, FTEs, and SLA achievement percentage |
-| **`list_playbooks`** | Quick directory of all available playbooks with slugs and descriptions |
-| **`submit_email`** | Register to receive the Service Economics Guide and DigitalCore updates |
-| **`submit_feedback`** | Rate and comment on tool results to help improve the service |
-
+﻿---
+title: "Free Connection"
+description: "Playbooks and KPI definitions in your AI assistant. No account needed."
 ---
 
-## Quick Setup (Copy-Paste Configs)
+# Free Connection
 
-### Claude Desktop Configuration
+The free connection gives any AI assistant access to DigitalCore''s playbooks, KPI definitions, and a quick health-check tool. No account required.
 
-Add the following to your Claude Desktop config file (`claude_desktop_config.json`):
+## What you get
 
-```json
-{
-  "mcpServers": {
-    "digitalcore-free": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-remote", "https://mcpfree.digitalcore.app/mcp"]
-    }
-  }
-}
-```
+- 35 playbooks (margin recovery, capacity planning, SLA response, and more).
+- KPI explainers (what a KPI means, how to calculate it, target ranges).
+- A 5-input service health check.
+- Email signup tool (optional).
 
-### Cursor Configuration
+## What you do not get
 
-In your Cursor MCP settings, add:
+Live access to your DigitalCore data. For that, set up the [paid connection](/mcp-and-integrations/paid-mcp).
 
-```json
-{
-  "mcpServers": {
-    "digitalcore-free": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-remote", "https://mcpfree.digitalcore.app/mcp"]
-    }
-  }
-}
-```
+## Setup
 
-### VS Code / GitHub Copilot Configuration
+The endpoint is `https://mcpfree.digitalcore.app`.
 
-Add to your VS Code `settings.json` under `mcp.servers`:
+### Claude Desktop
 
-```json
-{
-  "mcp": {
-    "servers": {
-      "digitalcore-free": {
-        "command": "npx",
-        "args": ["-y", "@anthropic-ai/mcp-remote", "https://mcpfree.digitalcore.app/mcp"]
-      }
-    }
-  }
-}
-```
+1. Open Claude Desktop and go to Settings, then Connectors.
+2. Add a new connection.
+3. URL: `https://mcpfree.digitalcore.app`.
+4. Save and restart Claude.
 
-### ChatGPT Configuration
+### ChatGPT
 
-Use the ChatGPT app's MCP integration to connect to `https://mcpfree.digitalcore.app/mcp` using the streamable HTTP transport.
+Use the DigitalCore App from the GPT Store. It uses the free connection.
 
-### Windsurf Configuration
+### Cursor and other clients
 
-Add to your Windsurf MCP settings:
+Refer to your client''s documentation. Most accept a URL and no key.
 
-```json
-{
-  "mcpServers": {
-    "digitalcore-free": {
-      "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-remote", "https://mcpfree.digitalcore.app/mcp"]
-    }
-  }
-}
-```
+## Tips
 
----
+- Try asking, "Give me a service margin playbook for a managed services contract".
+- Ask, "Explain First Response Time and what is a healthy target".
 
-## Usage Examples
+## Related
 
-### Browsing Playbooks
-
-Ask your AI assistant:
-
-> "Show me the playbook for margin erosion"
-
-> "What playbooks are available for client churn?"
-
-### Understanding Metrics
-
-Ask:
-
-> "Explain First Call Resolution — how is it calculated and what's a good target?"
-
-> "What is utilisation rate and how should I interpret it?"
-
-### Running a Quick Health Check
-
-Provide basic numbers:
-
-> "Run a service reality check: revenue €100,000, costs €75,000, 5 FTEs, 98% SLA achievement"
-
-The AI calculates a health score with commentary — no account needed.
+- [Paid Connection](/mcp-and-integrations/paid-mcp)
+- [Playbooks](/playbooks)

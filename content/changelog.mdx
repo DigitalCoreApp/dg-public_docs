@@ -1,70 +1,59 @@
----
+﻿---
 title: "Changelog"
-description: "Product updates, new features, and release notes for DigitalCore."
+description: "What is new in DigitalCore."
 ---
 
 # Changelog
 
-Product updates and release notes for DigitalCore.
+Recent updates to DigitalCore.
 
----
+## April 2026
+
+- AI Usage is now a first-class data domain alongside Finance, Performance, and Capacity. Track tokens, model spend, and ROI per engagement.
+- ServiceNow integration: pull incidents, problems, and changes into Performance, with auto-link to engagements.
+- Microsoft Teams notifications: install the DigitalCore Teams app once, then connect any channel with a one-time registration code.
+- Email distribution lists: send reports and alerts to managed recipient lists, not just individual addresses.
+- Slack OAuth flow simplified: no admin-approval step in the docs path.
+
+## March 2026
+
+- Automated risk detection: data uploads and check-ins now scan for cross-domain signals (margin pressure, cost escalation, SLA breach, capacity overrun) and create governance cases for critical issues.
+- Intelligence pages: Risk Exposure, Utilization Loss, Delivery Cost, and Correlations.
+- QuickBooks sync extended to cover invoice and expense categories.
 
 ## February 2026
 
-### New Features
-
-- **AI Narrative Generation (Ollama-powered)** — Executive summaries and period narratives now use on-premise AI for faster, more private text generation with automatic cloud fallback.
-- **Redis Task Queue** — Background processing for AI workloads: narrative generation and period summaries run asynchronously without blocking the interface.
-- **4-Service Microservice Architecture** — Backend services split into independent containers (MCP, AI, Ingest, Sync) for isolated scaling and deployment.
-- **Delivery Attribution on Plans and Measures** — Track which party (customer or deliverer) is responsible for each planned and actual value across all three data domains.
-
-### Improvements
-
-- Capacity check-in grid now shows FTE calculations alongside hours
-- Scenario comparison view redesigned with clearer financial impact summaries
-- Health score algorithm updated with configurable organisation-level RAG thresholds
-
-### Bug Fixes
-
-- Fixed profile settings loading race condition in production
-- Fixed performance check-in tabs passing null instead of omitting delivery party field
-- Fixed React Query hanging on initial load
-
----
+- AI assistant connections (MCP) now generally available, both free and paid.
+- Microsoft Teams notifications.
+- Faster Portfolio dashboard.
 
 ## January 2026
 
-### New Features
+- New version of Responses and Decisions.
+- Refreshed Pulse, Portfolio, Engagement, and Communicate sections.
+- Strategy view with Priorities.
 
-- **Scenario Intelligence** — Create, evaluate, and commit what-if scenarios with AI-generated options
-- **Executive Summary Builder** — Multi-section reports with AI-generated narratives and PDF export
-- **Free MCP Server** — 6 public tools for playbook browsing, KPI education, and service health checks
-- **Paid MCP Server** — 13+ tools covering Monitor, Record, Diagnose, Plan, Decide, and Communicate capabilities
+## December 2025
 
-### Improvements
+- Executive summaries with scheduled delivery.
+- Slack notifications.
+- QuickBooks invoice and expense sync.
 
-- Aggregation engine with cooldown-based refresh and org-level threshold configuration
-- SLA breach detection upgraded to catalog-driven architecture (V3) for better cross-domain consistency
-- Labour cost automation upgraded to catalog-driven architecture (V2) with source tracking
+## November 2025
 
-### Bug Fixes
+- Excel and CSV import.
+- Capacity hours auto-post to Finance.
+- SLA term breach detection.
 
-- Middleware session refresh now runs for all routes including public paths
-- Password reset flow rebuilt with correct token handling
-- Avatar upload fixed with correct environment variable naming
+## October 2025
 
----
+- Initial public release.
 
-## Format
+## Roadmap
 
-Each release entry includes:
+We publish a public roadmap at [digitalcore.app/roadmap](https://digitalcore.app/roadmap). Vote on items there or by email at feedback@digitalcore.app.
 
-- **Date** — When the release was deployed
-- **Version** — Semantic version number
-- **What's New** — New features and capabilities
-- **What's Changed** — Improvements to existing features
-- **What's Fixed** — Bug fixes and corrections
+## Related
 
----
-
-*This changelog is updated with each release.*
+- [What is DigitalCore?](/)
+- [FAQ](/faq)

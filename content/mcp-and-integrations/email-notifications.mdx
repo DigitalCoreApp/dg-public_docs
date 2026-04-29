@@ -1,141 +1,71 @@
 ---
 title: "Email Notifications"
-description: "Configure email delivery for scheduled reports, alerts, and AI summaries in DigitalCore."
+description: "Receive reports and alerts by email, and manage shared distribution lists."
 ---
 
 # Email Notifications
 
-## Overview
+Email is the default channel for scheduled reports and personal alerts. You can also create shared distribution lists so reports go to a named group instead of a list of individual addresses.
 
-### What Email Delivery Covers
+## Personal alerts (per user)
 
-DigitalCore can send the following via email:
+In **Profile Settings** each user picks what they receive:
 
-- **Scheduled report delivery** — When a scheduled report generates, a notification (with optional PDF attachment) is sent to configured recipients
-- **SLA breach alerts** — Direct email notification when a performance threshold is crossed
-- **AI insight notifications** — Periodic summaries from the AI agent
+- Open Decisions assigned to them.
+- Missed SLA terms on engagements they own.
+- Mentions in comments.
+- A daily or weekly digest.
 
-Email delivery is separate from in-app notification preferences (which you configure in **Settings → Notifications**). Email channels here are used for structured, automated report delivery.
+## Distribution lists
 
----
+Distribution lists are reusable recipient groups. Use one list per audience (for example "Exec Committee", "Customer A leadership", "Ops weekly").
 
-## Channel Types: Email vs. Email List
+### Create a list
 
-DigitalCore provides two email channel types:
+1. Go to **Configure**, then **Notifications**, then **Email lists**.
+2. Click **New list**.
+3. Give it a name and an owner. The owner manages members.
+4. Add members. Each member is just an email address. They do not need a DigitalCore account.
 
-| Type | Best For |
-|------|----------|
-| **Email** | Single recipient — a named stakeholder or distribution address |
-| **Email List** | Managed group — link a set of internal or external stakeholders who all receive the same reports |
+### Use a list
 
----
+When you schedule a report or set up a signal alert:
 
-## Adding an Email Channel
+1. In the recipients field, start typing the list name.
+2. Pick the list. It expands to all current members at send time.
+3. Add individual addresses alongside the list if needed.
 
-### Single Email
+### Manage subscribers
 
-1. Go to **Communicate → Channels**
-2. Click **Add Channel** and select **Email**
-3. Enter the recipient email address and a display name for the channel (e.g. "Monthly Report — Client ABC")
-4. Click **Add**
+- The list owner can add or remove members at any time.
+- Members can opt out using the **Unsubscribe** link in any email. They are removed from the list automatically.
+- Set a **fallback recipient** on the list (usually the engagement owner). If the list is empty, the fallback receives the email.
 
-Single email channels are immediately active — no OAuth or verification step is required.
+## Scheduled reports (per report)
 
-### Email List
+When you set up a report:
 
-1. Go to **Communicate → Channels**
-2. Click **Add Channel** and select **Email List**
-3. Select the stakeholders to include from your organisation's stakeholder list
+1. Open the report in **Communicate**, then **Reports**.
+2. Click **Schedule**.
+3. Pick monthly or quarterly.
+4. Add recipients: distribution lists, individual addresses, or both.
 
-Stakeholders listed here are pulled from your engagement contacts. To add someone who is not yet a stakeholder, first add them as a stakeholder in the relevant engagement, then return to add them to the email list.
+External recipients do not need a DigitalCore account. They get the PDF and a public link.
 
----
+## Sender and frequency
 
-## Assigning to a Scheduled Report
+- Emails come from `notifications@digitalcore.app`. Add this to your safe senders list.
+- Personal alerts can be real time, daily digest (8am local), or weekly digest (Monday morning).
+- Scheduled reports are sent at the time you pick.
 
-1. Go to **Communicate → Reports** and open any schedule
-2. Under **Delivery Channels**, check the email channel(s) you want to include
-3. Under **Email Recipients** (if shown), you can also add one-off addresses directly on the schedule — these are separate from saved channels
-4. Save the schedule
+## Tips
 
-When the schedule runs, the report notification is sent to all selected channels and any directly entered addresses.
+- For external recipients, send the public link rather than the PDF, so the report stays current.
+- Use the daily digest if you find real-time alerts noisy.
+- Audit lists every quarter. Remove people who have left.
 
----
+## Related
 
-## PDF Attachments
-
-Scheduled reports support optional PDF export. When PDF generation is enabled on a schedule, the generated PDF is attached to the email delivery automatically.
-
-To enable:
-1. Open the schedule in **Communicate → Reports**
-2. Turn on the **Generate PDF** toggle
-3. Save
-
-> PDF generation adds a few seconds to the processing time. For time-sensitive delivery windows, account for this delay.
-
----
-
-## Managing Email Channels
-
-### Updating Recipients
-
-Edit the channel from **Communicate → Channels** to change the email address (for single email channels) or update the stakeholder list (for email list channels).
-
-### Removing a Channel
-
-Delete the channel from **Communicate → Channels**. This removes the channel from all schedules it was assigned to. Recipients will no longer receive scheduled deliveries from DigitalCore.
-
----
-
-## Notification Preferences vs. Delivery Channels
-
-There are two separate email configuration areas in DigitalCore:
-
-| Setting | Location | Purpose |
-|---------|----------|---------|
-| **Notification preferences** | Settings → Notifications | Controls whether *you* receive email alerts for events like SLA breaches or check-in reminders |
-| **Delivery channels** | Communicate → Channels | Controls where *scheduled reports* are delivered (email, Slack, Teams) |
-
-If you are not receiving scheduled report emails, check both areas — the delivery channel must be configured on the schedule, and the generating user's notification preferences do not affect channel delivery.
-
----
-
-## Troubleshooting
-
-### Emails are not arriving
-
-Check these in order:
-
-1. **Spam / junk folder** — Automated report emails may initially land in spam. Mark as "Not spam" and add `notifications@digitalcore.app` to your contacts
-2. **Delivery channel is assigned** — Go to **Communicate → Reports**, open the schedule, and confirm the email channel is checked under **Delivery Channels**
-3. **Schedule is active** — Confirm the schedule shows a **Next Run** date
-4. **Email address is correct** — Edit the channel and verify the address
-
-### Email arrives but PDF is missing
-
-PDF generation may have failed for the report. Check:
-
-1. Open the report in **Communicate → Reports**
-2. If a PDF failed to generate, there will be an error indicator on the report entry
-3. Use the **Regenerate** option to trigger a new run
-
-PDF generation can fail if the report contains data that cannot be rendered (e.g. corrupt chart data). Regenerating the report sections usually resolves this.
-
-### "Recipient address rejected"
-
-This means the receiving mail server rejected the delivery. Possible causes:
-
-- The email address has a typo — edit the channel and correct the address
-- The recipient's mail server is blocking automated email — ask the recipient's IT team to allowlist `digitalcore.app`
-- The address is a restricted internal distribution list that does not accept external senders
-
-### Stakeholders not appearing in Email List picker
-
-Stakeholders are sourced from engagement contacts. If a person is not showing:
-
-- Check they are added as a stakeholder on at least one engagement in your organisation
-- Contact stakeholders must have a valid email address in their profile
-
-### Changing the sender address
-
-Report delivery emails are sent from DigitalCore's centralised sending domain (`notifications@digitalcore.app`). Custom sender domains are not currently supported on standard plans.
+- [Notification Channels](/mcp-and-integrations/notification-channels)
+- [Building an Executive Summary](/guides/executive-summaries)
+- [Slack Notifications](/mcp-and-integrations/slack-notifications)

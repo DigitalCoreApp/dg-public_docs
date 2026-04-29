@@ -1,180 +1,62 @@
 ---
 title: "Microsoft Teams Notifications"
-description: "Install the DigitalCore bot into Microsoft Teams and deliver scheduled reports and alerts to Teams channels."
+description: "Install the DigitalCore bot in Microsoft Teams to deliver reports and alerts."
 ---
 
 # Microsoft Teams Notifications
 
-## Overview
+DigitalCore provides a Teams app that posts reports, alerts, and decision updates to channels you pick. Install it once into your tenant, then connect channels.
 
-### What Teams Delivery Covers
+## Before you start
 
-DigitalCore can deliver the following to any Microsoft Teams channel or group chat where the bot is installed:
+You need:
 
-- Scheduled reports (on the schedule you define in **Communicate → Reports**)
-- SLA breach alerts when performance thresholds are crossed
-- AI-generated insights from the DigitalCore agent
+- The ability to install third-party apps in your Microsoft Teams tenant.
+- A team and channel for reports and a channel for alerts.
 
-Messages are delivered as Adaptive Cards — structured cards with the report headline, key metrics, and a button linking back to the full report in the app.
+## Install the DigitalCore Teams app
 
-### Architecture
+1. In DigitalCore, go to **Configure**, then **Integrations**, then **Microsoft Teams**.
+2. Click **Download Teams app package**. You get a `.zip` file.
+3. Open Microsoft Teams.
+4. Click **Apps** in the left rail, then **Manage your apps**, then **Upload an app**.
+5. Pick **Upload a custom app** and select the `.zip` file.
+6. The DigitalCore app is now available in your tenant.
 
-DigitalCore uses the **Microsoft Bot Framework** proactive messaging API. A small app package (containing the bot definition) is installed into your Teams environment by an admin. Once installed, DigitalCore can send proactive messages to any channel or group chat where the bot is present — without requiring users to initiate a conversation.
+You only do this once per tenant.
 
----
+## Connect to a channel
 
-## Prerequisites
+1. In Teams, open the channel where you want notifications.
+2. @mention the **DigitalCore** bot, or add it from **Apps** in the channel.
+3. The bot posts a one-time registration code, for example `DC-A3B7`.
+4. Back in DigitalCore, paste the code under **Configure**, then **Integrations**, then **Microsoft Teams**.
+5. The channel is now connected.
 
-- A Microsoft 365 / Teams environment where you have **Teams admin rights** (or can request installation approval)
-- A DigitalCore account with **admin** role
+Repeat for any other channels you want to use.
 
----
+## Pick channels for each notification type
 
-## Setup: Step-by-Step
+For each type, pick a channel:
 
-### Step 1: Open Notification Channels
+- **Reports.** A leadership or ops channel.
+- **Alerts.** A dedicated alerts channel.
+- **Decision updates.** Optional.
 
-Navigate to **Communicate → Channels**.
+## What it looks like
 
-### Step 2: Download the App Package
+- **Reports.** Adaptive card with headline numbers and a link.
+- **Alerts.** Coloured card with the engagement, the issue, and a link.
+- **Decisions.** Card with title, status, and owner.
 
-In the Teams section of the channels page, click **Download App Package**. This downloads a `.zip` file containing the DigitalCore bot manifest, icons, and configuration — pre-filled with your organisation's settings.
+## Mute or remove
 
-> The app package is generated for your specific DigitalCore organisation. Do not share this package with other tenants.
+- Mute notifications in a channel using channel notification settings.
+- To stop notifications, unlink the channel under **Configure**, then **Integrations**.
+- To remove the app entirely, uninstall it from Teams the same way you installed it.
 
-### Step 3: Install the App in Microsoft Teams
+## Related
 
-You can install the app as a **custom (sideloaded) app** in Teams. The exact steps depend on your organisation's Teams policies:
-
-#### Option A: Install for your organisation (Teams Admin Centre)
-
-1. Go to the [Teams Admin Centre](https://admin.teams.microsoft.com)
-2. Navigate to **Teams apps → Manage apps**
-3. Click **Upload new app** (or **Upload** → **Upload for my org**)
-4. Upload the `.zip` file downloaded in Step 2
-5. Once uploaded, the app appears in your org's app catalogue under **Custom apps**
-
-> A Teams admin with the "Manage apps" permission is required for this step.
-
-#### Option B: Install directly (if sideloading is permitted)
-
-If your organisation allows app sideloading:
-
-1. Open Microsoft Teams
-2. Go to **Apps** (left sidebar) → **Manage your apps**
-3. Click **Upload an app** → **Upload a custom app**
-4. Select the `.zip` file and confirm the installation
-
-### Step 4: Add the Bot to a Teams Channel
-
-After the app is available in your catalogue:
-
-1. Open the target Teams channel or group chat
-2. Click the **+** (Apps) button in the channel toolbar
-3. Search for **DigitalCore** and add it to the channel
-
-When the bot is added, it automatically posts a **welcome message** to the channel. This message contains a 4-character **registration code** in the format `DC-XXXX`.
-
-> **Keep this welcome message visible** — you need the registration code in the next step.
-
-### Step 5: Enter the Registration Code
-
-Back in DigitalCore:
-
-1. Go to **Communicate → Channels**
-2. Click **Add Channel** and select **Microsoft Teams**
-3. Enter the registration code from the Teams welcome message (e.g. `DC-A3B7`)
-4. Give the channel a name for your reference and click **Add**
-
-DigitalCore validates the code and creates the delivery channel record. The status will show as **Connected**.
-
-### Step 6: Link Your Microsoft Tenant
-
-If this is the first Teams channel for your organisation, you will be prompted to **Link Microsoft Tenant**. This binds your DigitalCore organisation to your Microsoft 365 tenant, enabling the bot to send proactive messages.
-
-Click **Link Tenant** and complete the Microsoft sign-in flow. You need a Microsoft account that is a member of the tenant.
-
-### Step 7: Verify
-
-Click **Send Test Message** on the new channel entry. A test Adaptive Card will be posted to the Teams channel. Once confirmed, the channel status changes to **Verified**.
-
----
-
-## Assigning to a Scheduled Report
-
-1. Go to **Communicate → Reports** and open any schedule
-2. Under **Delivery Channels**, check the Teams channel you just configured
-3. Save the schedule
-
-The next time the schedule runs, the report will be delivered to the Teams channel automatically.
-
----
-
-## Managing the Connection
-
-### Adding More Teams Channels
-
-Repeat Steps 4–6 for each additional Teams channel. Multiple channels can be registered under the same organisation. Each channel has its own registration code flow.
-
-### Checking Package Version
-
-DigitalCore may release updated versions of the Teams app package to add new features. The channel page shows the installed version and whether an update is available. To update:
-
-1. Download the new package from **Communicate → Channels**
-2. In Teams Admin Centre, go to **Manage apps** → find DigitalCore → **Update** the app package
-
-### Unlinking the Microsoft Tenant
-
-To fully disconnect Teams from your DigitalCore organisation, click **Unlink Tenant** on the channels page. This deactivates all existing Teams channels for your organisation. The bot remains installed in Teams but will no longer receive deliveries until re-linked.
-
----
-
-## Troubleshooting
-
-### The bot was added to a channel but no welcome message appeared
-
-The welcome message is sent automatically when the bot receives the `conversationUpdate` event. If it did not arrive:
-
-- Check that the bot was successfully installed (not just the app — the bot needs to be added to the channel)
-- Re-add the bot to the channel to trigger the welcome message again
-- Check your Teams notification settings — the message may have been delivered but not visible
-
-### "Registration code not found" or "Code already used"
-
-Registration codes are single-use and expire after a short window.
-
-- If the code has expired, remove the bot from the channel and re-add it — this triggers a new welcome message with a fresh code
-- Each bot-add event generates a new code; if you re-added multiple times, use the most recent code
-
-### Test message succeeds but scheduled delivery does not arrive
-
-1. Go to **Communicate → Reports** and confirm the Teams channel is selected under **Delivery Channels**
-2. Confirm the schedule is **Active**
-3. Check that the tenant link is still valid — go to **Communicate → Channels** and verify the tenant is still shown as linked
-
-### "Tenant not linked" error on delivery
-
-The Microsoft tenant link may have been broken. Click **Link Tenant** again to re-authorise.
-
-### Bot stopped posting after it was working
-
-Common causes:
-
-- **Teams admin removed the app** — Re-install the app package and re-run the registration code flow
-- **Bot removed from the channel** — Re-add the bot to the channel; a new welcome message and registration code will be generated. Update the delivery channel in DigitalCore with the new code
-- **Tenant link expired** — Re-link the tenant from **Communicate → Channels**
-
-### Adaptive Cards not rendering properly
-
-Adaptive Card rendering depends on the Teams client version. If cards appear as raw JSON or plain text:
-
-- Update the Teams desktop client to the latest version
-- Cards require Teams client version 1.5 or higher (the DigitalCore manifest targets Adaptive Card schema v1.5)
-
-### Package version mismatch
-
-If the channels page reports "Update required" for the installed package:
-
-1. Download the updated package from the channels page
-2. Upload the new package to Teams Admin Centre (it will replace the existing one)
-3. Existing channel registrations and delivery channels remain valid after the update
+- [Notification Channels](/mcp-and-integrations/notification-channels)
+- [Slack Notifications](/mcp-and-integrations/slack-notifications)
+- [Email Notifications](/mcp-and-integrations/email-notifications)

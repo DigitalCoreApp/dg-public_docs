@@ -1,0 +1,62 @@
+---
+title: "Delivery Channels"
+description: "Send assistant output to Microsoft Teams, Slack, email, or in-app. Configure routing, frequency, and audience."
+---
+
+# Delivery Channels
+
+Assistants detect things. Delivery channels decide where the human sees them.
+
+By default, output appears in [Pulse](/platform/pulse). Delivery channels let you route specific output to Teams, Slack, email, or other channels, so the right person notices the right thing in the tool they actually use.
+
+## Available channels
+
+| Channel | Status | Best for |
+|---------|--------|----------|
+| In-app (Pulse) | Always on. | The default; everything lands here. |
+| Microsoft Teams | Available. | Critical signals routed to an on-call channel. |
+| Slack | Available. | Team-wide visibility on signals. |
+| Email | Available. | Daily briefs, executive summaries, scheduled reports. |
+| Webhook | Available. | Custom downstream automation. |
+| AI assistant | Always on. | Pull mode: query DigitalCore from Claude, Cursor, or ChatGPT. |
+
+## Routing rules
+
+For each assistant (or each combination of assistant and signal type), define:
+
+| Field | Example |
+|-------|---------|
+| Channel | Teams. |
+| Destination | `#service-economics-on-call`. |
+| Severity filter | Critical and High only. |
+| Engagement filter | Limit to specific portfolios. |
+| Frequency | Real-time, hourly batched, or daily digest. |
+| Quiet hours | Hold between 18:00 and 08:00 (per timezone). |
+
+Multiple rules per assistant are allowed. A signal can fan out to several channels at once (for example, Pulse, Teams, and email for Critical).
+
+## Authentication
+
+| Channel | What is needed |
+|---------|----------------|
+| Teams | The DigitalCore Teams app is installed in your tenant once. |
+| Slack | The DigitalCore Slack app is installed in your workspace once. |
+| Email | No setup; uses your transactional email config. |
+| Webhook | Endpoint URL plus optional signing secret. |
+
+Channel credentials are managed centrally; per-rule authentication is not required.
+
+## When to use which
+
+- Pulse only: onboarding phase, you are still learning what is noisy.
+- Pulse plus email digest: leadership wants summaries without logging in.
+- Pulse plus Teams critical-only: on-call wants pings only when it matters.
+- Pulse plus Slack everything: small team that wants full transparency.
+
+Do not ship every signal to every channel. Use severity filter freely: most organisations route Critical to chat and everything else to Pulse.
+
+## Related
+
+- [AI Agents overview](/platform/configure/intelligence/ai-agents)
+- [Communicate: Notification Channels](/platform/communicate/notification-channels)
+- [Communicate: Reports](/platform/communicate/reports)

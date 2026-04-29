@@ -1,81 +1,51 @@
 ---
-title: "The Engagement-Centric Model"
-description: "Understand engagements — the fundamental unit of tracking in DigitalCore where all financial, performance, and capacity data lives."
+title: "The engagement model"
+description: "Engagements are the unit where every plan, actual, hour, and KPI lives in DigitalCore."
 ---
 
-# The Engagement-Centric Model
+# The engagement model
 
-## What is an Engagement?
+An engagement is one specific delivery of a service to a customer over a defined period. If you run "Managed IT Support," each customer contract is a separate engagement: "Managed IT Support for Acme, 2025."
 
-### A Service Instance Between Two Parties
+Every finance plan, KPI, and capacity entry attaches to an engagement.
 
-An engagement represents a specific service being delivered to a specific customer over a defined period. If you run a "Managed IT Support" service, each customer contract is a separate engagement — "Managed IT Support for Acme Corp — 2025."
+## How engagements fit
 
-Engagements are the fundamental unit of tracking in DigitalCore. All financial data, performance metrics, and capacity allocations attach to engagements.
+- **Services** are the parent. An engagement belongs to exactly one service.
+- **Contracts** wrap engagements with commercial terms: value, type (fixed‑fee, T&M), dates, rate overrides, and SLA terms.
+- **Portfolios** group services for strategic views, like "Key Accounts" or "Government."
 
-### How Engagements Relate to Services, Contracts, and Portfolios
+## The hierarchy
 
-- **Services** are the parent — an engagement always belongs to exactly one service
-- **Contracts** are the commercial wrapper — an engagement can be linked to a contract that defines rates and SLA terms
-- **Portfolios** are groupings — services (and their engagements) can be organised into portfolios for strategic views
+1. **Your organisation**: all data belongs here, isolated from others.
+2. **Service**: a type of offering you deliver, like "Cloud Hosting."
+3. **Engagement**: a specific delivery, like "Cloud Hosting for Contoso FY25."
+4. **Data**: finance plans and actuals, KPIs, hours, all at engagement level.
 
----
+Portfolios cross‑cut services. A service can sit in more than one portfolio.
 
-## The Entity Hierarchy
-
-### Organisation → Service → Engagement → Data Tracking
-
-The hierarchy is straightforward:
-
-1. **Organisation** — Your company. All data belongs to one organisation and is isolated from others.
-2. **Service** — A type of offering you deliver (e.g., "Cloud Hosting," "Brand Consulting")
-3. **Engagement** — A specific delivery of that service (e.g., "Cloud Hosting for Contoso FY2025")
-4. **Data** — Finance plans/actuals, performance KPIs, capacity hours — all at the engagement level
-
-### Portfolios as Cross-Cutting Groups
-
-Portfolios group services across natural organisational lines. You might have a "Key Accounts" portfolio spanning multiple service types, or a "Government" portfolio grouping all public sector work.
-
-### Contracts as Commercial Wrappers
-
-Contracts define the commercial terms for one or more engagements: contract value, type (fixed-fee, T&M), dates, rate overrides, and SLA terms with penalty definitions.
-
----
-
-## Engagement Lifecycle
-
-### Statuses: Draft → Active → On Hold → Completed → Archived
+## Engagement lifecycle
 
 | Status | Meaning |
 |--------|---------|
-| **Draft** | Set up in progress. Not yet accepting check-in data. |
-| **Active** | Live and accepting monthly check-ins. |
-| **On Hold** | Temporarily paused. Data preserved but no new check-ins expected. |
-| **Completed** | Service delivery finished. Historical data preserved for reporting. |
-| **Archived** | Removed from active views. Still accessible for historical queries. |
+| **Draft** | Setup in progress. Not yet accepting check‑ins. |
+| **Active** | Live and accepting monthly check‑ins. |
+| **On hold** | Paused. Data preserved, no new check‑ins expected. |
+| **Completed** | Delivery finished. History preserved for reporting. |
+| **Archived** | Hidden from active views. Still available for analysis. |
 
-### What Happens at Each Stage
+A few notes on transitions:
 
-- **Draft → Active**: Templates must be assigned before activating. Once active, the engagement appears in the Operations workspace for check-ins.
-- **Active → On Hold**: Health scores stop decaying for data freshness. Check-ins can resume when re-activated.
-- **Active/On Hold → Completed**: Final check-in should be entered. Engagement moves to historical views.
-- **Completed → Archived**: Engagement is hidden from standard lists but remains in the database for reporting and analytics.
+- Templates must be assigned before going Active.
+- On Hold pauses health score decay; re‑activate to resume.
+- Completed locks the engagement for historical reporting.
 
----
+## Delivery parties
 
-## Delivery Attribution
+Each engagement can track two sides: a customer (consumer) and one or more deliverers (providers). Set a default party at engagement level and override per line or month for complex cases. This enables showback, multi‑vendor split, and partner accountability.
 
-### Customer Party vs. Deliverer Party
+## Related
 
-Each engagement can track two types of parties:
-
-- **Customer (Consumer)** — The organisation receiving the service
-- **Deliverer (Provider)** — The organisation delivering the service
-
-### Tracking Who Is Responsible for Each Cost or Metric
-
-Delivery parties are assigned at the engagement level and can be overridden per item or per period. This enables granular tracking: "Who is responsible for this cost line?" or "Which delivery partner owns this KPI?"
-
-### Multi-Party Engagements
-
-For complex engagements involving multiple delivery partners, each can be assigned as a separate delivery party. Costs and metrics can be attributed to specific partners, enabling showback and multi-vendor management.
+- [Engagements area](/platform/engagements/index): work with engagements day to day.
+- [Delivery attribution](/concepts/delivery-attribution): how parties are tracked.
+- [Templates](/platform/configure/service-setup/templates): how structure is defined.

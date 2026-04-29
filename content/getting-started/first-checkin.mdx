@@ -1,101 +1,53 @@
----
+﻿---
 title: "Your First Check-in"
-description: "Enter your first monthly check-in — record finance actuals, performance metrics, and capacity hours."
+description: "Record one month of actuals for finance, performance, and capacity."
 ---
 
 # Your First Check-in
 
-## What is a Check-in?
+A check-in is the monthly entry of actuals on an engagement. It produces variance, missed SLA terms, labour cost, utilisation, and an updated health score.
 
-### Monthly Data Entry — The Core Operational Rhythm
+Go to **Engagements**, open your engagement, and click **Check-in**.
 
-A check-in is the monthly process of recording what actually happened on an engagement. You enter actual values for finance, performance, and capacity — and DigitalCore compares them against your plans, calculates variances, detects SLA breaches, derives labour costs, and updates health scores.
+## Enter finance actuals
 
-Check-ins are how DigitalCore stays current. Without them, the platform only has your plans. With them, you get the full plan-vs-actual picture.
+The Finance tab shows your template items as rows and months as columns. Each cell shows the plan and an input for actual.
 
-### What Data Goes In, What Insights Come Out
+1. Type the actual amount for each item.
+2. The cell colours green, amber, or red based on variance.
 
-| You enter | DigitalCore calculates |
-|-----------|----------------------|
-| Revenue actuals | Revenue variance against plan |
-| Cost actuals | Cost variance, margin impact |
-| KPI actuals | SLA breach detection, penalty amounts |
-| Hours by role | Labour costs (hours × rate), FTE, utilisation |
+Two lines fill in automatically:
 
----
+- **Labour cost**, when capacity hours are saved.
+- **SLA penalties**, when a performance miss is detected.
 
-## Enter Finance Actuals
+These rows show a source tag so you know they came from another tab, not manual entry.
 
-### The Multi-Period Finance Grid
+## Enter performance actuals
 
-Navigate to Operations → your engagement → Check-in tab → Finance. You'll see a grid with your template line items as rows and months as columns. Each cell shows the planned value (target) and has a field for the actual value.
+Open the Performance tab. Type the actual value for each KPI.
 
-### Planned vs. Actual Values
+If a value misses the contract SLA term, DigitalCore:
 
-Enter the actual amount for each finance line item for the current month. The grid immediately shows the variance (actual minus planned) and colour-codes it:
+1. Detects the miss using the term''s operator.
+2. Calculates the penalty (fixed, percentage of contract value, or tiered).
+3. Records a penalty event for the activity log.
+4. Adds a finance entry for the penalty if the contract calls for it.
 
-- **Green** — Actual is on track or better than plan
-- **Amber** — Variance is within the warning band
-- **Red** — Significant deviation from plan
+## Enter capacity hours
 
-### What Updates Automatically
+Open the Capacity tab. Type the actual hours per role for the month.
 
-You don't need to enter everything manually. Two types of entries are created automatically:
+DigitalCore picks the right rate (contract override, rate card, or default), multiplies hours by rate, and posts the labour cost to your finance grid.
 
-- **Labour costs** — When capacity hours are logged, DigitalCore creates a finance entry for the corresponding cost using the applicable hourly rate
-- **SLA penalties** — When a KPI breaches its SLA threshold, DigitalCore creates a finance entry for the calculated penalty amount
+## Review the results
 
-These automatic entries appear in your finance grid with a source indicator showing they were system-generated.
+- **Summary cards** at the top show finance, performance, and capacity totals.
+- **Health colour** (Green, Amber, Red) is set per item, then rolls up to the domain and engagement.
+- **Cross-domain effects**: capacity hours land as finance cost, missed terms land as finance penalty.
 
----
+## Related
 
-## Enter Performance Metrics
-
-### Recording KPI Actuals
-
-Switch to the Performance tab. Enter actual values for each KPI — for example, 95.2% for First Call Resolution or 4.3 hours for Average Response Time.
-
-### What Happens When an SLA is Breached
-
-If a KPI actual breaches the SLA threshold defined in the engagement's linked contract, DigitalCore:
-
-1. Detects the breach based on the operator (greater than, less than, or equals)
-2. Calculates the penalty amount based on the contract terms (fixed amount, percentage of contract value, or tiered)
-3. Creates a penalty event for audit trail
-4. Optionally creates a corresponding finance entry for the penalty cost
-
-This happens automatically as you enter the actual value.
-
----
-
-## Enter Capacity Hours
-
-### Recording Hours by Role
-
-Switch to the Capacity tab. Enter the actual hours worked for each role for the current month.
-
-### Seeing Labour Costs Appear in Finance Automatically
-
-As soon as capacity hours are saved, DigitalCore:
-
-1. Looks up the applicable hourly rate (from contract rate overrides, rate cards, or organisation defaults)
-2. Calculates: labour cost = hours × rate
-3. Creates a finance entry in the corresponding COGS labour line item
-
-Switch back to the Finance tab to see the automatically generated cost entry.
-
----
-
-## Review Your Results
-
-### Domain Summary Cards
-
-At the top of the check-in view, summary cards show the overall status for each domain: total revenue and costs for Finance, KPIs met vs. breached for Performance, and hours planned vs. actual for Capacity.
-
-### RAG Status Indicators (Red / Amber / Green)
-
-Every metric has a RAG status based on its variance from plan. Domain-level and engagement-level RAG statuses roll up from individual items. A single red KPI can make the entire performance domain show as red.
-
-### Effects Across Domains
-
-The cross-domain effects are visible immediately: capacity hours generate finance costs, performance breaches generate finance penalties. The engagement health score reflects all three domains combined.
+- [Concepts: Health Scores](/concepts/health-scores)
+- [Concepts: Automation](/concepts/automation)
+- [Reading Your Dashboard](/getting-started/dashboard)

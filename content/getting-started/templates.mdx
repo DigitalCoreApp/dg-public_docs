@@ -1,75 +1,51 @@
 ---
 title: "Configure Your Templates"
-description: "Set up finance, performance, and capacity templates to define what you track per engagement."
+description: "Pick the items you track for each engagement: finance, performance, and capacity."
 ---
 
 # Configure Your Templates
 
-## What Are Templates?
+A template is a reusable list of items you track. Build one template per domain, then attach it to engagements.
 
-### Templates Define What You Track per Engagement
+## Finance template
 
-A template is a reusable configuration that defines the specific items you want to track. Without a template, an engagement has no data to collect. Templates answer the question: "What exactly do we measure for this type of service?"
+Go to **Configure → Templates → Finance**. Click **New Template** and add items from the finance library.
 
-### Organisation-Level Reusability — Define Once, Apply Many
+Finance items group into:
 
-Templates are defined at the organisation level and can be assigned to multiple engagements. If all your managed services engagements track the same P&L structure, create one finance template and assign it to every managed services engagement.
+- **Revenue**: recurring fees, project fees, ad-hoc charges.
+- **Direct cost**: labour, subcontractors, materials.
+- **Operating cost**: overhead, tooling, travel.
 
----
+Each item has a planned and actual value per month. Labour items fill in automatically from capacity hours.
 
-## Set Up a Finance Template
+## Performance template
 
-### Adding P&L Line Items from the Catalog
+Go to **Configure → Templates → Performance**. Add KPIs from the performance library: First Call Resolution, Response Time, Customer Satisfaction, Uptime.
 
-Go to Configuration → Templates → Finance Templates. Create a new template and add line items from the finance catalog. The catalog contains standard P&L categories that your organisation has defined — or you can generate defaults to get started quickly.
+For each KPI, set:
 
-### Revenue, Costs, and Other Categories
+| Field | What it does |
+|-------|--------------|
+| Target | What good looks like. |
+| Amber band | Warning range. |
+| Red band | Below this is a miss. |
+| Direction | Higher is better, lower is better, or target is best. |
 
-Finance template items are organized by P&L category:
+## Capacity template
 
-- **Revenue** — Monthly recurring revenue, project fees, ad-hoc charges
-- **Cost of Goods Sold (COGS)** — Direct labour, subcontractor costs, materials
-- **Operating Expenses** — Overhead, tooling, travel
+Go to **Configure → Templates → Capacity**. Add roles from the roles library: Senior Consultant, Service Desk Analyst, Project Manager. Each role carries an hourly rate.
 
-Each item has planned and actual values per month. Some items (like labour costs) can be populated automatically from capacity data.
+Set planned hours per role per month. During check-in, planned versus actual hours feeds utilisation, FTE, and labour cost.
 
----
+## Attach templates to an engagement
 
-## Set Up a Performance Template
+Open the engagement and pick the three templates. Each template item creates an engagement-level row with monthly targets.
 
-### Adding KPIs from the Catalog
+Different engagements can use different templates. Defaults inherit from the template, and you can override per engagement.
 
-Create a performance template and add KPIs from the performance catalog — metrics like First Call Resolution, Response Time, Customer Satisfaction, or Uptime. Each KPI comes from the catalog with a standard definition.
+## Related
 
-### Targets and Measurement Direction
-
-For each KPI, configure:
-
-- **Target value** — What "good" looks like
-- **Amber threshold** — The warning zone
-- **Red threshold** — The failure zone
-- **Direction** — Higher-is-better (e.g., satisfaction score), Lower-is-better (e.g., response time), or Target-is-best (e.g., utilisation %)
-
----
-
-## Set Up a Capacity Template
-
-### Adding Roles from the Catalog
-
-Create a capacity template and add roles from the roles & rates catalog — positions like "Senior Consultant," "Service Desk Analyst," or "Project Manager." Each role has an associated hourly rate used for automatic cost calculations.
-
-### Planned Hours per Role
-
-Set the planned hours per month for each role. This becomes your capacity baseline. When actuals are entered, DigitalCore calculates FTE equivalents and utilisation rates automatically.
-
----
-
-## Assign Templates to Engagements
-
-### How Template Assignment Works
-
-Go to your engagement and assign the finance, performance, and capacity templates you've created. You can assign different templates to different engagements — a managed services engagement might use a different KPI set than a consulting engagement.
-
-### What Happens When You Assign a Template
-
-When you assign a template, DigitalCore creates engagement-level configuration for each item. You can then set monthly targets (plans), and the check-in grid becomes available for entering actual values. Default settings from the template are inherited but can be overridden per engagement.
+- [Concepts: Catalogs](/concepts/catalogs)
+- [Concepts: Planning and Actuals](/concepts/planning-and-actuals)
+- [Your First Check-in](/getting-started/first-checkin)

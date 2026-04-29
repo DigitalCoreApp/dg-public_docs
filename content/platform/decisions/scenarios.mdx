@@ -1,0 +1,61 @@
+---
+title: "Responses"
+description: "AI-generated options for a decision, with assumptions, projected impact, and Approve & Apply."
+---
+
+# Responses
+
+A Response is DigitalCore's structured answer to a decision. The [decision case](/platform/decisions/cases) frames the question. The Response lays out the options, the assumptions behind each one, and the projected impact.
+
+> Older versions of DigitalCore called these Scenarios. The shape is the same. See [Response Frame](/platform/decisions/response-frame).
+
+## What a Response contains
+
+| Element | Meaning |
+|---------|---------|
+| Question | What is being decided. Inherited from the case. |
+| Options | Two to four distinct courses of action. |
+| Assumptions | The variables behind each option, such as rates, volume, or timing. |
+| Projected impact | Per option: revenue, cost, margin, KPI changes, and risk shift. |
+| Recommended option | The suggested choice with reasoning. |
+| Status | Proposed, Approved, Declined, or Applied. |
+
+## Generating a Response
+
+From a decision case, click **Generate Response**. DigitalCore will:
+
+1. Read the case context: engagement, linked signals, priorities.
+2. Pull the relevant data from your portfolio.
+3. Propose options based on similar past decisions in your [AI Use Cases](/platform/decisions/ai-use-cases).
+4. Stamp each option with assumptions and projected impact.
+5. Write a short rationale.
+
+You can then refine: change assumptions, regenerate options, or ask for an angle the assistant missed.
+
+## Approving and applying
+
+| Action | Effect |
+|--------|--------|
+| Approve | Marks the chosen option. Status becomes Approved. No data changes yet. |
+| Apply | Updates rates, plans, or scope. Creates follow-up tasks. Status becomes Applied. |
+| Decline | Records the decision and the reason. Status becomes Declined. No data changes. |
+
+Approve and Apply are kept separate on purpose. Approval is a governance moment. Apply is a data moment. Splitting them lets you sign off in advance, then apply on a future date.
+
+## Comparing options
+
+When a Response has multiple options, the comparison view stacks them side by side:
+
+- Margin impact
+- Capacity impact
+- Risk shift
+- KPI projection
+- Implementation effort
+
+Use the comparison view in stakeholder reviews and renewal conversations.
+
+## Related
+
+- [Decisions: Cases](/platform/decisions/cases)
+- [Decisions: Response Frame](/platform/decisions/response-frame)
+- [Decisions: AI Use Cases](/platform/decisions/ai-use-cases)

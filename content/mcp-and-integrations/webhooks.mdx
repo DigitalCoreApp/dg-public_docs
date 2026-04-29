@@ -1,40 +1,33 @@
----
-title: "Webhooks & API (Future)"
-description: "Planned webhook events and API capabilities for workflow automation and custom integrations."
----
-
-# Webhooks & API (Future)
-
-## Planned Capabilities
-
-### Event Types Coming Soon
-
-DigitalCore is developing a webhook system that will notify external systems when key events occur:
-
-- **Engagement health change** — When a health score crosses a RAG threshold
-- **SLA breach detected** — When a performance actual triggers a breach
-- **Check-in completed** — When a monthly check-in is finished
-- **Decision recorded** — When a governance case is decided
-- **Scenario committed** — When a scenario is adopted as the new plan
-
-### Target Use Cases
-
-Webhooks will enable integrations with notification services (Slack, Teams), workflow automation tools (Zapier, Make), and custom internal systems.
-
+﻿---
+title: "Webhooks (Planned)"
+description: "Planned webhook events for custom automation."
 ---
 
-## Current Status
+# Webhooks (Planned)
 
-### What's Available Now vs. What's Coming
+Webhooks are on the roadmap. They will let you receive events from DigitalCore and trigger external actions.
 
-| Capability | Status |
-|-----------|--------|
-| MCP servers (Free + Paid) | ✅ Available |
-| REST API for free tools | ✅ Available |
-| Excel/CSV import | ✅ Available |
-| QuickBooks integration | ✅ Available |
-| Webhooks | 🔜 Planned |
-| Custom API endpoints | 🔜 Planned |
-| Zapier/Make integration | 🔜 Planned |
+## Planned events
 
-Check the [Changelog](/changelog/) for updates on new integration capabilities as they launch.
+- Engagement health changes.
+- Decisions opened, approved, or applied.
+- Missed SLA term recorded.
+- Monthly check-in completed.
+- Executive summary finalised.
+
+## Planned format
+
+A signed POST to your endpoint with a JSON payload. Standard fields include event type, organisation, timestamp, and the event-specific body.
+
+## In the meantime
+
+You can poll the [paid connection](/mcp-and-integrations/paid-mcp) on a schedule for similar results.
+
+## Vote on this feature
+
+Email feedback@digitalcore.app to share your use case. We prioritise webhooks against other roadmap items based on customer need.
+
+## Related
+
+- [Paid Connection](/mcp-and-integrations/paid-mcp)
+- [API Keys](/mcp-and-integrations/api-keys)

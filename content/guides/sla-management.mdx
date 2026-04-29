@@ -1,66 +1,46 @@
-# Managing SLA Penalties and Contract Terms
-
-DigitalCore automatically detects SLA breaches and can generate penalty entries when performance thresholds are crossed.
-
+﻿---
+title: "SLA Penalties and Contract Terms"
+description: "Track contract performance terms and let DigitalCore detect missed terms."
 ---
 
-## Understanding SLA Breach Detection
+# SLA Penalties and Contract Terms
 
-### When Does DigitalCore Check for Breaches?
+DigitalCore stores the performance terms in your contract and detects when an actual value misses one. It can also post the penalty as a finance entry.
 
-Breach detection runs automatically every time a performance actual is entered — either through the check-in grid or via the AI assistant. It checks the entered value against the contract's SLA terms for that KPI.
+## Step 1: Add the term
 
-### How Thresholds and Operators Work
+Open a contract and go to **Performance Terms**.
 
-Each SLA term defines a threshold value and an operator:
+For each term:
 
-- **"Less than" operator**: A breach occurs when the actual is *below* the threshold (e.g., Availability < 99.5%)
-- **"Greater than" operator**: A breach occurs when the actual *exceeds* the threshold (e.g., Response Time > 4 hours)
+1. Pick the KPI from the catalogue (for example, "First response time").
+2. Set the threshold and the operator (less than, greater than, equal).
+3. Set the penalty (fixed amount, percentage of contract value, or tiered).
+4. Decide whether a penalty creates a finance entry automatically.
 
----
+## Step 2: Record actuals
 
-## Configuring Contract Performance Terms
+When you enter an actual on the Performance tab during a check-in, DigitalCore checks each term.
 
-### Linking a KPI to a Contract
+If the actual misses the threshold:
 
-In the contract detail, add a performance term for each KPI with financial consequences. You select the KPI from the performance catalog, ensuring consistency with the engagement's performance template.
+1. A penalty event is recorded for the activity log.
+2. The penalty amount is calculated.
+3. If you opted in, a finance entry is added.
 
-### Setting Threshold Values
+## Step 3: Review missed terms
 
-Set the threshold that defines the boundary between compliance and breach. This should match the agreed contractual SLA target.
+Go to **Pulse** to see open missed terms across the portfolio.
 
-### Choosing Penalty Type
+Open the engagement to see the detail and act on it (for example, by opening a Decision).
 
-| Type | Description |
-|------|-------------|
-| **Fixed** | A flat amount per breach (simple, predictable) |
-| **Percentage** | Based on the contract's monthly or total value (scales with contract size) |
-| **Tiered** | Multiple penalty levels based on severity (rewards near-misses, penalises major failures) |
+## Tips
 
----
+- Use the catalogue. It keeps KPI names consistent across engagements.
+- Set thresholds at the level your contract specifies.
+- For tiered penalties, list the tiers in order from smallest miss to largest.
 
-## What Happens When a Breach Occurs
+## Related
 
-### Penalty Event Created
-
-A penalty event record is created with the details: which KPI, what was the actual value, what was the threshold, and the calculated penalty amount. This provides a complete audit trail.
-
-### Auto-Generated Finance Entry
-
-If the SLA term has auto-create enabled, a corresponding cost entry is added to the finance domain. The cost amount equals the calculated penalty and is attributed to the correct finance line item.
-
-### Where to Find Penalty Records
-
-Penalty events are visible in the engagement's detail view. Each event links to the originating performance measure and (if applicable) the resulting finance entry.
-
----
-
-## Reviewing and Overriding
-
-### Viewing Penalty Events
-
-Navigate to the engagement and look for SLA penalty events. Each shows the KPI, period, actual value, threshold, and calculated penalty.
-
-### Manual Adjustments
-
-In some cases, contractual negotiations may result in waived or reduced penalties. You can manually adjust the finance entry amount without deleting the penalty event, preserving the audit trail.
+- [Concepts: Automation](/concepts/automation)
+- [Using Governance and Decisions](/guides/governance)

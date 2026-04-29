@@ -1,66 +1,41 @@
----
+﻿---
 title: "API Keys"
-description: "Generate and manage API keys for paid MCP access and programmatic API use."
+description: "Generate and manage keys for the paid AI assistant connection."
 ---
 
 # API Keys
 
-## What Are API Keys?
+API keys let an AI assistant or external tool access your DigitalCore data on your behalf.
 
-### Authentication for Paid MCP Access
+## Create a key
 
-API keys authenticate your identity when using DigitalCore's paid MCP tools or programmatic API access. Each key is tied to your user account and inherits your organisation's data access permissions.
+1. Open **Account**, then **API Keys**.
+2. Click **New Key**.
+3. Give it a name ("Claude Desktop", "Internal automation").
+4. Pick the access level: read-only, read and write, or admin.
+5. Set an expiry (optional).
+6. Click **Create**.
 
----
+The key is shown once. Copy it and store it somewhere safe (1Password, secret manager). DigitalCore does not show it again.
 
-## Generating a Key
+## Use a key
 
-### Settings → API Keys Tab
+Paste the key into the AI assistant connection setup. See [Paid MCP Setup](/mcp-and-integrations/paid-mcp) for client-specific instructions.
 
-Navigate to **Settings → API Keys** in the DigitalCore app. Click **Generate New Key**. Give the key a descriptive name (e.g., "Claude Desktop — Work Laptop").
+## Manage keys
 
-### Key Permissions
+The list shows each key''s name, access level, last used time, and expiry.
 
-Select the permission scope for the key:
+- **Rotate.** Create a new key, update the client, then revoke the old one.
+- **Revoke.** Click the row, then **Revoke**. The key stops working immediately.
 
-- **Read** — Monitor, diagnose, and query data only
-- **Read-Write** — All read permissions plus recording data and managing scenarios
-- **Admin** — Full access including configuration changes
+## Tips
 
-Use the minimum permission level needed for each use case.
+- One key per client. Easier to revoke if a laptop is lost.
+- Use read-only keys where possible.
+- Set an expiry on shared keys.
 
-### Expiration Settings
+## Related
 
-Set an expiration date for the key. Options include 30 days, 90 days, 180 days, 1 year, or a custom date. 90 days is recommended as a balance between security and convenience.
-
----
-
-## Managing Keys
-
-### Viewing Active Keys
-
-The API Keys tab shows all your active keys with their names, permission level, creation date, expiration date, and last used date.
-
-### Revoking a Key
-
-Click **Revoke** to immediately disable a key. The key stops working instantly and cannot be re-enabled. Revocation is logged for audit purposes.
-
-### Key Rotation Best Practice
-
-Rotate keys before they expire. Generate a new key, update your MCP client configuration, verify connectivity, then revoke the old key. This avoids any downtime.
-
----
-
-## Security Best Practices
-
-### Never Share Keys in Code Repositories
-
-API keys should never be committed to version control. Store them in your MCP client's local configuration file or in environment variables.
-
-### Use Scoped Permissions
-
-Create separate keys for different tools or workstations, each with the minimum required permissions. If one key is compromised, revoke it without affecting other integrations.
-
-### Rotate Keys Periodically
-
-Even if keys haven't expired, rotate them on a regular schedule (quarterly recommended). This limits the window of exposure if a key is silently compromised.
+- [Paid MCP Setup](/mcp-and-integrations/paid-mcp)
+- [Security](/account/security)

@@ -1,0 +1,47 @@
+---
+title: "AI Use Cases"
+description: "Recurring decision patterns DigitalCore has learned for your organisation."
+---
+
+# AI Use Cases
+
+AI Use Cases are the recurring decision patterns DigitalCore has learned to handle for your organisation. They are the playbooks the assistant draws on when it generates [Responses](/platform/decisions/scenarios). Not generic templates, but ones tuned to your data, your priorities, and your past decisions.
+
+## What a use case captures
+
+| Element | Meaning |
+|---------|---------|
+| Pattern | The shape of the decision, for example "renewal pricing for a fixed-fee managed service". |
+| When it applies | The conditions that activate it, for example contract within 90 days of renewal and margin under 12 percent. |
+| Default options | The options the assistant typically proposes. |
+| Default assumptions | The variables the assistant typically reasons over. |
+| Your overrides | What your organisation has consistently done differently. |
+| Track record | Wins, losses, or neutral results from past applications. |
+
+## How use cases are created
+
+Use cases come from three places:
+
+1. **Built-in.** DigitalCore ships with around 15 starting use cases that cover common patterns.
+2. **Learned.** As you generate Responses and apply options, DigitalCore extracts patterns into [Specialist Memory](/platform/configure/intelligence/ai-agents/specialist-memory).
+3. **Authored.** Admins can create or edit use cases to lock in policy.
+
+## Editing a use case
+
+Admins can:
+
+- Adjust the conditions that activate it.
+- Add or remove default options.
+- Pin assumptions that should always be considered.
+- Add commentary that becomes part of the Response rationale.
+- Disable a use case that no longer applies.
+
+## Outcome feedback
+
+Every time a Response based on a use case is applied and later reviewed, the outcome flows back to the use case's track record. This is how the assistant gets better. Not through model retraining, but through accumulated, evaluated decisions.
+
+## Related
+
+- [Decisions: Responses](/platform/decisions/scenarios)
+- [Configure: Specialist Memory](/platform/configure/intelligence/ai-agents/specialist-memory)
+- [Decisions: Response Frame](/platform/decisions/response-frame)

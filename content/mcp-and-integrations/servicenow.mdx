@@ -1,0 +1,54 @@
+---
+title: "ServiceNow Integration"
+description: "Sync incidents, requests, and SLA data from ServiceNow into DigitalCore."
+---
+
+# ServiceNow Integration
+
+Connect a ServiceNow instance to pull ticket volume, response time, and SLA results into DigitalCore as performance actuals.
+
+## What syncs
+
+- **Incidents and requests.** Counts and status updates flow into performance KPIs (volume, backlog, ageing).
+- **Response and resolution times.** Pulled in as actual values for matching KPI items.
+- **SLA results.** Met / breached counts feed the performance score.
+- **Assignment groups.** Used to map tickets to the right engagement.
+
+## Before you start
+
+You need:
+
+- ServiceNow admin access (or a service account with `rest_api_explorer` and read on the tables you want to sync).
+- The ServiceNow instance URL (for example `https://yourcompany.service-now.com`).
+- An OAuth client created in ServiceNow under **System OAuth**, then **Application Registry**.
+
+## Connect ServiceNow
+
+1. Go to **Configure**, then **Integrations**.
+2. Click **Connect ServiceNow**.
+3. Enter the instance URL.
+4. Paste the OAuth client ID and secret.
+5. Click **Authorize** and sign in. ServiceNow shows the scopes DigitalCore is requesting.
+6. Approve.
+
+## Map data
+
+After connecting:
+
+1. Map ServiceNow assignment groups (or business services) to DigitalCore engagements.
+2. Map ticket categories to performance KPI items (for example, P1 incident count, average resolution time).
+3. Pick the SLA definitions to track.
+
+## Sync schedule
+
+DigitalCore polls ServiceNow every 15 minutes. Click **Sync now** to refresh on demand.
+
+## Disconnect
+
+Click **Disconnect** in the integrations panel. Past synced data stays. New data stops flowing.
+
+## Related
+
+- [QuickBooks Integration](/mcp-and-integrations/quickbooks)
+- [Performance domain](/concepts/data-domains)
+- [Notification Channels](/mcp-and-integrations/notification-channels)
