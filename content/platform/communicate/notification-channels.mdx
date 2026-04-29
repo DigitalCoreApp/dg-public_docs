@@ -1,21 +1,20 @@
 ---
 title: "Notification Channels"
-description: "Email, Slack, Microsoft Teams, in-app, and webhook destinations, set up per audience and severity."
+description: "Email, Slack, Microsoft Teams, and in-app destinations, set up per audience and severity."
 ---
 
 # Notification Channels
 
-Notification Channels are how DigitalCore delivers signals, reports, and other messages. The set-up lives in [Configure → AI Agents → Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels). This page is where you watch them in action.
+Notification Channels are how DigitalCore delivers signals, reports, and other messages. The connections themselves are managed in [Integrations](/platform/configure/system/integrations); the routing rules live in [Configure → AI Agents → Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels). This page is where you watch them in action.
 
 ## Supported channels
 
 | Channel | What it delivers | Setup |
 |---------|------------------|-------|
-| Email | Reports, period summaries, critical signals, daily digests. | Loops integration. |
-| Slack | Real-time signal alerts, daily digest, on-demand reports. | Webhook. |
-| Microsoft Teams | Same as Slack. | Webhook. |
+| Email | Reports, period summaries, critical signals, daily digests. | Built-in. No setup needed. |
+| Slack | Real-time signal alerts, daily digest, on-demand reports. | Install the DigitalCore Slack app once in your workspace. |
+| Microsoft Teams | Same as Slack. | Install the DigitalCore Teams app once in your tenant. |
 | In-app | Everything (always on). | No setup. |
-| Webhook | Plain JSON post for custom integrations. | Endpoint URL plus signing secret. |
 
 ## Routing rules
 
@@ -36,5 +35,6 @@ Each channel can be filtered by:
 
 ## Related
 
+- [Integrations](/platform/configure/system/integrations)
 - [Configure: AI Agents, Delivery Channels](/platform/configure/intelligence/ai-agents/delivery-channels)
 - [Communicate: Notifications](/platform/communicate/notifications)
