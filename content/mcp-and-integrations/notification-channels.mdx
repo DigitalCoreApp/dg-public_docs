@@ -1,17 +1,18 @@
 ﻿---
 title: "Notification Channels"
-description: "Deliver scheduled reports and alerts to email, Slack, or Teams."
+description: "Deliver scheduled reports and alerts to email, Slack, or Microsoft Teams."
 ---
 
 # Notification Channels
 
-DigitalCore can deliver reports and alerts to three places: email, Slack, and Microsoft Teams.
+DigitalCore delivers reports and alerts to three places: **email**, **Slack**, and **Microsoft Teams**. Each channel is configured independently and can carry a different mix of message types.
 
 ## What gets sent
 
-- **Scheduled reports.** Monthly or quarterly executive summaries.
-- **Real-time alerts.** Health colour changes, missed SLA terms, big variances.
-- **Decision updates.** When a Decision moves status.
+- **Scheduled reports.** Monthly or quarterly executive summaries, weekly digests.
+- **Real-time alerts.** Health colour changes, missed SLA terms, big variances, autonomous-agent signals.
+- **Decision updates.** When a [decision case](/platform/decisions/cases) opens, moves status, or closes.
+- **Personal alerts.** Items assigned to you, follow-ups due, mentions.
 
 ## Where things go
 
@@ -20,26 +21,49 @@ DigitalCore can deliver reports and alerts to three places: email, Slack, and Mi
 | Scheduled reports | Yes | Yes | Yes |
 | Alerts | Yes | Yes | Yes |
 | Decision updates | Yes | Optional | Optional |
+| Personal alerts | Yes | No | No |
 | AI assistant chat | No | No | No |
 
-## Set them up
+## Email
 
-- [Email](/mcp-and-integrations/email-notifications)
-- [Slack](/mcp-and-integrations/slack-notifications)
-- [Microsoft Teams](/mcp-and-integrations/teams-notifications)
+Email is the default channel. Every user gets one without any setup.
+
+- **Sender:** `notifications@digitalcore.app` — add it to your safe-sender list.
+- **Per-user subscriptions.** Each person opens **Settings → Notifications** and ticks which message types they want.
+- **Distribution lists.** Admins can also create per-engagement or per-portfolio distribution lists so executive summaries reach a fixed audience without each person subscribing individually.
+- **Digest options.** Non-urgent items can be batched into a **daily** or **weekly digest** instead of one email per event.
+- **Scheduled reports.** Monthly executive summaries and weekly pulse reports go out on a fixed cadence configured in [Communicate](/platform/communicate).
+
+### Tips for email
+
+- Use **digests** for low-priority items so the inbox stays calm.
+- Use **immediate alerts** only for critical signals (red health, missed SLA, breach risk).
+- Send executive summaries to a distribution list rather than CC-ing individuals — turnover stays clean.
+
+## Slack
+
+A single Slack workspace can connect multiple channels — typically one for executive summaries, one for ops alerts. See [Slack](/mcp-and-integrations/slack-notifications) for setup.
+
+## Microsoft Teams
+
+Teams works the same way as Slack, with channel webhooks. See [Microsoft Teams](/mcp-and-integrations/teams-notifications) for setup.
 
 ## Per-user vs per-channel
 
-- **Email** is per user. Each person picks what they get in their profile.
+- **Email** is per user. Each person picks what they get.
 - **Slack and Teams** are per channel. Anyone in the channel sees the message.
+
+Use channels for things the whole team should see (executive summaries, critical alerts) and email for personal items (cases assigned to you, follow-ups due).
 
 ## Tips
 
-- Send executive summaries to a leadership channel.
+- Send executive summaries to a leadership Slack/Teams channel **and** an email distribution list.
 - Keep alerts in a dedicated ops channel so they are not lost in chatter.
-- Use email for personal alerts (Decisions assigned to you).
+- Use email digests for personal items so notifications do not overwhelm.
 
 ## Related
 
-- [Notifications](/platform/communicate/notifications)
+- [Slack](/mcp-and-integrations/slack-notifications)
+- [Microsoft Teams](/mcp-and-integrations/teams-notifications)
+- [Communicate](/platform/communicate)
 - [Profile Settings](/account/profile)

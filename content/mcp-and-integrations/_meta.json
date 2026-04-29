@@ -1,14 +1,11 @@
 {
   "index": "Overview",
-  "free-mcp": "Free MCP Server Setup",
-  "paid-mcp": "Paid MCP Tools Reference",
-  "api-keys": "API Keys",
+  "free-mcp": "Free MCP",
+  "paid-mcp": "DigitalCore MCP",
   "excel-import": "Excel / CSV Import",
   "quickbooks": "QuickBooks",
   "servicenow": "ServiceNow",
   "notification-channels": "Notification Channels",
   "slack-notifications": "Slack",
-  "teams-notifications": "Microsoft Teams",
-  "email-notifications": "Email",
-  "webhooks": "Webhooks (Future)"
+  "teams-notifications": "Microsoft Teams"
 }

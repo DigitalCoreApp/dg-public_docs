@@ -1,46 +1,87 @@
 ---
 title: "Decision Cases"
-description: "The unit of governance. Each meaningful decision lives in a case with owners, history, and outcome tracking."
+description: "The unit of governance. Each meaningful decision lives in a case with AI agent inputs, risks, issues, decisions, follow-ups, and scenarios."
 ---
 
 # Decision Cases
 
-A decision case is a tracked, owned record of a decision in flight. Anything that matters (mitigating a risk, approving a price change, choosing between options) runs as a case.
+A decision case is the tracked, owned record of a decision in flight. Anything that matters — mitigating a risk, approving a price change, choosing between options, responding to an SLA breach — runs as a case.
+
+A case is **the single container** for everything related to that decision. It is not just a header record; the case page is where the AI agent's findings, the risks, the issues, the proposed options, and the follow-up actions all live together.
 
 ## What a case contains
+
+The case header carries the basics:
 
 | Field | Meaning |
 |-------|---------|
 | Title | Short description of the decision. |
-| Type | One of: risk mitigation, pricing, staffing, scope change, or general. |
+| Type | Risk mitigation, pricing, staffing, scope change, or general. |
 | Engagement | The engagement the decision relates to. |
 | Owner | The person who drives the case to a close. |
 | Status | Open, In review, Approved, Declined, Applied, or Closed. |
-| Linked Response | The [Response](/platform/decisions/scenarios) attached to the case. |
-| Linked risk | The risk register entry it came from, if any. |
-| Linked signal | The [signal](/platform/pulse/signals) that triggered it, if any. |
-| Decision log | An add-only record of who said what and when. |
-| Outcome | Set after a decision plays out. Did it work? |
+| Target resolution date | When this case must be closed. |
+| Completion | Percentage based on the items inside the case. |
+
+Inside the case you will find six sections.
+
+### 1. AI agent inputs
+
+When a case is opened by the autonomous agents, this section carries the agent's working notes: which signals fired, which engagements are affected, what historical patterns matched, and the suggested first action. You can accept the agent's framing, add your own context, or override it.
+
+For manually opened cases, this section is empty until you ask the assistant for input.
+
+### 2. Risks
+
+Linked entries from the [risk register](/platform/pulse/signals). Critical signals automatically create both a case and a matching risk register entry; less severe signals create the risk first and an owner can promote it to a case.
+
+Each linked risk shows its severity, likelihood, and mitigation status.
+
+### 3. Issues
+
+Concrete problems to resolve to close the case. Issues are smaller than the case itself — a pricing decision case might have issues like "confirm volume forecast", "validate rate card with finance", "draft customer email".
+
+### 4. Decisions
+
+The actual choices being made, with the decision maker and the reasoning. A case can have one decision (the main one) or several (e.g. approve the rate change *and* approve the contract amendment).
+
+Each decision has a status: **Proposed**, **Approved**, **Declined**, or **Applied**.
+
+### 5. Follow-ups
+
+Actions created by closing the case. A follow-up has an owner, a due date, and a link back to the parent case so the lineage is preserved. Follow-ups appear in the owner's task list.
+
+### 6. Scenarios
+
+The AI-generated option sets for the decision. Each scenario lays out two to four courses of action with assumptions, projected impact, and a recommended choice. See [Scenarios](/platform/decisions/scenarios) for the structure and the Approve & Apply lifecycle.
+
+A case can carry multiple scenarios over its life — for example, an initial set generated when the case opens, plus a refined set after stakeholder feedback.
 
 ## How cases are created
 
 | Source | Example |
 |--------|---------|
+| Autonomous agents | A critical margin pressure or SLA breach signal opens a case automatically, with risks and AI agent inputs already populated. |
+| From a risk | A risk register entry is promoted to a case once an owner is assigned. |
 | Manual | "Should we lower rates on this engagement to save the renewal?" |
-| From a signal | A critical margin pressure signal opens a case automatically. |
-| From a risk | A risk register entry becomes a case once an owner is assigned. |
-| From the assistant | DigitalCore suggests opening a case based on a cross-area pattern. |
+| From the assistant | DigitalCore proposes opening a case after spotting a cross-domain pattern. |
+
+See [Concepts: Automation](/concepts/automation) for the autonomous agent pipeline.
 
 ## Lifecycle
 
-1. **Open.** The case is created, the owner is set, and context is attached.
-2. **In review.** A Response is generated. Options are compared.
-3. **Approved or Declined.** The decision-maker chooses an Option.
-4. **Applied.** The chosen Option is applied. Data updates. Follow-ups are created.
-5. **Closed.** The outcome is reviewed. Lessons are captured.
+1. **Open.** The case is created. Owner is set. AI agent inputs and linked risks attach automatically when the agent opens the case.
+2. **In review.** Issues are worked. One or more scenarios are generated and refined.
+3. **Approved or Declined.** A decision is recorded against the chosen scenario option.
+4. **Applied.** The chosen option is applied to the data — rates change, plans update, follow-ups are created.
+5. **Closed.** The outcome is reviewed against the projection. Lessons feed [AI Use Cases](/platform/decisions/ai-use-cases).
+
+Approve and Apply are deliberately separate. Approval is a governance moment; Apply is a data moment. You can sign off in advance and apply on a future date.
 
 ## Related
 
-- [Decisions: Responses](/platform/decisions/scenarios)
-- [Decisions: Response Frame](/platform/decisions/response-frame)
+- [Scenarios](/platform/decisions/scenarios)
+- [AI Use Cases](/platform/decisions/ai-use-cases)
 - [Pulse: Signals](/platform/pulse/signals)
+- [Concepts: Automation](/concepts/automation)
+

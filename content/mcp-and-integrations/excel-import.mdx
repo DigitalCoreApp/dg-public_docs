@@ -1,41 +1,130 @@
 ﻿---
 title: "Excel and CSV Import"
-description: "Bulk-load engagements, plans, and actuals from a spreadsheet."
+description: "Bulk-load actuals and plan updates for Finance, Performance, and Capacity using a plan_id-based round-trip."
 ---
 
 # Excel and CSV Import
 
-Use the import tool for first-time loads or to catch up on past periods.
+Bulk import lets you record actuals (and update plans) for an engagement using Excel or CSV instead of typing values into the check-in screen one cell at a time. It is the right tool when you have a month or a quarter of data sitting in a spreadsheet already.
 
-## What you can import
+The workflow is a **round-trip**: export a CSV with the engagement's existing plans, fill in actual values, then upload it back. DigitalCore matches rows by a stable `plan_id`, not by names, so renaming a metric or restructuring a template never breaks the import.
 
-- Engagements and contracts.
-- Finance plan values and actuals.
-- Performance actuals.
-- Capacity hours.
+## When to use it
 
-## How it works
+- You are catching up on several months of actuals after onboarding.
+- Your finance team already keeps the numbers in Excel and you want to land them in DigitalCore.
+- You are loading capacity hours from a timesheet export.
+- You are recording performance metrics (SLA results, throughput, quality) from a separate system.
 
-1. Go to **Configure**, then **Import**.
-2. Pick the type and download the template.
-3. Fill in the file. One row per record.
-4. Drag the file into the upload box.
-5. Review the preview: green rows are ready, amber rows need a fix, red rows are blocked.
-6. Click **Import**.
+For a single month with a handful of values, the in-app [check-in](/getting-started/first-checkin) is faster.
 
-DigitalCore shows a summary when done. You can download an error log for any row that did not import.
+## The five-step wizard
 
-## Common issues
+Open **Configure → Bulk Upload**.
 
-- **Engagement name.** Must match exactly. Watch for trailing spaces.
-- **Date format.** Use the format shown in the template header (YYYY-MM-DD).
-- **Currency.** Numbers, no symbols. Decimals with a point.
+| Step | What you do |
+|------|-------------|
+| 1. Select | Pick the engagement, the domain (Finance / Performance / Capacity), and the date range. |
+| 2. Export | Download a CSV pre-filled with the engagement's plans for that range. |
+| 3. Edit | Open the CSV in Excel or Google Sheets and fill `actual_value` (and `planned_value` if you want to update plans). |
+| 4. Upload | Drop the file back into the wizard. |
+| 5. Review | See how many rows were created, updated, or skipped, plus any validation errors. |
 
-## For ongoing data
+## CSV format
 
-Once your engagements are set up, prefer monthly check-ins to imports. They are quicker and link straight into the activity log.
+Every export contains two **context columns** so you always know which engagement and timeline a row belongs to, plus a stable `plan_id` and the editable value columns.
+
+### Finance
+
+```csv
+customer,engagement_timeline,plan_id,period_month,pnl_category,line_item_name,planned_value,actual_value
+Acme Ltd,Ongoing Service,9010,2026-01-01,Revenue,Product Sales,45000,45000
+Acme Ltd,Ongoing Service,9011,2026-01-01,COGS,Direct Labor,12000,
+```
+
+### Performance
+
+```csv
+customer,engagement_timeline,plan_id,period_month,metric_name,unit,target_value,actual_value
+Acme Ltd,Migration Project,16286,2025-01-01,Migration Velocity,count,8,8
+Acme Ltd,Migration Project,16287,2025-01-01,System Uptime,percentage,99.9,95
+```
+
+### Capacity
+
+```csv
+customer,engagement_timeline,plan_id,period_month,role_name,planned_hours,actual_hours
+Acme Ltd,Ongoing Service,58342,2025-12-01,Cloud Operations Manager,150,120
+Acme Ltd,Ongoing Service,58354,2025-12-01,Service Desk Supervisor,8,8
+```
+
+### Column rules
+
+| Column | Editable | Required | Notes |
+|--------|----------|----------|-------|
+| `customer` | No | Reference | Filled from the engagement's customer party. |
+| `engagement_timeline` | No | Reference | Matched to the timeline whose date range covers `period_month`. |
+| `plan_id` | No | Yes | Stable foreign key. Do not change. |
+| `period_month` | No | Reference | Format depends on granularity (month / week / day). |
+| `*_name` columns | No | Reference | Read-only labels (e.g. `pnl_category`, `metric_name`, `role_name`). |
+| `planned_value` | Yes | Optional | Updates the plan if you change it. |
+| `actual_value` | Yes | Optional | Creates or updates the measure for that period. |
+
+## Date formats accepted
+
+You do not need to reformat your data. The importer accepts and normalises:
+
+| You give us | Stored as |
+|-------------|-----------|
+| `2025-01` | `2025-01-01` |
+| `2025-01-15` | `2025-01-15` |
+| `01/15/2025` (US) | `2025-01-15` |
+| `15/01/2025` (EU) | `2025-01-15` |
+| Native Excel date cells | `YYYY-MM-DD` |
+
+## Validation
+
+Every row is validated by Pandera schemas in the import service before anything is written. Common rejections:
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `Invalid plan_id` | Plan does not exist on this engagement | Re-export a fresh CSV. |
+| `Invalid actual_value` | A non-numeric value in a numeric column | Clean the cell in Excel. |
+| `not_nullable` | `plan_id` is empty | Ensure no blank rows. |
+
+If a row fails, the whole row is skipped and reported back to you. Valid rows in the same file are still imported. After upload you can download an error log of the skipped rows and fix them.
+
+## What happens after upload
+
+When measures land, DigitalCore's automatic engines pick them up immediately. You do not need to refresh anything.
+
+- **Capacity hours land as labour cost.** A trigger calculates `hours × rate` and posts the cost to your Finance grid for the same month.
+- **Performance misses land as penalty cost.** If an actual misses a contract SLA term, a penalty event is recorded and (if the contract calls for it) a penalty line is added to Finance.
+- **Health scores update.** Per-item, domain, and engagement health colours recompute.
+- **Autonomous agents scan the new data.** Cross-domain signals fire, governance cases open for critical issues, and notifications route to the channels you have configured.
+
+See [Concepts: Automation](/concepts/automation) for the full picture.
+
+## Tips
+
+- **Always work from a fresh export.** Re-exporting picks up new plans and prevents stale `plan_id`s.
+- **Edit in place.** Do not insert or delete columns, and do not sort the file in a way that loses the header.
+- **Leave cells blank, not zero.** Blank means "not recorded yet"; `0` means "we recorded zero".
+- **One engagement per file.** The wizard runs the import scoped to a single engagement and domain.
+
+## Other ways to load data
+
+| Path | Best for |
+|------|----------|
+| [In-app check-in](/getting-started/first-checkin) | A single month, small number of values. |
+| Excel / CSV import (this page) | Backfilling, finance-team workflows, bulk catch-up. |
+| [QuickBooks sync](/mcp-and-integrations/quickbooks) | Continuous Finance actuals from your accounting system. |
+| [ServiceNow sync](/mcp-and-integrations/servicenow) | Continuous Performance actuals (incidents, SLA results). |
+| [DigitalCore MCP](/mcp-and-integrations/paid-mcp) | Recording from an AI assistant (Claude, Cursor, ChatGPT). |
 
 ## Related
 
-- [Importing Data](/guides/data-import)
-- [Monthly Check-in](/guides/monthly-checkin)
+- [Your First Check-in](/getting-started/first-checkin)
+- [Concepts: Automation](/concepts/automation)
+- [QuickBooks](/mcp-and-integrations/quickbooks)
+- [ServiceNow](/mcp-and-integrations/servicenow)

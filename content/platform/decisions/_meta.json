@@ -2,7 +2,6 @@
   "index": "Overview",
   "cases": "Decision Cases",
   "priorities": "Priorities",
-  "scenarios": "Responses",
-  "ai-use-cases": "AI Use Cases",
-  "response-frame": "Response Frame Architecture"
+  "scenarios": "Scenarios",
+  "ai-use-cases": "AI Use Cases"
 }

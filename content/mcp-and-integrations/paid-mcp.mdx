@@ -1,67 +1,102 @@
 ﻿---
-title: "Paid Connection"
-description: "Read and write your live DigitalCore data from your AI assistant."
+title: "DigitalCore MCP"
+description: "Read and write your live DigitalCore data from Claude, Cursor, ChatGPT, or any MCP-compatible AI assistant. API keys included."
 ---
 
-# Paid Connection
+# DigitalCore MCP
 
-The paid connection lets your AI assistant read and write your live DigitalCore data. It needs an API key.
+DigitalCore MCP exposes your live data to any AI assistant that speaks the [Model Context Protocol](https://modelcontextprotocol.io). Use Claude Desktop, Cursor, ChatGPT, or another MCP client to ask about your portfolio, record check-ins, generate scenarios, and draft executive summaries — all without leaving the chat.
+
+> Looking for a no-account option? See [Free MCP](/mcp-and-integrations/free-mcp) for playbooks and KPI explainers only.
 
 ## What you can do
 
 - Ask about engagements, plans, and actuals.
-- Record monthly check-in numbers.
-- Generate Responses (option sets) and apply them.
-- Open Decisions and update them.
-- Draft executive summaries.
+- Record monthly check-in numbers (finance, performance, capacity, AI usage).
+- Generate scenarios inside a [decision case](/platform/decisions/cases) and apply them.
+- Open and update decision cases.
+- Draft executive summaries and period reports.
 
-## What is needed
+The MCP exposes the same actions you use in the app: monitor, record, diagnose, plan, decide, communicate. Your role and the API key's access level decide what is allowed.
 
-- A DigitalCore account.
-- An [API key](/mcp-and-integrations/api-keys) on a paid plan.
-- An AI client that supports MCP (Claude Desktop, Cursor, others).
+## What you need
+
+- A DigitalCore account on a paid plan.
+- An API key (created in **Settings → API Keys**).
+- An MCP-capable AI client.
+
+**Endpoint:** `https://mcp.digitalcore.app`
+
+## API keys
+
+An API key is how an AI client identifies itself to DigitalCore MCP. Each key inherits the **role and access level** of the user who created it.
+
+### Create a key
+
+1. Go to **Settings → API Keys**.
+2. Click **New key**.
+3. Give it a descriptive name (e.g. `Claude Desktop — laptop`).
+4. Choose an access level:
+   - **Read** — can query data only.
+   - **Read & write** — can also record actuals, generate scenarios, apply decisions.
+   - **Admin** — full access including configuration changes.
+5. Set an **expiry date** (recommended: 6 months).
+6. Copy the key. It is shown **only once**.
+
+### Use a key
+
+Most MCP clients accept the key as a bearer token. The exact field name varies by client (see Setup below).
+
+### Manage keys
+
+The API Keys page shows every active key, the user it belongs to, the access level, the last-used timestamp, and the expiry date. From here you can:
+
+- **Rotate** — generate a new key for the same client. The old key keeps working until you revoke it, so you can swap without downtime.
+- **Revoke** — invalidate a key immediately. Use this if a laptop is lost or a contractor leaves.
+- **Extend** — push the expiry date forward.
+
+### Recommended hygiene
+
+- **One key per client.** A separate key for Claude Desktop, Cursor, and ChatGPT makes audit and revocation surgical.
+- **Start read-only.** Verify the connection works, then upgrade to read-and-write.
+- **Rotate every 6 months.** Use the rotate flow to avoid downtime.
+- **Never share keys.** Each user creates their own. Writes are logged under the key owner's name.
 
 ## Setup
 
-The endpoint is `https://mcp.digitalcore.app`.
-
 ### Claude Desktop
 
-1. Open Settings, then Connectors.
+1. Open **Settings → Connectors**.
 2. Add a connection.
 3. URL: `https://mcp.digitalcore.app`.
 4. Authentication: API key.
 5. Paste your key.
-6. Save and restart.
+6. Save and restart Claude.
 
 ### Cursor
 
-1. Open Cursor settings, then MCP.
-2. Add server.
+1. Open Cursor settings, then **MCP**.
+2. Add a server.
 3. URL: `https://mcp.digitalcore.app`.
-4. Add the API key as an authorization header.
+4. Add the API key as an `Authorization: Bearer <key>` header.
+
+### ChatGPT
+
+Use the DigitalCore App from the GPT Store. When you connect your account it provisions a scoped key for you automatically.
 
 ### Other clients
 
-The connection follows the MCP standard. Provide the URL and the API key as a bearer token.
+Any MCP-compliant client works. Provide the URL and the API key as a bearer token.
 
-## What is exposed
+## Limits and audit
 
-The paid connection exposes the same actions you use in the app: monitor, record, diagnose, plan, decide, communicate. Your role and the API key''s access level decide what is allowed.
-
-## Limits
-
-- Rate limits apply. The default is 60 requests per minute per key.
-- Writes are logged in the activity log under your name.
-- Read-only keys cannot record actuals or apply Responses.
-
-## Tips
-
-- Start with a read-only key to test.
-- Once it works, create a separate read-and-write key for daily use.
-- Rotate keys every 6 months.
+- Default rate limit: **60 requests per minute per key**.
+- Every write is recorded in the activity log under the key owner's name.
+- Read-only keys cannot record actuals or apply scenarios.
+- Expired or revoked keys return `401 Unauthorized` immediately.
 
 ## Related
 
-- [API Keys](/mcp-and-integrations/api-keys)
-- [Free Connection](/mcp-and-integrations/free-mcp)
+- [Free MCP](/mcp-and-integrations/free-mcp)
+- [Excel / CSV import](/mcp-and-integrations/excel-import)
+- [Decision Cases](/platform/decisions/cases)
