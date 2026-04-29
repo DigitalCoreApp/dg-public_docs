@@ -1,49 +1,77 @@
 ﻿---
-title: "Creating and Comparing Responses"
-description: "Model options for a problem, compare them side by side, and apply the chosen plan."
+title: "Scenarios in a Decision Case"
+description: "Generate, refine, compare, and apply option sets inside a decision case."
 ---
 
-# Creating and Comparing Responses
+# Scenarios in a Decision Case
 
-A Response is how you frame a problem, compare options, and apply a plan change. Responses live on an engagement.
+In DigitalCore, every meaningful decision lives in a **[decision case](/platform/decisions/cases)** — the single container for AI agent inputs, risks, issues, decisions, follow-ups, and **scenarios**.
 
-## Frame the problem
+A scenario is the structured option set inside a case. It lays out two to four courses of action with assumptions, projected impact, and a recommended choice. A case can carry several scenarios over its life — an initial set when the case opens, plus refined sets after stakeholder feedback.
 
-1. Open the engagement and click **New Response**.
-2. Give it a title (for example, "Recover Acme margin").
-3. Pick the period the response covers.
+## Open or find the case
 
-## Build options
+Scenarios are not created on their own. Start from the case:
 
-Each Response can have several Options. An Option is one possible plan.
+- A case opened automatically by the agents from a critical signal — already populated with AI agent inputs and linked risks.
+- A case promoted from a [risk](/platform/pulse/signals).
+- A case you opened manually for a pricing, staffing, scope, or renewal decision.
 
-1. Click **Add Option**.
-2. Edit the assumptions: rates, hours, KPIs, prices.
-3. DigitalCore recalculates the engagement plan in place.
+See [Decision Cases](/platform/decisions/cases) for the full case structure.
 
-You can ask the assistant to generate options. It proposes three by default, each with a different trade-off.
+## Generate a scenario
 
-## Compare side by side
+Inside the case, click **Generate Scenario**. DigitalCore will:
 
-Open the **Compare** view. Each option shows margin, cost, capacity, and risk for the period.
+1. Read the case context: engagement, linked signals, risks, priorities.
+2. Pull the relevant data from your portfolio.
+3. Propose options informed by similar past decisions in your [AI Use Cases](/platform/decisions/ai-use-cases).
+4. Stamp each option with assumptions and projected impact.
+5. Write a short rationale and recommend one option.
+
+## Refine
+
+You can ask the assistant to:
+
+- Change assumptions (rates, volume, timing, headcount).
+- Drop or add an option.
+- Regenerate with a different constraint, for example "keep margin above 30%".
+- Try an angle the agent missed.
+
+Each refinement creates a new version of the scenario on the case.
+
+## Compare options
+
+The comparison view stacks options side by side:
+
+- Margin impact
+- Capacity impact
+- Risk shift
+- KPI projection
+- Implementation effort
+
+Use the comparison view in stakeholder reviews and renewal conversations.
 
 ## Approve and apply
 
-When you have picked an option:
+| Action | Effect |
+|--------|--------|
+| Approve | Marks the chosen option. Status becomes Approved. No data changes yet. |
+| Apply | Updates rates, plans, or scope on the engagement. Creates follow-ups on the parent case. Status becomes Applied. |
+| Decline | Records the decision and the reason. Status becomes Declined. No data changes. |
 
-1. Click **Approve & Apply**.
-2. The chosen option becomes the new plan for the period.
-3. Other options are kept as Declined for the activity log.
+Approve and Apply are kept separate on purpose. Approval is a governance moment. Apply is a data moment. Splitting them lets you sign off in advance, then apply on a future date.
 
 ## Statuses
 
-- **Proposed.** Draft, not visible to others.
+- **Proposed.** Generated and under review.
 - **Approved.** Selected as the chosen path.
 - **Declined.** Considered and not chosen.
-- **Applied.** Pushed into the live plan.
+- **Applied.** Pushed into the live plan; follow-ups created on the case.
 
 ## Related
 
-- [Using Governance and Decisions](/guides/governance)
-- [Strategy and Priorities](/guides/strategy)
-- [Concepts: Decisions](/concepts/decisions)
+- [Decision Cases](/platform/decisions/cases)
+- [Scenarios reference](/platform/decisions/scenarios)
+- [AI Use Cases](/platform/decisions/ai-use-cases)
+- [Using Decision Cases](/guides/governance)

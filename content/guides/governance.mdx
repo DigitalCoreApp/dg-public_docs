@@ -1,42 +1,46 @@
 ﻿---
-title: "Using Governance and Decisions"
-description: "Log a decision, weigh options, and track the outcome."
+title: "Using Decision Cases"
+description: "Open a decision case, work the risks, issues, scenarios, and follow-ups, and track it through to outcome."
 ---
 
-# Using Governance and Decisions
+# Using Decision Cases
 
-Decisions are how you record important choices and track them through to outcome. They live in the Decisions workspace.
+A **decision case** is the unit of governance in DigitalCore. Every meaningful decision — risk mitigation, pricing, staffing, scope change, renewal response — runs as a case in the Decisions workspace.
 
-## When to open a Decision
+A case is the single container for everything related to that decision: AI agent inputs, linked risks, issues to resolve, the decisions being made, follow-up actions, and one or more [scenarios](/guides/scenarios) with options.
 
-- A material change in plan or scope.
-- A response to a missed SLA term.
-- A pricing or staffing change worth recording.
-- A risk you want owned and tracked.
+## When a case opens
 
-## Open one
+| Source | Example |
+|--------|---------|
+| Autonomous agents | A critical margin pressure or SLA breach signal opens a case automatically. |
+| From a risk | A risk register entry is promoted to a case once an owner is assigned. |
+| Manual | "Should we lower rates on this engagement to save the renewal?" |
+| From the assistant | The agent proposes opening a case after spotting a cross-domain pattern. |
 
-1. Go to **Decisions** and click **New Decision**.
-2. Pick the type (Plan change, Risk mitigation, Pricing, Staffing, Other).
-3. Link it to an engagement and, if useful, to a Response.
+## What you do inside a case
 
-## Capture the case
+1. **Review the AI agent inputs.** For agent-opened cases, the working notes, matched signals, and suggested first action are already there. Accept, edit, or override.
+2. **Check the linked risks.** Severity, likelihood, mitigation status.
+3. **Work the issues.** Concrete to-dos that must be resolved before the case can close.
+4. **Generate scenarios.** Two to four options with assumptions and projected impact. See [Scenarios in a Decision Case](/guides/scenarios).
+5. **Record the decision.** Approve one option, decline the others, capture the reasoning.
+6. **Apply.** Push the chosen option into the live plan. Follow-ups are created automatically.
+7. **Close.** Review the outcome against the projection.
 
-- **Context.** What is happening and why it matters.
-- **Options.** What you are choosing between.
-- **Recommendation.** Your preferred path and reasoning.
-- **Owner.** Who decides.
+## Lifecycle
 
-## Move it through
+Open → In review → Approved or Declined → Applied → Closed.
 
-Statuses progress: Proposed, Approved, Declined, Applied. Each step writes to the activity log.
+Approve and Apply are deliberately separate. Approval is a governance moment; Apply is a data moment. You can sign off in advance and apply on a future date. Each step writes to the activity log.
 
-## Outcome
+## Outcome tracking
 
-After the period closes, record the outcome on the Decision. This builds a track record you can review later.
+After the period closes, the case carries the projected vs actual impact. This feeds [AI Use Cases](/platform/decisions/ai-use-cases) so future scenarios are informed by what really happened.
 
 ## Related
 
-- [Creating and Comparing Responses](/guides/scenarios)
-- [Concepts: Decisions](/concepts/decisions)
+- [Decision Cases reference](/platform/decisions/cases)
+- [Scenarios in a Decision Case](/guides/scenarios)
+- [AI Use Cases](/platform/decisions/ai-use-cases)
 - [Reading Your Dashboard](/getting-started/dashboard)
